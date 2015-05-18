@@ -24,7 +24,6 @@ namespace hfe {
             hfe::Field::FieldPtr field;
             bool isRequired;
         };
-//        typedef pair<FIXDF::Field::FieldPtr, bool> FieldPair;
         typedef shared_ptr<hfe::Component> ComponentPtr;
         Component(string);
         Component(const Component& orig);

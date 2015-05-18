@@ -57,14 +57,6 @@ void FieldUnitTest::testDataType(){
     CPPUNIT_ASSERT(field.getDataType() == p1);
 }
 
-void FieldUnitTest::testComponentPointer(){
-    hfe::Component::ComponentPtr p0;
-    hfe::Field field(1);
-    CPPUNIT_ASSERT_THROW(field.setComponent(p0.get()), std::runtime_error);
-    
-    hfe::Component::ComponentPtr p1(new hfe::Component("TestCOmponent"));
-    CPPUNIT_ASSERT_NO_THROW(field.setComponent(p1.get()));
-}
 
 
 void FieldUnitTest::testValidValue() {

@@ -16,7 +16,6 @@ class FieldUnitTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST(testId);
     CPPUNIT_TEST(testName);
     CPPUNIT_TEST(testDataType);
-    CPPUNIT_TEST(testComponentPointer);
     CPPUNIT_TEST(testValidValue);
 
     CPPUNIT_TEST_SUITE_END();
@@ -31,7 +30,6 @@ private:
     void testId();
     void testName();
     void testDataType();
-    void testComponentPointer();
     void testValidValue();
 
 };

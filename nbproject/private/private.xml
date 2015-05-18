@@ -10,14 +10,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixSketchs/src/Protocol.cpp</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixSketchs/headers/Node.h</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixSketchs/src/Node.cpp</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixSketchs/src/Field.cpp</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixSketchs/headers/Field.h</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixSketchs/src/FixSketchs.cpp</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixSketchs/FixSpecifications/FIX44.json</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixSketchs/src/Component.cpp</file>
+            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/Hypersonic/headers/Component.h</file>
+            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/Hypersonic/tests/FieldUnitTest.cpp</file>
+            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/Hypersonic/tests/DataHolderUnitTest.h</file>
+            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/Hypersonic/tests/FieldUnitTest.h</file>
         </group>
     </open-files>
 </project-private>
