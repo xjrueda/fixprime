@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>headers/Component.h</itemPath>
+      <itemPath>headers/DataHolder.h</itemPath>
+      <itemPath>headers/DataHolderFactory.h</itemPath>
+      <itemPath>headers/DataHolderFactorySettings.h</itemPath>
+      <itemPath>headers/DataTypePolicy.h</itemPath>
+      <itemPath>headers/Field.h</itemPath>
+      <itemPath>headers/FixDictionary.h</itemPath>
+      <itemPath>headers/FixDictionaryExceptions.h</itemPath>
+      <itemPath>headers/FixLoader.h</itemPath>
+      <itemPath>headers/FixParserExceptions.h</itemPath>
+      <itemPath>headers/IntDataHolder.h</itemPath>
+      <itemPath>headers/Message.h</itemPath>
+      <itemPath>headers/Node.h</itemPath>
+      <itemPath>headers/Protocol.h</itemPath>
+      <itemPath>headers/StringDataHolder.h</itemPath>
+      <itemPath>headers/UIntDataHolder.h</itemPath>
+      <itemPath>headers/Value.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>src/Component.cpp</itemPath>
+      <itemPath>src/DataHolderFactory.cpp</itemPath>
+      <itemPath>src/Field.cpp</itemPath>
+      <itemPath>src/FixDictionary.cpp</itemPath>
+      <itemPath>src/FixLoader.cpp</itemPath>
+      <itemPath>src/Hypersonic.cpp</itemPath>
+      <itemPath>src/IntDataHolder.cpp</itemPath>
+      <itemPath>src/Message.cpp</itemPath>
+      <itemPath>src/Node.cpp</itemPath>
+      <itemPath>src/Protocol.cpp</itemPath>
+      <itemPath>src/StringDataHolder.cpp</itemPath>
+      <itemPath>src/UIntDataHolder.cpp</itemPath>
+      <itemPath>src/Value.cpp</itemPath>
+      <itemPath>src/jsoncpp.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+      <logicalFolder name="f5"
+                     displayName="DataHolderUnitTest"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/DataHolderUnitTest.cpp</itemPath>
+        <itemPath>tests/DataHolderUnitTest.h</itemPath>
+        <itemPath>tests/DataHolderUnitTestRunner.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2"
+                     displayName="FieldTest"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/FieldUnitTest.cpp</itemPath>
+        <itemPath>tests/FieldUnitTest.h</itemPath>
+        <itemPath>tests/FieldUnitTestRunner.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4"
+                     displayName="ProtocolUnitTest"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/ProtocolUnitTest.cpp</itemPath>
+        <itemPath>tests/ProtocolUnitTest.h</itemPath>
+        <itemPath>tests/ProtocolUnitTestRunner.cpp</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <architecture>2</architecture>
+          <standard>8</standard>
+          <incDir>
+            <pElem>/usr/local/include</pElem>
+            <pElem>headers</pElem>
+          </incDir>
+          <commandLine>-w -O3</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f3</output>
+        </linkerTool>
+      </compileType>
+      <folder path="TestFiles/f2">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f4">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f4</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f5">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f5</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <item path="headers/Component.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/DataHolder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/DataHolderFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/DataHolderFactorySettings.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="headers/DataTypePolicy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Field.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/FixDictionary.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/FixDictionaryExceptions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/FixLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/IntDataHolder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Message.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Node.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Protocol.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/StringDataHolder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Value.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Component.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DataHolderFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Field.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FixDictionary.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FixLoader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Hypersonic.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IntDataHolder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Message.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Protocol.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/StringDataHolder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/UIntDataHolder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Value.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/jsoncpp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/DataHolderUnitTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/DataHolderUnitTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/DataHolderUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/FieldUnitTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/FieldUnitTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/FieldUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/ProtocolUnitTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/ProtocolUnitTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/ProtocolUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>6</developmentMode>
+          <architecture>2</architecture>
+          <standard>8</standard>
+          <incDir>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f3</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+            <linkerOptionItem>-lcunit</linkerOptionItem>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <folder path="TestFiles/f2">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f4">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f4</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f5">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f5</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <item path="headers/Component.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/DataHolder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/DataHolderFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/DataHolderFactorySettings.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="headers/DataTypePolicy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Field.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/FixDictionary.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/FixDictionaryExceptions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/FixLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/IntDataHolder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Message.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Node.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Protocol.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/StringDataHolder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="headers/Value.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Component.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DataHolderFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Field.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FixDictionary.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FixLoader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Hypersonic.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IntDataHolder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Message.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Protocol.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/StringDataHolder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/UIntDataHolder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Value.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/jsoncpp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/DataHolderUnitTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/DataHolderUnitTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/DataHolderUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/FieldUnitTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/FieldUnitTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/FieldUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/ProtocolUnitTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/ProtocolUnitTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/ProtocolUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
