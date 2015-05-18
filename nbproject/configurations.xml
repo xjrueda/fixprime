@@ -101,7 +101,7 @@
           <standard>8</standard>
           <incDir>
             <pElem>/usr/local/include</pElem>
-            <pElem>headers</pElem>
+            <pElem>include</pElem>
           </incDir>
           <commandLine>-w -O3</commandLine>
         </ccTool>

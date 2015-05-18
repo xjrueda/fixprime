@@ -86,72 +86,72 @@ ${TESTDIR}/TestFiles/f3: ${OBJECTFILES}
 ${OBJECTDIR}/src/Component.o: src/Component.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Component.o src/Component.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Component.o src/Component.cpp
 
 ${OBJECTDIR}/src/DataHolderFactory.o: src/DataHolderFactory.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DataHolderFactory.o src/DataHolderFactory.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DataHolderFactory.o src/DataHolderFactory.cpp
 
 ${OBJECTDIR}/src/Field.o: src/Field.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Field.o src/Field.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Field.o src/Field.cpp
 
 ${OBJECTDIR}/src/FixDictionary.o: src/FixDictionary.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixDictionary.o src/FixDictionary.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixDictionary.o src/FixDictionary.cpp
 
 ${OBJECTDIR}/src/FixLoader.o: src/FixLoader.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixLoader.o src/FixLoader.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixLoader.o src/FixLoader.cpp
 
 ${OBJECTDIR}/src/Hypersonic.o: src/Hypersonic.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Hypersonic.o src/Hypersonic.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Hypersonic.o src/Hypersonic.cpp
 
 ${OBJECTDIR}/src/IntDataHolder.o: src/IntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/IntDataHolder.o src/IntDataHolder.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/IntDataHolder.o src/IntDataHolder.cpp
 
 ${OBJECTDIR}/src/Message.o: src/Message.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Message.o src/Message.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Message.o src/Message.cpp
 
 ${OBJECTDIR}/src/Node.o: src/Node.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Node.o src/Node.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Node.o src/Node.cpp
 
 ${OBJECTDIR}/src/Protocol.o: src/Protocol.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Protocol.o src/Protocol.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Protocol.o src/Protocol.cpp
 
 ${OBJECTDIR}/src/StringDataHolder.o: src/StringDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/StringDataHolder.o src/StringDataHolder.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/StringDataHolder.o src/StringDataHolder.cpp
 
 ${OBJECTDIR}/src/UIntDataHolder.o: src/UIntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/UIntDataHolder.o src/UIntDataHolder.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/UIntDataHolder.o src/UIntDataHolder.cpp
 
 ${OBJECTDIR}/src/Value.o: src/Value.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Value.o src/Value.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Value.o src/Value.cpp
 
 ${OBJECTDIR}/src/jsoncpp.o: src/jsoncpp.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/jsoncpp.o src/jsoncpp.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/jsoncpp.o src/jsoncpp.cpp
 
 # Subprojects
 .build-subprojects:
@@ -174,37 +174,37 @@ ${TESTDIR}/TestFiles/f4: ${TESTDIR}/tests/ProtocolUnitTest.o ${TESTDIR}/tests/Pr
 ${TESTDIR}/tests/DataHolderUnitTest.o: tests/DataHolderUnitTest.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/DataHolderUnitTest.o tests/DataHolderUnitTest.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/DataHolderUnitTest.o tests/DataHolderUnitTest.cpp
 
 
 ${TESTDIR}/tests/DataHolderUnitTestRunner.o: tests/DataHolderUnitTestRunner.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/DataHolderUnitTestRunner.o tests/DataHolderUnitTestRunner.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/DataHolderUnitTestRunner.o tests/DataHolderUnitTestRunner.cpp
 
 
 ${TESTDIR}/tests/FieldUnitTest.o: tests/FieldUnitTest.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/FieldUnitTest.o tests/FieldUnitTest.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/FieldUnitTest.o tests/FieldUnitTest.cpp
 
 
 ${TESTDIR}/tests/FieldUnitTestRunner.o: tests/FieldUnitTestRunner.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/FieldUnitTestRunner.o tests/FieldUnitTestRunner.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/FieldUnitTestRunner.o tests/FieldUnitTestRunner.cpp
 
 
 ${TESTDIR}/tests/ProtocolUnitTest.o: tests/ProtocolUnitTest.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ProtocolUnitTest.o tests/ProtocolUnitTest.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ProtocolUnitTest.o tests/ProtocolUnitTest.cpp
 
 
 ${TESTDIR}/tests/ProtocolUnitTestRunner.o: tests/ProtocolUnitTestRunner.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -Iheaders -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ProtocolUnitTestRunner.o tests/ProtocolUnitTestRunner.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ProtocolUnitTestRunner.o tests/ProtocolUnitTestRunner.cpp
 
 
 ${OBJECTDIR}/src/Component_nomain.o: ${OBJECTDIR}/src/Component.o src/Component.cpp 
@@ -215,7 +215,7 @@ ${OBJECTDIR}/src/Component_nomain.o: ${OBJECTDIR}/src/Component.o src/Component.
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Component_nomain.o src/Component.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Component_nomain.o src/Component.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/Component.o ${OBJECTDIR}/src/Component_nomain.o;\
 	fi
@@ -228,7 +228,7 @@ ${OBJECTDIR}/src/DataHolderFactory_nomain.o: ${OBJECTDIR}/src/DataHolderFactory.
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DataHolderFactory_nomain.o src/DataHolderFactory.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DataHolderFactory_nomain.o src/DataHolderFactory.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/DataHolderFactory.o ${OBJECTDIR}/src/DataHolderFactory_nomain.o;\
 	fi
@@ -241,7 +241,7 @@ ${OBJECTDIR}/src/Field_nomain.o: ${OBJECTDIR}/src/Field.o src/Field.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Field_nomain.o src/Field.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Field_nomain.o src/Field.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/Field.o ${OBJECTDIR}/src/Field_nomain.o;\
 	fi
@@ -254,7 +254,7 @@ ${OBJECTDIR}/src/FixDictionary_nomain.o: ${OBJECTDIR}/src/FixDictionary.o src/Fi
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixDictionary_nomain.o src/FixDictionary.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixDictionary_nomain.o src/FixDictionary.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/FixDictionary.o ${OBJECTDIR}/src/FixDictionary_nomain.o;\
 	fi
@@ -267,7 +267,7 @@ ${OBJECTDIR}/src/FixLoader_nomain.o: ${OBJECTDIR}/src/FixLoader.o src/FixLoader.
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixLoader_nomain.o src/FixLoader.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixLoader_nomain.o src/FixLoader.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/FixLoader.o ${OBJECTDIR}/src/FixLoader_nomain.o;\
 	fi
@@ -280,7 +280,7 @@ ${OBJECTDIR}/src/Hypersonic_nomain.o: ${OBJECTDIR}/src/Hypersonic.o src/Hyperson
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Hypersonic_nomain.o src/Hypersonic.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Hypersonic_nomain.o src/Hypersonic.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/Hypersonic.o ${OBJECTDIR}/src/Hypersonic_nomain.o;\
 	fi
@@ -293,7 +293,7 @@ ${OBJECTDIR}/src/IntDataHolder_nomain.o: ${OBJECTDIR}/src/IntDataHolder.o src/In
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/IntDataHolder_nomain.o src/IntDataHolder.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/IntDataHolder_nomain.o src/IntDataHolder.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/IntDataHolder.o ${OBJECTDIR}/src/IntDataHolder_nomain.o;\
 	fi
@@ -306,7 +306,7 @@ ${OBJECTDIR}/src/Message_nomain.o: ${OBJECTDIR}/src/Message.o src/Message.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Message_nomain.o src/Message.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Message_nomain.o src/Message.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/Message.o ${OBJECTDIR}/src/Message_nomain.o;\
 	fi
@@ -319,7 +319,7 @@ ${OBJECTDIR}/src/Node_nomain.o: ${OBJECTDIR}/src/Node.o src/Node.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Node_nomain.o src/Node.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Node_nomain.o src/Node.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/Node.o ${OBJECTDIR}/src/Node_nomain.o;\
 	fi
@@ -332,7 +332,7 @@ ${OBJECTDIR}/src/Protocol_nomain.o: ${OBJECTDIR}/src/Protocol.o src/Protocol.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Protocol_nomain.o src/Protocol.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Protocol_nomain.o src/Protocol.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/Protocol.o ${OBJECTDIR}/src/Protocol_nomain.o;\
 	fi
@@ -345,7 +345,7 @@ ${OBJECTDIR}/src/StringDataHolder_nomain.o: ${OBJECTDIR}/src/StringDataHolder.o 
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/StringDataHolder_nomain.o src/StringDataHolder.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/StringDataHolder_nomain.o src/StringDataHolder.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/StringDataHolder.o ${OBJECTDIR}/src/StringDataHolder_nomain.o;\
 	fi
@@ -358,7 +358,7 @@ ${OBJECTDIR}/src/UIntDataHolder_nomain.o: ${OBJECTDIR}/src/UIntDataHolder.o src/
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/UIntDataHolder_nomain.o src/UIntDataHolder.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/UIntDataHolder_nomain.o src/UIntDataHolder.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/UIntDataHolder.o ${OBJECTDIR}/src/UIntDataHolder_nomain.o;\
 	fi
@@ -371,7 +371,7 @@ ${OBJECTDIR}/src/Value_nomain.o: ${OBJECTDIR}/src/Value.o src/Value.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Value_nomain.o src/Value.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Value_nomain.o src/Value.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/Value.o ${OBJECTDIR}/src/Value_nomain.o;\
 	fi
@@ -384,7 +384,7 @@ ${OBJECTDIR}/src/jsoncpp_nomain.o: ${OBJECTDIR}/src/jsoncpp.o src/jsoncpp.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -I/usr/local/include -Iheaders -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/jsoncpp_nomain.o src/jsoncpp.cpp;\
+	    $(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/jsoncpp_nomain.o src/jsoncpp.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/jsoncpp.o ${OBJECTDIR}/src/jsoncpp_nomain.o;\
 	fi
