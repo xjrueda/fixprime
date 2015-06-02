@@ -54,7 +54,7 @@ namespace hfe {
                     case Boolean:
                     case String:
                     case MultipleCharValue:
-                    case MultipleStringValue:
+                    case MultipleValueString:
                     case Country:
                     case Currency:
                     case Exchange:

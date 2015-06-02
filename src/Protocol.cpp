@@ -112,12 +112,15 @@ namespace hfe {
                     hfe::Component::ComponentPtr component(new Component(componentName));
 
                     if (componentType == "BlockRepeating") {
-                        unsigned int controlfld = boost::lexical_cast<unsigned int>(componentSpec["controlField"].asString());
-                        hfe::Field::FieldPtr fieldPtr = this->getField(controlfld);
-                        component->setControlField(fieldPtr);
-                        component->setType(componentType);
-                        //makes component relationship
-                        //fieldPtr->setComponent(component.get());
+                        try {
+                            unsigned int controlfld = boost::lexical_cast<unsigned int>(componentSpec["controlField"].asString());
+                            hfe::Field::FieldPtr fieldPtr = this->getField(controlfld);
+                            component->setControlField(fieldPtr);
+                            component->setType(componentType);
+                        } catch (boost::bad_lexical_cast& e) {
+                            throw runtime_error("at Protocol.LoadComponents: Loading component " + string(*itr) + ", control field " + componentSpec["controlField"].asString() + " is not a valid field id.");
+                        }
+
                     }
 
                     // Gets the current component's members names
@@ -126,13 +129,13 @@ namespace hfe {
                     for (std::vector<string>::iterator memberItr = members.begin(); memberItr != members.end(); memberItr++) {
 
                         Json::Value fld = componentSpec["members"][*memberItr];
-                        
+
                         if (fld.empty())
                             throw runtime_error("Empty member was specified for component " + string(*itr));
-                        
+
                         if (string(*memberItr).empty())
                             throw runtime_error("Empty member id was specified for component " + string(*itr));
-                        
+
                         if (fld["isComponent"] == "Y") {
                             //Nested components
                             try {
@@ -148,7 +151,7 @@ namespace hfe {
                             try {
                                 field = boost::lexical_cast<unsigned int>(*memberItr);
                             } catch (boost::bad_lexical_cast& e) {
-                                throw runtime_error("at Protocol.LoadComponents: Loading component " +  string(*itr) + string(*memberItr) + " is not a valid field id.");
+                                throw runtime_error("at Protocol.LoadComponents: Loading component " + string(*itr) + ", " + string(*memberItr) + " is not a valid field id.");
                             }
                             //gets the field pointer from current protocol
                             hfe::Component::FieldT fieldt;

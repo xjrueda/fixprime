@@ -4,23 +4,23 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>headers/Component.h</itemPath>
-      <itemPath>headers/DataHolder.h</itemPath>
-      <itemPath>headers/DataHolderFactory.h</itemPath>
-      <itemPath>headers/DataHolderFactorySettings.h</itemPath>
-      <itemPath>headers/DataTypePolicy.h</itemPath>
-      <itemPath>headers/Field.h</itemPath>
-      <itemPath>headers/FixDictionary.h</itemPath>
-      <itemPath>headers/FixDictionaryExceptions.h</itemPath>
-      <itemPath>headers/FixLoader.h</itemPath>
-      <itemPath>headers/FixParserExceptions.h</itemPath>
-      <itemPath>headers/IntDataHolder.h</itemPath>
-      <itemPath>headers/Message.h</itemPath>
-      <itemPath>headers/Node.h</itemPath>
-      <itemPath>headers/Protocol.h</itemPath>
-      <itemPath>headers/StringDataHolder.h</itemPath>
-      <itemPath>headers/UIntDataHolder.h</itemPath>
-      <itemPath>headers/Value.h</itemPath>
+      <itemPath>include/Component.h</itemPath>
+      <itemPath>include/DataHolder.h</itemPath>
+      <itemPath>include/DataHolderFactory.h</itemPath>
+      <itemPath>include/DataHolderFactorySettings.h</itemPath>
+      <itemPath>include/DataTypePolicy.h</itemPath>
+      <itemPath>include/Field.h</itemPath>
+      <itemPath>include/FixDictionary.h</itemPath>
+      <itemPath>include/FixDictionaryExceptions.h</itemPath>
+      <itemPath>include/FixLoader.h</itemPath>
+      <itemPath>include/FixParserExceptions.h</itemPath>
+      <itemPath>include/IntDataHolder.h</itemPath>
+      <itemPath>include/Message.h</itemPath>
+      <itemPath>include/Node.h</itemPath>
+      <itemPath>include/Protocol.h</itemPath>
+      <itemPath>include/StringDataHolder.h</itemPath>
+      <itemPath>include/UIntDataHolder.h</itemPath>
+      <itemPath>include/Value.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -164,42 +164,42 @@
           </linkerLibItems>
         </linkerTool>
       </folder>
-      <item path="headers/Component.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Component.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/DataHolder.h" ex="false" tool="3" flavor2="0">
+      <item path="include/DataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/DataHolderFactory.h" ex="false" tool="3" flavor2="0">
+      <item path="include/DataHolderFactory.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/DataHolderFactorySettings.h"
+      <item path="include/DataHolderFactorySettings.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="headers/DataTypePolicy.h" ex="false" tool="3" flavor2="0">
+      <item path="include/DataTypePolicy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Field.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Field.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/FixDictionary.h" ex="false" tool="3" flavor2="0">
+      <item path="include/FixDictionary.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/FixDictionaryExceptions.h" ex="false" tool="3" flavor2="0">
+      <item path="include/FixDictionaryExceptions.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/FixLoader.h" ex="false" tool="3" flavor2="0">
+      <item path="include/FixLoader.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
+      <item path="include/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/IntDataHolder.h" ex="false" tool="3" flavor2="0">
+      <item path="include/IntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Message.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Message.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Node.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Node.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Protocol.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Protocol.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/StringDataHolder.h" ex="false" tool="3" flavor2="0">
+      <item path="include/StringDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
+      <item path="include/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Value.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Value.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -344,42 +344,42 @@
           </linkerLibItems>
         </linkerTool>
       </folder>
-      <item path="headers/Component.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Component.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/DataHolder.h" ex="false" tool="3" flavor2="0">
+      <item path="include/DataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/DataHolderFactory.h" ex="false" tool="3" flavor2="0">
+      <item path="include/DataHolderFactory.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/DataHolderFactorySettings.h"
+      <item path="include/DataHolderFactorySettings.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="headers/DataTypePolicy.h" ex="false" tool="3" flavor2="0">
+      <item path="include/DataTypePolicy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Field.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Field.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/FixDictionary.h" ex="false" tool="3" flavor2="0">
+      <item path="include/FixDictionary.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/FixDictionaryExceptions.h" ex="false" tool="3" flavor2="0">
+      <item path="include/FixDictionaryExceptions.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/FixLoader.h" ex="false" tool="3" flavor2="0">
+      <item path="include/FixLoader.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
+      <item path="include/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/IntDataHolder.h" ex="false" tool="3" flavor2="0">
+      <item path="include/IntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Message.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Message.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Node.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Node.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Protocol.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Protocol.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/StringDataHolder.h" ex="false" tool="3" flavor2="0">
+      <item path="include/StringDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
+      <item path="include/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="headers/Value.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Value.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>

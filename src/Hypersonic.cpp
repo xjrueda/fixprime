@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
         msg.body(453).appendGroupInstance();
 
         msg.body(453)[1](448).setValue("Cuatro");
-        msg.body(453)[1](803).appendGroupInstance();
+        msg.body(453)[1](803).setValue("Ocho");
         return 0;
 
     } catch (InvalidNodeNesting& e1) {

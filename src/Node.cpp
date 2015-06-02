@@ -114,9 +114,10 @@ namespace hfe {
     }
 
     hfe::Node& Node::appendGroupInstance() {
-        if (_type != Node::NodeType::REPEATING_GROUP)
+        if (_type != Node::NodeType::REPEATING_GROUP) {
+            cout << "Node type = " << _type << endl;
             throw std::runtime_error("appendGroupInstance is only allowed for BlockRepeating.");
-        else {
+        } else {
             Node newInstance(Node::NodeType::GROUP_INSTANCE);
             newInstance.resolveComponent(this->componentPtr);
             appendChild(newInstance);

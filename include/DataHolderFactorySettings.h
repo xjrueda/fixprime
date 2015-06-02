@@ -32,7 +32,7 @@ namespace hfe {
         Boolean,
         String,
         MultipleCharValue,
-        MultipleStringValue,
+        MultipleValueString,
         Country,
         Currency,
         Exchange,
@@ -75,7 +75,7 @@ namespace hfe {
             DataTypes["Boolean"] = Boolean;
             DataTypes["String"] = String;
             DataTypes["MultipleCharValue"] = MultipleCharValue;
-            DataTypes["MultipleStringValue"] = MultipleStringValue;
+            DataTypes["MultipleValueString"] = MultipleValueString;
             DataTypes["Country"] = Country;
             DataTypes["Currency"] = Currency;
             DataTypes["Exchange"] = Exchange;
