@@ -15,6 +15,7 @@ class ProtocolUnitTest : public CPPUNIT_NS::TestFixture {
 
     CPPUNIT_TEST(testLoad);
     CPPUNIT_TEST(testNestedGroups);
+    CPPUNIT_TEST(testParser);
 
     CPPUNIT_TEST_SUITE_END();
 
@@ -26,7 +27,8 @@ public:
 
 private:
     void testLoad();
-    void testNestedGroups();
+    void testNestedGroups();   
+    void testParser();
 
 };
 

@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/Field.o \
 	${OBJECTDIR}/src/FixDictionary.o \
 	${OBJECTDIR}/src/FixLoader.o \
+	${OBJECTDIR}/src/FixParser.o \
 	${OBJECTDIR}/src/Hypersonic.o \
 	${OBJECTDIR}/src/IntDataHolder.o \
 	${OBJECTDIR}/src/Message.o \
@@ -107,6 +108,11 @@ ${OBJECTDIR}/src/FixLoader.o: src/FixLoader.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O3 -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixLoader.o src/FixLoader.cpp
+
+${OBJECTDIR}/src/FixParser.o: src/FixParser.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O3 -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixParser.o src/FixParser.cpp
 
 ${OBJECTDIR}/src/Hypersonic.o: src/Hypersonic.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -270,6 +276,19 @@ ${OBJECTDIR}/src/FixLoader_nomain.o: ${OBJECTDIR}/src/FixLoader.o src/FixLoader.
 	    $(COMPILE.cc) -O3 -I. -I. -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixLoader_nomain.o src/FixLoader.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/FixLoader.o ${OBJECTDIR}/src/FixLoader_nomain.o;\
+	fi
+
+${OBJECTDIR}/src/FixParser_nomain.o: ${OBJECTDIR}/src/FixParser.o src/FixParser.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/src/FixParser.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O3 -I. -I. -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixParser_nomain.o src/FixParser.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/src/FixParser.o ${OBJECTDIR}/src/FixParser_nomain.o;\
 	fi
 
 ${OBJECTDIR}/src/Hypersonic_nomain.o: ${OBJECTDIR}/src/Hypersonic.o src/Hypersonic.cpp 

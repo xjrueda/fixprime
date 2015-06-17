@@ -13,6 +13,7 @@
       <itemPath>include/FixDictionary.h</itemPath>
       <itemPath>include/FixDictionaryExceptions.h</itemPath>
       <itemPath>include/FixLoader.h</itemPath>
+      <itemPath>include/FixParser.h</itemPath>
       <itemPath>include/FixParserExceptions.h</itemPath>
       <itemPath>include/IntDataHolder.h</itemPath>
       <itemPath>include/Message.h</itemPath>
@@ -34,6 +35,7 @@
       <itemPath>src/Field.cpp</itemPath>
       <itemPath>src/FixDictionary.cpp</itemPath>
       <itemPath>src/FixLoader.cpp</itemPath>
+      <itemPath>src/FixParser.cpp</itemPath>
       <itemPath>src/Hypersonic.cpp</itemPath>
       <itemPath>src/IntDataHolder.cpp</itemPath>
       <itemPath>src/Message.cpp</itemPath>
@@ -137,6 +139,7 @@
         <ccTool>
           <incDir>
             <pElem>.</pElem>
+            <pElem>include</pElem>
           </incDir>
           <commandLine>`cppunit-config --cflags`</commandLine>
         </ccTool>
@@ -185,6 +188,8 @@
       </item>
       <item path="include/FixLoader.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/FixParser.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/IntDataHolder.h" ex="false" tool="3" flavor2="0">
@@ -210,6 +215,8 @@
       <item path="src/FixDictionary.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/FixLoader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Hypersonic.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -365,6 +372,8 @@
       </item>
       <item path="include/FixLoader.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/FixParser.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/IntDataHolder.h" ex="false" tool="3" flavor2="0">
@@ -390,6 +399,8 @@
       <item path="src/FixDictionary.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/FixLoader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Hypersonic.cpp" ex="false" tool="1" flavor2="0">
       </item>

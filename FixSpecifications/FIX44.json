@@ -8889,7 +8889,7 @@
             }
         },
         "4": {
-            "name": "Reject",
+            "name": "SequenceReset",
             "category": "Session",
             "type": "Message",
             "description": "The Sequence Reset message has two modes: Gap Fill mode and Reset mode.",

@@ -6,8 +6,10 @@
  */
 
 #include "ProtocolUnitTest.h"
+#include "FixParser.h"
 #include "Protocol.h"
 #include "FixDictionary.h"
+
 
 
 CPPUNIT_TEST_SUITE_REGISTRATION(ProtocolUnitTest);
@@ -27,7 +29,7 @@ void ProtocolUnitTest::tearDown() {
 void ProtocolUnitTest::testLoad() {
     hfe::FixDictionary fixDictionary;
     fixDictionary.loadProtocols("./FixSpecifications/FixVersions.json");
-    hfe::Protocol::ProtocolPtr fix44 = fixDictionary.getProtocol("FIX 4.4");
+    hfe::Protocol::ProtocolPtr fix44 = fixDictionary.getProtocol("FIX.4.4");
 
     hfe::Message logon = fix44->getMessage("A");
     hfe::Node header = logon.getHeader();
@@ -43,11 +45,11 @@ void ProtocolUnitTest::testLoad() {
 void ProtocolUnitTest::testNestedGroups() {
     hfe::FixDictionary fixDictionary;
     fixDictionary.loadProtocols("./FixSpecifications/FixVersions.json");
-    hfe::Protocol::ProtocolPtr fix44 = fixDictionary.getProtocol("FIX 4.4");
+    hfe::Protocol::ProtocolPtr fix44 = fixDictionary.getProtocol("FIX.4.4");
 
     hfe::Message msg = fix44->getMessage("D");
     hfe::Node header = msg.getHeader();
-    msg.header(8).setValue("FIX 4.4");
+    msg.header(8).setValue("FIX.4.4");
     
     msg.body(453).appendGroupInstance();
     CPPUNIT_ASSERT_THROW_MESSAGE("Repeating group value assigment",msg.body(453).setValue("1");, std::runtime_error);
@@ -56,11 +58,15 @@ void ProtocolUnitTest::testNestedGroups() {
     
     //Nested group value assigment  
     CPPUNIT_ASSERT_MESSAGE("Nested group value assigment","2" == msg.body(453)[1](448).getValue());
-    
-    msg.body(453)[1](802).appendGroupInstance();
-    
-    
-    
+}
 
+void ProtocolUnitTest::testParser() {
+    hfe::FixDictionary::FixDictionaryPtr fixDictionaryPtr (new hfe::FixDictionary);
+    fixDictionaryPtr->loadProtocols("./FixSpecifications/FixVersions.json");
+    std::string msg = "8=FIX.4.49=10335=A34=149=02950=029X0552=20150612-17:13:07.77856=XTRM98=0108=10141=Y553=CC1029OBO554=ZXC45610=189";
+
+    hfe::FixParser parser;
+        
+    hfe::Message fixmsg = parser.parseMessage(msg, fixDictionaryPtr);
 }
 

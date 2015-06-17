@@ -170,15 +170,17 @@ namespace hfe {
     class InvalidField : public exception {
     public:
 
-        InvalidField() {
+        InvalidField(string msg): errMsg(msg) {
         }
 
         ~InvalidField() throw () {
         }
 
         const string what() throw () {
-            return "Field Node does not exists.";
+            return errMsg;
         }
+    private:
+        string errMsg;
     };
 }
 #endif	/* FIXPARSEREXCEPTIONS_H */

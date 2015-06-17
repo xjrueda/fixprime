@@ -18,6 +18,7 @@
 namespace hfe {
     class FixDictionary {
     public:
+        typedef shared_ptr<FixDictionary> FixDictionaryPtr;
         FixDictionary();
         virtual ~FixDictionary();
         void loadProtocols(string);

@@ -83,8 +83,8 @@ namespace hfe {
     }
 
     void Node::setValue(string val) {
-        if (_type == REPEATING_GROUP)
-            throw runtime_error("Repeating group values are calculated");
+//        if (_type == REPEATING_GROUP)
+//            throw runtime_error("Repeating group values are calculated");
         value->set(val);
     }
 
@@ -115,7 +115,6 @@ namespace hfe {
 
     hfe::Node& Node::appendGroupInstance() {
         if (_type != Node::NodeType::REPEATING_GROUP) {
-            cout << "Node type = " << _type << endl;
             throw std::runtime_error("appendGroupInstance is only allowed for BlockRepeating.");
         } else {
             Node newInstance(Node::NodeType::GROUP_INSTANCE);
@@ -130,18 +129,14 @@ namespace hfe {
         if (_type == Node::NodeType::REPEATING_GROUP) {
             throw runtime_error("The operator () is not available for repeating groups. Use []");
         }
-
-        //        return childsByFieldId[fieldId];
-
         NodeMap::iterator search = childsByFieldId.find(fieldId);
-
 
         if (search != childsByFieldId.end()) {
             return search->second;
         } else {
             stringstream msg;
             msg << "Node for field " << fieldId << " does not exists";
-            throw runtime_error(msg.str());
+            throw InvalidField(msg.str());
         }
 
     }
@@ -291,7 +286,6 @@ namespace hfe {
             } else {
                 child.setType(hfe::Node::FIELD_NODE);
                 child.setField(fieldt.field);
-                cout << "field added " << child.getField()->getId() << endl;
             };
 
             child.setRequired(fieldt.isRequired);
@@ -303,11 +297,9 @@ namespace hfe {
         // process components
 
         vector<hfe::Component::ComponentPtr> nestedComponents = componentPtr->getNestedComponents();
-        cout << "Nested componentes = " << nestedComponents.size() << endl;
         vector<hfe::Component::ComponentPtr>::iterator cmpIter;
         for (cmpIter = nestedComponents.begin(); cmpIter < nestedComponents.end(); cmpIter++) {
             hfe::Component::ComponentPtr nestedComponent = *cmpIter;
-            cout << "Nested componente is " << nestedComponent->getName() << endl;
             resolveComponent(nestedComponent);
         }
 

@@ -251,10 +251,13 @@ namespace hfe {
     }
 
     hfe::Message Protocol::getMessage(string msgId) {
-        //        if (messages.find(msgId) == messages.end())
-        //            throw std::runtime_error("Message type " + msgId + "does not exists in protocol " + version);
-        //        else
-        return messages[msgId];
+        map<const string, hfe::Message>::iterator search;
+        search = messages.find(msgId);
+        if (search != messages.end())
+            return search->second;
+        else
+            throw std::runtime_error("at Protocol.getMessage: Message type " + msgId + " does not exists in protocol " + version);
+            
     }
 
     Json::Value& Protocol::getSpecification() {

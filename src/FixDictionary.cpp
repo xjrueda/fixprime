@@ -49,10 +49,13 @@ namespace hfe {
     }
     
     hfe::Protocol::ProtocolPtr FixDictionary::getProtocol(string version) {
-        if(protocols[version] != nullptr)
-            return protocols[version];
+        map<string,hfe::Protocol::ProtocolPtr>::iterator search;
+        search = protocols.find(version);
+        if (search != protocols.end())
+            return search->second;
         else
-            throw runtime_error("Protocol not defined");
+            throw std::runtime_error("at FixDictionary.getProtocol: Protocol " + version + " does not exists in dictionary");
+ 
     }
 }
 
