@@ -5269,7 +5269,7 @@
             "type": "BlockRepeating",
             "controlField": "711",
             "members": {
-                "UndInstrmtGrp": {
+                "UnderlyingInstrument": {
                     "isRequired": "N",
                     "isComponent": "Y"
                 }

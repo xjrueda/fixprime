@@ -38,11 +38,13 @@ int main(int argc, char** argv) {
 
         hfe::FixDictionary::FixDictionaryPtr fixDictionaryPtr(new hfe::FixDictionary);
         fixDictionaryPtr->loadProtocols("./FixSpecifications/FixVersions.json");
-        std::string msg = "8=FIX.4.49=10335=A34=149=02950=029X0552=20150612-17:13:07.77856=XTRM98=0108=10141=Y553=CC1029OBO554=ZXC45610=189";
+        std::string msg = "8=FIX.4.49=00036135=849=XTRM56=02934=957=029X0552=20150612-17:14:19.33437=201506121046311=20150612_62453=4448=CC1029OBO447=C452=11448=CC1029OBO447=C452=36448=029X05447=C452=12448=029447=C452=117=53727150=039=01=P010763=148=T16U15F22=99167=FUT762=FUTU711=1309=T16305=99763=UNDL54=238=2040=244=101.9559=0151=2014=060=20150612-17:14:19.00010=099";
 
         hfe::FixParser parser;
 
         hfe::Message fixmsg = parser.parseMessage(msg, fixDictionaryPtr);
+        
+        cout << "Main finished" << endl;
         return 0;
 
     } catch (InvalidNodeNesting& e1) {

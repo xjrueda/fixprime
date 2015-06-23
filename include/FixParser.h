@@ -35,10 +35,6 @@ namespace hfe {
     private:
 
         struct FixPair {
-
-            FixPair(unsigned int _field, string _value) :
-            field(_field), value(_value) {
-            }
             unsigned int field;
             string value;
         };
@@ -69,7 +65,7 @@ namespace hfe {
 
         SerializedMessage explode(const string str, const char& ch);
         std::uint8_t checkSum(string msg);
-        void parseLevel(OrderedMap&, unsigned int&, hfe::Node&);
+        bool parseLevel(OrderedMap, unsigned int&, hfe::Node&, unsigned int, int);
     };
 }
 #endif	/* FIXPARSER_H */

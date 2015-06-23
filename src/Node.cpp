@@ -135,7 +135,7 @@ namespace hfe {
             return search->second;
         } else {
             stringstream msg;
-            msg << "Node for field " << fieldId << " does not exists";
+            msg << "at Node.operator(): Node for field " << fieldId << " does not exists";
             throw InvalidField(msg.str());
         }
 

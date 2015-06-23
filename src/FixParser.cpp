@@ -19,63 +19,58 @@ namespace hfe {
     FixParser::~FixParser() {
     }
 
-    void FixParser::parseLevel(OrderedMap& map, unsigned int& position, hfe::Node& node) {
-  
-        for (OrderedMap::iterator it = map.find(position); it != map.end(); it++)  {
+    bool FixParser::parseLevel(OrderedMap map, unsigned int& position, hfe::Node& node, unsigned int groupBeginning, int maxInstances) {
+        int instanceCounter = 0;
+        for (OrderedMap::iterator it = map.find(position); it != map.end(); std::advance(it, position - (std::distance(map.begin(), it)))) {
+
+            //            cout << "distance " << std::distance(map.begin(), it) << endl;
+
             position++;
-            
-            switch (node(it->second.field).getType()) {
+            Node currentNode;
+            try {
+                currentNode = node(it->second.field);
+            } catch (InvalidField& e) {
+                position--;
+                return true;
+            }
+            switch (currentNode.getType()) {
                 case hfe::Node::FIELD_NODE:
                 {
-                    try {
-                        node(it->second.field).setValue(it->second.value);
-                    } catch (InvalidField& e) {
-                        cout << "Field is not of in current Node" << endl;
-                    }
+                    currentNode.setValue(it->second.value);
+                    cout << currentNode.getField()->getId() << "=" << currentNode.getValue() << endl;
                     break;
                 }
                 case hfe::Node::REPEATING_GROUP:
                 {
-                    unsigned int value = boost::lexical_cast<unsigned int>(it->second.value);
-                    // process all instances
-                    //TODO:  Determine the initial field of repeating group
-                    for (unsigned int i = 1;i <= value; i++) {
-                        node(it->second.field).appendGroupInstance();
-                        parseLevel(map, position, node(it->second.field)[i]); 
+                    int value = boost::lexical_cast<int>(it->second.value);
+                    currentNode.setValue(it->second.value);
+                    FixPair fpair = map[it->first + 1];
+
+                    for (int i = 1; i <= value; i++) {
+                        //cout << "start instance " << i << endl;
+                        currentNode.appendGroupInstance();
+                        bool result = parseLevel(map, position, currentNode[i], fpair.field, value);
+                        //cout << "end instance " << i << endl;
                     }
                     break;
+                }
+            }
+            if (maxInstances > 0) {
+                if (groupBeginning == map[it->first + 1].field) {
+                   return true;
                 }
             }
         }
     }
-    
+
     hfe::Message FixParser::parseMessage(const string msg, hfe::FixDictionary::FixDictionaryPtr fixDictionary) {
         SerializedMessage message = explode(msg, '\001');
         hfe::Protocol::ProtocolPtr protocolPtr = fixDictionary->getProtocol(message.getProtocol());
         hfe::Message fixMessage = protocolPtr->getMessage(message.getMsgType());
-
-        //process header
-
-        for (OrderedMap::iterator it = message.orderedMap.begin(); it != message.orderedMap.end(); it++) {
-
-            switch (fixMessage.header(it->second.field).getType()) {
-                case hfe::Node::FIELD_NODE:
-                {
-                    try {
-                        fixMessage.header(it->second.field).setValue(it->second.value);
-                    } catch (InvalidField& e) {
-                        cout << "Field is not of head" << e.what() << endl;
-                    }
-                    break;
-                }
-                case hfe::Node::REPEATING_GROUP:
-                {
-                    break;
-                }
-            }
-
-        }
-
+        unsigned int position = 0;
+        bool result = parseLevel(message.orderedMap, position, fixMessage.body, 0, 0);
+        cout << "Result = " << result << endl;
+        return fixMessage;
     }
 
     hfe::FixParser::SerializedMessage FixParser::explode(const string str, const char& ch) {
@@ -95,7 +90,9 @@ namespace hfe {
                         fieldTag = next.substr(0, found);
                         fieldValue = next.substr(found + 1, next.size());
                         // Add them to the result multimap
-                        FixPair fixPair(atoi(fieldTag.c_str()), fieldValue);
+                        FixPair fixPair;
+                        fixPair.field = atoi(fieldTag.c_str());
+                        fixPair.value = fieldValue;
                         result.orderedMap.insert(pair<unsigned int, FixPair>(position, fixPair));
                         result.tagsMap.insert(pair<unsigned int, string>(atoi(fieldTag.c_str()), fieldValue));
                         next.clear();
