@@ -19,19 +19,20 @@ namespace hfe {
     FixParser::~FixParser() {
     }
 
-    bool FixParser::parseLevel(OrderedMap map, unsigned int& position, hfe::Node& node, unsigned int groupBeginning, int maxInstances) {
+    bool FixParser::parseLevel(OrderedMap map, unsigned int& position, hfe::Node& node, unsigned int groupBeginning, bool isGroupInstance) {
         int instanceCounter = 0;
         for (OrderedMap::iterator it = map.find(position); it != map.end(); std::advance(it, position - (std::distance(map.begin(), it)))) {
-
-            //            cout << "distance " << std::distance(map.begin(), it) << endl;
-
             position++;
             Node currentNode;
             try {
                 currentNode = node(it->second.field);
             } catch (InvalidField& e) {
-                position--;
-                return true;
+                if (isGroupInstance) {
+                    position--;
+                    return true;
+                } else {
+                    return false;
+                }
             }
             switch (currentNode.getType()) {
                 case hfe::Node::FIELD_NODE:
@@ -49,15 +50,15 @@ namespace hfe {
                     for (int i = 1; i <= value; i++) {
                         //cout << "start instance " << i << endl;
                         currentNode.appendGroupInstance();
-                        bool result = parseLevel(map, position, currentNode[i], fpair.field, value);
+                        bool result = parseLevel(map, position, currentNode[i], fpair.field, true);
                         //cout << "end instance " << i << endl;
                     }
                     break;
                 }
             }
-            if (maxInstances > 0) {
+            if (isGroupInstance) {
                 if (groupBeginning == map[it->first + 1].field) {
-                   return true;
+                    return true;
                 }
             }
         }
@@ -68,7 +69,16 @@ namespace hfe {
         hfe::Protocol::ProtocolPtr protocolPtr = fixDictionary->getProtocol(message.getProtocol());
         hfe::Message fixMessage = protocolPtr->getMessage(message.getMsgType());
         unsigned int position = 0;
-        bool result = parseLevel(message.orderedMap, position, fixMessage.body, 0, 0);
+        bool result = false;
+        cout << "Header - position " << position << endl;
+        result = parseLevel(message.orderedMap, position, fixMessage.header, 0, false);
+        position--;
+        cout << "Body - position " << position << endl;
+        result = parseLevel(message.orderedMap, position, fixMessage.body, 0, false);
+        position--;
+        cout << "Trailer - position " << position << endl;
+        result = parseLevel(message.orderedMap, position, fixMessage.trailer, 0, false);
+        position--;
         cout << "Result = " << result << endl;
         return fixMessage;
     }

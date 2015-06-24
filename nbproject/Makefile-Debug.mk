@@ -64,8 +64,8 @@ TESTFILES= \
 CFLAGS=`cppunit-config --cflags` 
 
 # CC Compiler Flags
-CCFLAGS=-m64 -w -O3
-CXXFLAGS=-m64 -w -O3
+CCFLAGS=-m64 -O3
+CXXFLAGS=-m64 -O3
 
 # Fortran Compiler Flags
 FFLAGS=

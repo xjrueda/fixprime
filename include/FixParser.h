@@ -65,7 +65,7 @@ namespace hfe {
 
         SerializedMessage explode(const string str, const char& ch);
         std::uint8_t checkSum(string msg);
-        bool parseLevel(OrderedMap, unsigned int&, hfe::Node&, unsigned int, int);
+        bool parseLevel(OrderedMap, unsigned int&, hfe::Node&, unsigned int, bool);
     };
 }
 #endif	/* FIXPARSER_H */

@@ -105,7 +105,7 @@
             <pElem>/usr/local/include</pElem>
             <pElem>include</pElem>
           </incDir>
-          <commandLine>-w -O3</commandLine>
+          <commandLine>-O3</commandLine>
         </ccTool>
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f3</output>
