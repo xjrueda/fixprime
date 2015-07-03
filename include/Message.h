@@ -36,7 +36,7 @@ namespace hfe {
         void setHeader(hfe::Node);
         void setBody(hfe::Node);
         void setTrailer(hfe::Node);
-        string stringify();
+        string toFix();
     private:
 //        FIXDF::Node header;
 //        FIXDF::Node body;

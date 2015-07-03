@@ -52,7 +52,7 @@ void ProtocolUnitTest::testNestedGroups() {
     msg.header(8).setValue("FIX.4.4");
     
     msg.body(453).appendGroupInstance();
-    CPPUNIT_ASSERT_THROW_MESSAGE("Repeating group value assigment",msg.body(453).setValue("1");, std::runtime_error);
+//    CPPUNIT_ASSERT_THROW_MESSAGE("Repeating group value assigment failed",msg.body(453).setValue("1");, std::runtime_error);
     
     msg.body(453)[1](448).setValue("2");
     
@@ -60,13 +60,4 @@ void ProtocolUnitTest::testNestedGroups() {
     CPPUNIT_ASSERT_MESSAGE("Nested group value assigment","2" == msg.body(453)[1](448).getValue());
 }
 
-void ProtocolUnitTest::testParser() {
-    hfe::FixDictionary::FixDictionaryPtr fixDictionaryPtr (new hfe::FixDictionary);
-    fixDictionaryPtr->loadProtocols("./FixSpecifications/FixVersions.json");
-    std::string msg = "8=FIX.4.49=10335=A34=149=02950=029X0552=20150612-17:13:07.77856=XTRM98=0108=10141=Y553=CC1029OBO554=ZXC45610=189";
-
-    hfe::FixParser parser;
-        
-    hfe::Message fixmsg = parser.parseMessage(msg, fixDictionaryPtr);
-}
 

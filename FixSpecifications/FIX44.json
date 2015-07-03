@@ -9202,10 +9202,6 @@
             "name": "ExecutionReport",
             "description": "The execution report message is used to: 1. Confirm the receipt of an order 2. Confirm changes to an existing order (i.e. accept cancel and replace requests) 3. Relay order status information 4. Relay fill information on working orders 5. Relay fill information on tradeable or restricted tradeable quotes 6. Reject orders 7. Report post-trade fees calculations associated with a trade",
             "members": {
-                "StandardHeader": {
-                    "isRequired": "Y",
-                    "isComponent": "Y"
-                },
                 "37": {
                     "isRequired": "Y"
                 },
@@ -9625,10 +9621,6 @@
                 },
                 "MiscFeesGrp": {
                     "isRequired": "N",
-                    "isComponent": "Y"
-                },
-                "StandardTrailer": {
-                    "isRequired": "Y",
                     "isComponent": "Y"
                 }
             }

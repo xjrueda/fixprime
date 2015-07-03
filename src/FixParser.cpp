@@ -11,6 +11,7 @@
 namespace hfe {
 
     FixParser::FixParser() {
+        separator = '\001';
     }
 
     FixParser::FixParser(const FixParser& orig) {
@@ -19,39 +20,42 @@ namespace hfe {
     FixParser::~FixParser() {
     }
 
+    void FixParser::setProtocol(hfe::Protocol::ProtocolPtr protPtr) {
+        protocolPtr = protPtr;
+    }
+    void FixParser::setSeparator(char sepChar) {
+        separator = sepChar;
+    }
+    
     bool FixParser::parseLevel(OrderedMap map, unsigned int& position, hfe::Node& node, unsigned int groupBeginning, bool isGroupInstance) {
         int instanceCounter = 0;
         for (OrderedMap::iterator it = map.find(position); it != map.end(); std::advance(it, position - (std::distance(map.begin(), it)))) {
             position++;
-            Node currentNode;
             try {
-                currentNode = node(it->second.field);
+                string val = node(it->second.field).getValue();
             } catch (InvalidField& e) {
+                position--;
                 if (isGroupInstance) {
-                    position--;
                     return true;
                 } else {
                     return false;
                 }
             }
-            switch (currentNode.getType()) {
+            switch (node(it->second.field).getType()) {
                 case hfe::Node::FIELD_NODE:
                 {
-                    currentNode.setValue(it->second.value);
-                    cout << currentNode.getField()->getId() << "=" << currentNode.getValue() << endl;
+                    node(it->second.field).setValue(it->second.value);
                     break;
                 }
                 case hfe::Node::REPEATING_GROUP:
                 {
-                    int value = boost::lexical_cast<int>(it->second.value);
-                    currentNode.setValue(it->second.value);
+                    int value = boost::lexical_cast<unsigned int>(it->second.value);
+                    node(it->second.field).setValue(it->second.value);
                     FixPair fpair = map[it->first + 1];
 
-                    for (int i = 1; i <= value; i++) {
-                        //cout << "start instance " << i << endl;
-                        currentNode.appendGroupInstance();
-                        bool result = parseLevel(map, position, currentNode[i], fpair.field, true);
-                        //cout << "end instance " << i << endl;
+                    for (unsigned int i = 1; i <= value; i++) {
+                        node(it->second.field).appendGroupInstance();
+                        bool result = parseLevel(map, position, node(it->second.field)[i], fpair.field, true);
                     }
                     break;
                 }
@@ -64,34 +68,25 @@ namespace hfe {
         }
     }
 
-    hfe::Message FixParser::parseMessage(const string msg, hfe::FixDictionary::FixDictionaryPtr fixDictionary) {
-        SerializedMessage message = explode(msg, '\001');
-        hfe::Protocol::ProtocolPtr protocolPtr = fixDictionary->getProtocol(message.getProtocol());
+    hfe::Message FixParser::parseMessage(hfe::FixParser::FlatMessage message) {
         hfe::Message fixMessage = protocolPtr->getMessage(message.getMsgType());
         unsigned int position = 0;
         bool result = false;
-        cout << "Header - position " << position << endl;
         result = parseLevel(message.orderedMap, position, fixMessage.header, 0, false);
-        position--;
-        cout << "Body - position " << position << endl;
         result = parseLevel(message.orderedMap, position, fixMessage.body, 0, false);
-        position--;
-        cout << "Trailer - position " << position << endl;
         result = parseLevel(message.orderedMap, position, fixMessage.trailer, 0, false);
-        position--;
-        cout << "Result = " << result << endl;
         return fixMessage;
     }
 
-    hfe::FixParser::SerializedMessage FixParser::explode(const string str, const char& ch) {
+    hfe::FixParser::FlatMessage FixParser::explode(const string str) {
         string next;
-        hfe::FixParser::SerializedMessage result;
+        hfe::FixParser::FlatMessage result;
         unsigned int position = 0;
 
         // For each character in the string
         for (string::const_iterator it = str.begin(); it != str.end(); it++) {
             // If we've hit the terminal character
-            if (*it == ch) {
+            if (*it == separator) {
                 // If we have some characters accumulated
                 if (!next.empty()) {
                     string fieldTag, fieldValue;
@@ -121,10 +116,10 @@ namespace hfe {
     std::uint8_t FixParser::checkSum(string msg) {
         size_t startPos = msg.find("8=FIX");
         if (startPos == string::npos)
-            throw runtime_error("begin string did not found");
+            throw runtime_error("at FixParser.checkSum: begin string did not found");
         size_t endPos = msg.find("\00110=") + 1;
         if (endPos == string::npos)
-            throw runtime_error("Checksum field did not found");
+            throw runtime_error("at FixParser.checkSum: Checksum field did not found");
         string _msg = msg.substr(startPos, msg.size() - (msg.size() - endPos));
         printf("startpos %d endpos %d", startPos, endPos);
         uint8_t cs = std::accumulate(_msg.begin(), _msg.end(), static_cast<std::uint8_t> (0));

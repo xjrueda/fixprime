@@ -58,6 +58,7 @@ TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
 TESTFILES= \
 	${TESTDIR}/TestFiles/f5 \
 	${TESTDIR}/TestFiles/f2 \
+	${TESTDIR}/TestFiles/f1 \
 	${TESTDIR}/TestFiles/f4
 
 # C Compiler Flags
@@ -172,6 +173,10 @@ ${TESTDIR}/TestFiles/f2: ${TESTDIR}/tests/FieldUnitTest.o ${TESTDIR}/tests/Field
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f2 $^ ${LDLIBSOPTIONS} `cppunit-config --libs` `cppunit-config --libs`   
 
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/FixparserUnitTest.o ${TESTDIR}/tests/FixparserUnitTestRunner.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} `cppunit-config --libs`   
+
 ${TESTDIR}/TestFiles/f4: ${TESTDIR}/tests/ProtocolUnitTest.o ${TESTDIR}/tests/ProtocolUnitTestRunner.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f4 $^ ${LDLIBSOPTIONS} `cppunit-config --libs`   
@@ -199,6 +204,18 @@ ${TESTDIR}/tests/FieldUnitTestRunner.o: tests/FieldUnitTestRunner.cpp
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/FieldUnitTestRunner.o tests/FieldUnitTestRunner.cpp
+
+
+${TESTDIR}/tests/FixparserUnitTest.o: tests/FixparserUnitTest.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/FixparserUnitTest.o tests/FixparserUnitTest.cpp
+
+
+${TESTDIR}/tests/FixparserUnitTestRunner.o: tests/FixparserUnitTestRunner.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/FixparserUnitTestRunner.o tests/FixparserUnitTestRunner.cpp
 
 
 ${TESTDIR}/tests/ProtocolUnitTest.o: tests/ProtocolUnitTest.cpp 
@@ -414,6 +431,7 @@ ${OBJECTDIR}/src/jsoncpp_nomain.o: ${OBJECTDIR}/src/jsoncpp.o src/jsoncpp.cpp
 	then  \
 	    ${TESTDIR}/TestFiles/f5 || true; \
 	    ${TESTDIR}/TestFiles/f2 || true; \
+	    ${TESTDIR}/TestFiles/f1 || true; \
 	    ${TESTDIR}/TestFiles/f4 || true; \
 	else  \
 	    ./${TEST} || true; \

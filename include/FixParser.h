@@ -30,10 +30,6 @@ namespace hfe {
         FixParser(const FixParser& orig);
         virtual ~FixParser();
 
-        hfe::Message parseMessage(string, hfe::FixDictionary::FixDictionaryPtr);
-
-    private:
-
         struct FixPair {
             unsigned int field;
             string value;
@@ -42,7 +38,7 @@ namespace hfe {
         typedef map<unsigned int, FixPair> OrderedMap;
         typedef multimap<unsigned int, string> TagsMap;
 
-        struct SerializedMessage {
+        struct FlatMessage {
             OrderedMap orderedMap;
             TagsMap tagsMap;
 
@@ -53,18 +49,31 @@ namespace hfe {
                 else
                     throw runtime_error("at SerializedMessage.getProtocol: protocol not specified.");
             }
-            
+
             string getMsgType() {
                 TagsMap::iterator search = tagsMap.find(35);
                 if (search != tagsMap.end())
                     return search->second;
                 else
                     throw runtime_error("at SerializedMessage.getMsgType: message type not specified.");
-            }            
+            }
         };
+        void setProtocol(hfe::Protocol::ProtocolPtr);
+        void setSeparator(char);
 
-        SerializedMessage explode(const string str, const char& ch);
+
+        hfe::FixParser::FlatMessage explode(const string str);
         std::uint8_t checkSum(string msg);
+
+        hfe::Message parseMessage(hfe::FixParser::FlatMessage);
+
+    private:
+        hfe::Protocol::ProtocolPtr protocolPtr;
+
+
+
+        char separator;
+
         bool parseLevel(OrderedMap, unsigned int&, hfe::Node&, unsigned int, bool);
     };
 }

@@ -46,13 +46,11 @@ namespace hfe {
     }
     
     
-    string Message::stringify() {
+    string Message::toFix() {
         string outputString;
-        string separator = "\001";
-        //header->stringify(outputString, separator, 0);
-        //body->stringify(outputString, separator, 0);
-        //trailer->stringify(outputString, separator, 0);
-        
+        header.stringify(outputString);
+        body.stringify(outputString);
+        trailer.stringify(outputString);
         return outputString;
     }
 

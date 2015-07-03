@@ -66,6 +66,14 @@
         <itemPath>tests/FieldUnitTest.h</itemPath>
         <itemPath>tests/FieldUnitTestRunner.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="f1"
+                     displayName="FixparserUnitTest"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/FixparserUnitTest.cpp</itemPath>
+        <itemPath>tests/FixparserUnitTest.h</itemPath>
+        <itemPath>tests/FixparserUnitTestRunner.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="f4"
                      displayName="ProtocolUnitTest"
                      projectFiles="true"
@@ -111,6 +119,20 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </compileType>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
       <folder path="TestFiles/f2">
         <cTool>
           <incDir>
@@ -247,6 +269,12 @@
       <item path="tests/FieldUnitTest.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tests/FieldUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/FixparserUnitTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/FixparserUnitTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/FixparserUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/ProtocolUnitTest.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -296,6 +324,20 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
       <folder path="TestFiles/f2">
         <cTool>
           <incDir>
@@ -431,6 +473,12 @@
       <item path="tests/FieldUnitTest.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tests/FieldUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/FixparserUnitTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/FixparserUnitTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/FixparserUnitTestRunner.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/ProtocolUnitTest.cpp" ex="false" tool="1" flavor2="0">
       </item>

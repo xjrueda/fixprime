@@ -10,12 +10,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/src/FixParser.cpp</file>
-            <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/src/Hypersonic.cpp</file>
+            <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/include/Message.h</file>
             <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/include/FixParser.h</file>
+            <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/src/FixParser.cpp</file>
+            <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/tests/FixparserUnitTest.cpp</file>
+            <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/include/Node.h</file>
             <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/src/Node.cpp</file>
+            <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/src/Hypersonic.cpp</file>
             <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/FixSpecifications/FIX44.json</file>
-            <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/src/FixDictionary.cpp</file>
             <file>rfs://jrueda@xjrueda.com:22/apps/Dev/NetBeansProjects/Hypersonic/src/Message.cpp</file>
         </group>
     </open-files>

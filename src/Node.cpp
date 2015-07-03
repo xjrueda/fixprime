@@ -23,10 +23,11 @@ namespace hfe {
     position(other.position),
     isRequired(other.isRequired),
     field(other.field),
-    childsByPosition(other.childsByPosition),
-    childsByFieldId(other.childsByFieldId),
     protocolPtr(other.protocolPtr),
     componentPtr(other.componentPtr) {
+        //childsByPosition.insert(other.childsByPosition.begin(), other.childsByPosition.end());
+        childsByFieldId.insert(other.childsByFieldId.begin(), other.childsByFieldId.end());
+        //cout << "Copy constructor for node fired" << endl;
     }
 
     Node::~Node() {
@@ -83,8 +84,8 @@ namespace hfe {
     }
 
     void Node::setValue(string val) {
-//        if (_type == REPEATING_GROUP)
-//            throw runtime_error("Repeating group values are calculated");
+        //        if (_type == REPEATING_GROUP)
+        //            throw runtime_error("Repeating group values are calculated");
         value->set(val);
     }
 
@@ -107,10 +108,16 @@ namespace hfe {
             throw InvalidNodeNesting(decodeNodeType(_type), decodeNodeType(node.getType()));
         }
         position++;
+        
+        if (node.getType() == hfe::Node::GROUP_INSTANCE) {          
+            unsigned int instanceId = (this->childsByFieldId.size()) + 1;
+            this->childsByFieldId[instanceId] = node;
+        }
+        
         if ((node.getType() == hfe::Node::REPEATING_GROUP) || (node.getType() == hfe::Node::FIELD_NODE))
             this->childsByFieldId[node.field->getId()] = node;
 
-        this->childsByPosition[position] = node;
+//        this->childsByPosition[position] = node;
     }
 
     hfe::Node& Node::appendGroupInstance() {
@@ -119,8 +126,7 @@ namespace hfe {
         } else {
             Node newInstance(Node::NodeType::GROUP_INSTANCE);
             newInstance.resolveComponent(this->componentPtr);
-            appendChild(newInstance);
-            //TODO:  control field increment
+            this->appendChild(newInstance);
         }
     }
     //operators
@@ -146,62 +152,52 @@ namespace hfe {
             throw runtime_error("The operator[] is only available for repeating groups.");
         }
 
-        NodeMap::iterator search = childsByPosition.find(instanceIndex);
-        if (search != childsByPosition.end())
+        NodeMap::iterator search = childsByFieldId.find(instanceIndex);
+        if (search != childsByFieldId.end())
             return search->second;
         else
-            throw runtime_error("Invalid repeating group instance");
+            throw runtime_error("at Node.operator[] : Invalid repeating group instance");
     }
-    //
-    //    void Node::stringify(string &outputString, string separator, unsigned int indexValue) {
-    //        try {
-    //            //            switch (_type) {
-    //            //                case ROOT_NODE:
-    //            //                {
-    //            //                    NodeMap childs = getChildsbyPosition();
-    //            //                    for (NodeMap::iterator it = childs.begin(); it != childs.end(); it++) {
-    //            //                        it->second->stringify(outputString, separator, indexValue);
-    //            //                    }
-    //            //                    break;
-    //            //                }
-    //            //                case FIELD_NODE:
-    //            //                {
-    //            //                    unsigned int id = this->getField()->getId();
-    //            //                    this->addValuePair(outputString, separator, id, this->getValue(indexValue).toString());
-    //            //                    break;
-    //            //                }
-    //            //                case REPEATING_GROUP:
-    //            //                {
-    //            //                    this->addValuePair(outputString, separator, this->getField()->getId(), this->getValue(indexValue).toString());
-    //            //                    NodeMap childs = getChildsbyPosition();
-    //            //                    for (int repetition = 0; repetition < values[indexValue].toInt(); repetition++) {
-    //            //                        cout << "Repetition : " << repetition << endl;
-    //            //                        for (NodeMap::iterator it = childs.begin(); it != childs.end(); it++) {
-    //            //                            cout << "child  rep : " << repetition << endl;
-    //            //                            Node::NodePtr node = it->second;
-    //            //                            node->stringify(outputString, separator, repetition);
-    //            //                        }
-    //            //                    }
-    //            //                    break;
-    //            //                }
-    //            //            }
-    //        } catch (exception& e) {
-    //            cout << "Error stringifying : " << e.what() << endl;
-    //        }
-    //    }
-    //
-    //    void Node::addValuePair(string &s, string separator, unsigned int fieldId, string val) {
-    //        try {
-    //            if (!val.empty()) {
-    //                if (!s.empty())
-    //                    s += separator;
-    //                s = s + boost::lexical_cast<string>(fieldId) + string("=") + boost::lexical_cast<string>(val);
-    //            }
-    //        } catch (exception& e) {
-    //            cout << "exception at addValuePair : " << e.what();
-    //        }
-    //    }
-    //
+
+    void Node::stringify(string& outputString) {
+        try {
+            switch (_type) {
+                case ROOT_NODE:
+                case GROUP_INSTANCE:
+                case REPEATING_GROUP:
+                {
+                    if (_type == REPEATING_GROUP) {
+                        unsigned int id = this->getField()->getId();
+                        this->addValuePair(outputString, id, this->getValue());
+                    }
+                    for (NodeMap::iterator it = childsByFieldId.begin(); it != childsByFieldId.end(); it++) {
+                        it->second.stringify(outputString);
+                    }
+                    break;
+                }
+                case FIELD_NODE:
+                {
+                    unsigned int id = this->getField()->getId();
+                    this->addValuePair(outputString, id, this->getValue());
+                    break;
+                }
+            }
+        } catch (exception& e) {
+            cout << "at Node.stringify : " << e.what() << endl;
+        }
+    }
+
+    void Node::addValuePair(string &s, unsigned int fieldId, string val) {
+        try {
+            if (!val.empty()) {
+                if (!s.empty())
+                    s += '\n';
+                s = s + boost::lexical_cast<string>(fieldId) + string("=") + boost::lexical_cast<string>(val);
+            }
+        } catch (exception& e) {
+            cout << "exception at Node.addValuePair : " << e.what();
+        }
+    }
 
     bool Node::nestingRule(NodeType parentType, NodeType nestedType) {
         bool result = false;

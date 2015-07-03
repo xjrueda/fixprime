@@ -66,7 +66,7 @@ namespace hfe {
 
         // Utilities
 
-        void stringify(string &outputString, string separator, unsigned int indexValue);
+        void stringify(string& outputString);
     private:
         NodeType _type;
         hfe::DataHolder::DataTypePtr value;
@@ -74,10 +74,10 @@ namespace hfe {
         bool isRequired;
 
         hfe::Field::FieldPtr field;
-        NodeMap childsByPosition;
+//        NodeMap childsByPosition;
         NodeMap childsByFieldId;
 
-        void addValuePair(string &ss, string separator, unsigned int fieldId, string val);
+        void addValuePair(string &ss, unsigned int fieldId, string val);
         bool nestingRule(NodeType, NodeType);
 
         
