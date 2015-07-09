@@ -1,0 +1,4956 @@
+{
+  "Fields" : {
+    "1" : {
+      "name" : "Account",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "2" : {
+      "name" : "AdvId",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "3" : {
+      "name" : "AdvRefID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "4" : {
+      "name" : "AdvSide",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "5" : {
+      "name" : "AdvTransType",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "6" : {
+      "name" : "AvgPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "7" : {
+      "name" : "BeginSeqNo",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "8" : {
+      "name" : "BeginString",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "9" : {
+      "name" : "BodyLength",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "10" : {
+      "name" : "CheckSum",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "11" : {
+      "name" : "ClOrdID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "12" : {
+      "name" : "Commission",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "13" : {
+      "name" : "CommType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "14" : {
+      "name" : "CumQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "15" : {
+      "name" : "Currency",
+      "dataType" : "CURRENCY",
+      "description" : ""
+    },
+    "16" : {
+      "name" : "EndSeqNo",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "17" : {
+      "name" : "ExecID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "18" : {
+      "name" : "ExecInst",
+      "dataType" : "MULTIPLEVALUESTRING",
+      "description" : ""
+    },
+    "19" : {
+      "name" : "ExecRefID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "20" : {
+      "name" : "ExecTransType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "21" : {
+      "name" : "HandlInst",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "22" : {
+      "name" : "IDSource",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "23" : {
+      "name" : "IOIid",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "24" : {
+      "name" : "IOIOthSvc",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "25" : {
+      "name" : "IOIQltyInd",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "26" : {
+      "name" : "IOIRefID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "27" : {
+      "name" : "IOIShares",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "28" : {
+      "name" : "IOITransType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "29" : {
+      "name" : "LastCapacity",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "30" : {
+      "name" : "LastMkt",
+      "dataType" : "EXCHANGE",
+      "description" : ""
+    },
+    "31" : {
+      "name" : "LastPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "32" : {
+      "name" : "LastShares",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "33" : {
+      "name" : "LinesOfText",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "34" : {
+      "name" : "MsgSeqNum",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "35" : {
+      "name" : "MsgType",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "36" : {
+      "name" : "NewSeqNo",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "37" : {
+      "name" : "OrderID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "38" : {
+      "name" : "OrderQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "39" : {
+      "name" : "OrdStatus",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "40" : {
+      "name" : "OrdType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "41" : {
+      "name" : "OrigClOrdID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "42" : {
+      "name" : "OrigTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "43" : {
+      "name" : "PossDupFlag",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "44" : {
+      "name" : "Price",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "45" : {
+      "name" : "RefSeqNum",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "46" : {
+      "name" : "RelatdSym",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "47" : {
+      "name" : "Rule80A",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "48" : {
+      "name" : "SecurityID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "49" : {
+      "name" : "SenderCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "50" : {
+      "name" : "SenderSubID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "51" : {
+      "name" : "SendingDate",
+      "dataType" : "LOCALMKTDATE",
+      "description" : ""
+    },
+    "52" : {
+      "name" : "SendingTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "53" : {
+      "name" : "Shares",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "54" : {
+      "name" : "Side",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "55" : {
+      "name" : "Symbol",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "56" : {
+      "name" : "TargetCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "57" : {
+      "name" : "TargetSubID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "58" : {
+      "name" : "Text",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "59" : {
+      "name" : "TimeInForce",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "60" : {
+      "name" : "TransactTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "61" : {
+      "name" : "Urgency",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "62" : {
+      "name" : "ValidUntilTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "63" : {
+      "name" : "SettlmntTyp",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "64" : {
+      "name" : "FutSettDate",
+      "dataType" : "LOCALMKTDATE",
+      "description" : ""
+    },
+    "65" : {
+      "name" : "SymbolSfx",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "66" : {
+      "name" : "ListID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "67" : {
+      "name" : "ListSeqNo",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "68" : {
+      "name" : "TotNoOrders",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "69" : {
+      "name" : "ListExecInst",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "70" : {
+      "name" : "AllocID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "71" : {
+      "name" : "AllocTransType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "72" : {
+      "name" : "RefAllocID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "73" : {
+      "name" : "NoOrders",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "74" : {
+      "name" : "AvgPrxPrecision",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "75" : {
+      "name" : "TradeDate",
+      "dataType" : "LOCALMKTDATE",
+      "description" : ""
+    },
+    "76" : {
+      "name" : "ExecBroker",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "77" : {
+      "name" : "OpenClose",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "78" : {
+      "name" : "NoAllocs",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "79" : {
+      "name" : "AllocAccount",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "80" : {
+      "name" : "AllocShares",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "81" : {
+      "name" : "ProcessCode",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "82" : {
+      "name" : "NoRpts",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "83" : {
+      "name" : "RptSeq",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "84" : {
+      "name" : "CxlQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "85" : {
+      "name" : "NoDlvyInst",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "86" : {
+      "name" : "DlvyInst",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "87" : {
+      "name" : "AllocStatus",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "88" : {
+      "name" : "AllocRejCode",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "89" : {
+      "name" : "Signature",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "90" : {
+      "name" : "SecureDataLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "91" : {
+      "name" : "SecureData",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "92" : {
+      "name" : "BrokerOfCredit",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "93" : {
+      "name" : "SignatureLength",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "94" : {
+      "name" : "EmailType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "95" : {
+      "name" : "RawDataLength",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "96" : {
+      "name" : "RawData",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "97" : {
+      "name" : "PossResend",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "98" : {
+      "name" : "EncryptMethod",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "99" : {
+      "name" : "StopPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "100" : {
+      "name" : "ExDestination",
+      "dataType" : "EXCHANGE",
+      "description" : ""
+    },
+    "102" : {
+      "name" : "CxlRejReason",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "103" : {
+      "name" : "OrdRejReason",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "104" : {
+      "name" : "IOIQualifier",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "105" : {
+      "name" : "WaveNo",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "106" : {
+      "name" : "Issuer",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "107" : {
+      "name" : "SecurityDesc",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "108" : {
+      "name" : "HeartBtInt",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "109" : {
+      "name" : "ClientID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "110" : {
+      "name" : "MinQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "111" : {
+      "name" : "MaxFloor",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "112" : {
+      "name" : "TestReqID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "113" : {
+      "name" : "ReportToExch",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "114" : {
+      "name" : "LocateReqd",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "115" : {
+      "name" : "OnBehalfOfCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "116" : {
+      "name" : "OnBehalfOfSubID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "117" : {
+      "name" : "QuoteID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "118" : {
+      "name" : "NetMoney",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "119" : {
+      "name" : "SettlCurrAmt",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "120" : {
+      "name" : "SettlCurrency",
+      "dataType" : "CURRENCY",
+      "description" : ""
+    },
+    "121" : {
+      "name" : "ForexReq",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "122" : {
+      "name" : "OrigSendingTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "123" : {
+      "name" : "GapFillFlag",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "124" : {
+      "name" : "NoExecs",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "125" : {
+      "name" : "CxlType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "126" : {
+      "name" : "ExpireTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "127" : {
+      "name" : "DKReason",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "128" : {
+      "name" : "DeliverToCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "129" : {
+      "name" : "DeliverToSubID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "130" : {
+      "name" : "IOINaturalFlag",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "131" : {
+      "name" : "QuoteReqID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "132" : {
+      "name" : "BidPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "133" : {
+      "name" : "OfferPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "134" : {
+      "name" : "BidSize",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "135" : {
+      "name" : "OfferSize",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "136" : {
+      "name" : "NoMiscFees",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "137" : {
+      "name" : "MiscFeeAmt",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "138" : {
+      "name" : "MiscFeeCurr",
+      "dataType" : "CURRENCY",
+      "description" : ""
+    },
+    "139" : {
+      "name" : "MiscFeeType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "140" : {
+      "name" : "PrevClosePx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "141" : {
+      "name" : "ResetSeqNumFlag",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "142" : {
+      "name" : "SenderLocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "143" : {
+      "name" : "TargetLocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "144" : {
+      "name" : "OnBehalfOfLocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "145" : {
+      "name" : "DeliverToLocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "146" : {
+      "name" : "NoRelatedSym",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "147" : {
+      "name" : "Subject",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "148" : {
+      "name" : "Headline",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "149" : {
+      "name" : "URLLink",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "150" : {
+      "name" : "ExecType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "151" : {
+      "name" : "LeavesQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "152" : {
+      "name" : "CashOrderQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "153" : {
+      "name" : "AllocAvgPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "154" : {
+      "name" : "AllocNetMoney",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "155" : {
+      "name" : "SettlCurrFxRate",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "156" : {
+      "name" : "SettlCurrFxRateCalc",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "157" : {
+      "name" : "NumDaysInterest",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "158" : {
+      "name" : "AccruedInterestRate",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "159" : {
+      "name" : "AccruedInterestAmt",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "160" : {
+      "name" : "SettlInstMode",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "161" : {
+      "name" : "AllocText",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "162" : {
+      "name" : "SettlInstID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "163" : {
+      "name" : "SettlInstTransType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "164" : {
+      "name" : "EmailThreadID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "165" : {
+      "name" : "SettlInstSource",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "166" : {
+      "name" : "SettlLocation",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "167" : {
+      "name" : "SecurityType",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "168" : {
+      "name" : "EffectiveTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "169" : {
+      "name" : "StandInstDbType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "170" : {
+      "name" : "StandInstDbName",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "171" : {
+      "name" : "StandInstDbID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "172" : {
+      "name" : "SettlDeliveryType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "173" : {
+      "name" : "SettlDepositoryCode",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "174" : {
+      "name" : "SettlBrkrCode",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "175" : {
+      "name" : "SettlInstCode",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "176" : {
+      "name" : "SecuritySettlAgentName",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "177" : {
+      "name" : "SecuritySettlAgentCode",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "178" : {
+      "name" : "SecuritySettlAgentAcctNum",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "179" : {
+      "name" : "SecuritySettlAgentAcctName",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "180" : {
+      "name" : "SecuritySettlAgentContactName",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "181" : {
+      "name" : "SecuritySettlAgentContactPhone",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "182" : {
+      "name" : "CashSettlAgentName",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "183" : {
+      "name" : "CashSettlAgentCode",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "184" : {
+      "name" : "CashSettlAgentAcctNum",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "185" : {
+      "name" : "CashSettlAgentAcctName",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "186" : {
+      "name" : "CashSettlAgentContactName",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "187" : {
+      "name" : "CashSettlAgentContactPhone",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "188" : {
+      "name" : "BidSpotRate",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "189" : {
+      "name" : "BidForwardPoints",
+      "dataType" : "PRICEOFFSET",
+      "description" : ""
+    },
+    "190" : {
+      "name" : "OfferSpotRate",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "191" : {
+      "name" : "OfferForwardPoints",
+      "dataType" : "PRICEOFFSET",
+      "description" : ""
+    },
+    "192" : {
+      "name" : "OrderQty2",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "193" : {
+      "name" : "FutSettDate2",
+      "dataType" : "LOCALMKTDATE",
+      "description" : ""
+    },
+    "194" : {
+      "name" : "LastSpotRate",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "195" : {
+      "name" : "LastForwardPoints",
+      "dataType" : "PRICEOFFSET",
+      "description" : ""
+    },
+    "196" : {
+      "name" : "AllocLinkID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "197" : {
+      "name" : "AllocLinkType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "198" : {
+      "name" : "SecondaryOrderID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "199" : {
+      "name" : "NoIOIQualifiers",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "200" : {
+      "name" : "MaturityMonthYear",
+      "dataType" : "MONTHYEAR",
+      "description" : ""
+    },
+    "201" : {
+      "name" : "PutOrCall",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "202" : {
+      "name" : "StrikePrice",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "203" : {
+      "name" : "CoveredOrUncovered",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "204" : {
+      "name" : "CustomerOrFirm",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "205" : {
+      "name" : "MaturityDay",
+      "dataType" : "DAYOFMONTH",
+      "description" : ""
+    },
+    "206" : {
+      "name" : "OptAttribute",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "207" : {
+      "name" : "SecurityExchange",
+      "dataType" : "EXCHANGE",
+      "description" : ""
+    },
+    "208" : {
+      "name" : "NotifyBrokerOfCredit",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "209" : {
+      "name" : "AllocHandlInst",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "210" : {
+      "name" : "MaxShow",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "211" : {
+      "name" : "PegDifference",
+      "dataType" : "PRICEOFFSET",
+      "description" : ""
+    },
+    "212" : {
+      "name" : "XmlDataLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "213" : {
+      "name" : "XmlData",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "214" : {
+      "name" : "SettlInstRefID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "215" : {
+      "name" : "NoRoutingIDs",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "216" : {
+      "name" : "RoutingType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "217" : {
+      "name" : "RoutingID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "218" : {
+      "name" : "SpreadToBenchmark",
+      "dataType" : "PRICEOFFSET",
+      "description" : ""
+    },
+    "219" : {
+      "name" : "Benchmark",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "223" : {
+      "name" : "CouponRate",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "231" : {
+      "name" : "ContractMultiplier",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "262" : {
+      "name" : "MDReqID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "263" : {
+      "name" : "SubscriptionRequestType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "264" : {
+      "name" : "MarketDepth",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "265" : {
+      "name" : "MDUpdateType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "266" : {
+      "name" : "AggregatedBook",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "267" : {
+      "name" : "NoMDEntryTypes",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "268" : {
+      "name" : "NoMDEntries",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "269" : {
+      "name" : "MDEntryType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "270" : {
+      "name" : "MDEntryPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "271" : {
+      "name" : "MDEntrySize",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "272" : {
+      "name" : "MDEntryDate",
+      "dataType" : "UTCDATE",
+      "description" : ""
+    },
+    "273" : {
+      "name" : "MDEntryTime",
+      "dataType" : "UTCTIMEONLY",
+      "description" : ""
+    },
+    "274" : {
+      "name" : "TickDirection",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "275" : {
+      "name" : "MDMkt",
+      "dataType" : "EXCHANGE",
+      "description" : ""
+    },
+    "276" : {
+      "name" : "QuoteCondition",
+      "dataType" : "MULTIPLEVALUESTRING",
+      "description" : ""
+    },
+    "277" : {
+      "name" : "TradeCondition",
+      "dataType" : "MULTIPLEVALUESTRING",
+      "description" : ""
+    },
+    "278" : {
+      "name" : "MDEntryID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "279" : {
+      "name" : "MDUpdateAction",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "280" : {
+      "name" : "MDEntryRefID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "281" : {
+      "name" : "MDReqRejReason",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "282" : {
+      "name" : "MDEntryOriginator",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "283" : {
+      "name" : "LocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "284" : {
+      "name" : "DeskID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "285" : {
+      "name" : "DeleteReason",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "286" : {
+      "name" : "OpenCloseSettleFlag",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "287" : {
+      "name" : "SellerDays",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "288" : {
+      "name" : "MDEntryBuyer",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "289" : {
+      "name" : "MDEntrySeller",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "290" : {
+      "name" : "MDEntryPositionNo",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "291" : {
+      "name" : "FinancialStatus",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "292" : {
+      "name" : "CorporateAction",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "293" : {
+      "name" : "DefBidSize",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "294" : {
+      "name" : "DefOfferSize",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "295" : {
+      "name" : "NoQuoteEntries",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "296" : {
+      "name" : "NoQuoteSets",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "297" : {
+      "name" : "QuoteAckStatus",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "298" : {
+      "name" : "QuoteCancelType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "299" : {
+      "name" : "QuoteEntryID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "300" : {
+      "name" : "QuoteRejectReason",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "301" : {
+      "name" : "QuoteResponseLevel",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "302" : {
+      "name" : "QuoteSetID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "303" : {
+      "name" : "QuoteRequestType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "304" : {
+      "name" : "TotQuoteEntries",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "305" : {
+      "name" : "UnderlyingIDSource",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "306" : {
+      "name" : "UnderlyingIssuer",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "307" : {
+      "name" : "UnderlyingSecurityDesc",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "308" : {
+      "name" : "UnderlyingSecurityExchange",
+      "dataType" : "EXCHANGE",
+      "description" : ""
+    },
+    "309" : {
+      "name" : "UnderlyingSecurityID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "310" : {
+      "name" : "UnderlyingSecurityType",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "311" : {
+      "name" : "UnderlyingSymbol",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "312" : {
+      "name" : "UnderlyingSymbolSfx",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "313" : {
+      "name" : "UnderlyingMaturityMonthYear",
+      "dataType" : "MONTHYEAR",
+      "description" : ""
+    },
+    "314" : {
+      "name" : "UnderlyingMaturityDay",
+      "dataType" : "DAYOFMONTH",
+      "description" : ""
+    },
+    "315" : {
+      "name" : "UnderlyingPutOrCall",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "316" : {
+      "name" : "UnderlyingStrikePrice",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "317" : {
+      "name" : "UnderlyingOptAttribute",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "318" : {
+      "name" : "UnderlyingCurrency",
+      "dataType" : "CURRENCY",
+      "description" : ""
+    },
+    "319" : {
+      "name" : "RatioQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "320" : {
+      "name" : "SecurityReqID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "321" : {
+      "name" : "SecurityRequestType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "322" : {
+      "name" : "SecurityResponseID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "323" : {
+      "name" : "SecurityResponseType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "324" : {
+      "name" : "SecurityStatusReqID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "325" : {
+      "name" : "UnsolicitedIndicator",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "326" : {
+      "name" : "SecurityTradingStatus",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "327" : {
+      "name" : "HaltReasonChar",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "328" : {
+      "name" : "InViewOfCommon",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "329" : {
+      "name" : "DueToRelated",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "330" : {
+      "name" : "BuyVolume",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "331" : {
+      "name" : "SellVolume",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "332" : {
+      "name" : "HighPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "333" : {
+      "name" : "LowPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "334" : {
+      "name" : "Adjustment",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "335" : {
+      "name" : "TradSesReqID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "336" : {
+      "name" : "TradingSessionID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "337" : {
+      "name" : "ContraTrader",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "338" : {
+      "name" : "TradSesMethod",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "339" : {
+      "name" : "TradSesMode",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "340" : {
+      "name" : "TradSesStatus",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "341" : {
+      "name" : "TradSesStartTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "342" : {
+      "name" : "TradSesOpenTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "343" : {
+      "name" : "TradSesPreCloseTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "344" : {
+      "name" : "TradSesCloseTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "345" : {
+      "name" : "TradSesEndTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "346" : {
+      "name" : "NumberOfOrders",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "347" : {
+      "name" : "MessageEncoding",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "348" : {
+      "name" : "EncodedIssuerLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "349" : {
+      "name" : "EncodedIssuer",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "350" : {
+      "name" : "EncodedSecurityDescLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "351" : {
+      "name" : "EncodedSecurityDesc",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "352" : {
+      "name" : "EncodedListExecInstLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "353" : {
+      "name" : "EncodedListExecInst",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "354" : {
+      "name" : "EncodedTextLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "355" : {
+      "name" : "EncodedText",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "356" : {
+      "name" : "EncodedSubjectLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "357" : {
+      "name" : "EncodedSubject",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "358" : {
+      "name" : "EncodedHeadlineLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "359" : {
+      "name" : "EncodedHeadline",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "360" : {
+      "name" : "EncodedAllocTextLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "361" : {
+      "name" : "EncodedAllocText",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "362" : {
+      "name" : "EncodedUnderlyingIssuerLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "363" : {
+      "name" : "EncodedUnderlyingIssuer",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "364" : {
+      "name" : "EncodedUnderlyingSecurityDescLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "365" : {
+      "name" : "EncodedUnderlyingSecurityDesc",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "366" : {
+      "name" : "AllocPrice",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "367" : {
+      "name" : "QuoteSetValidUntilTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "368" : {
+      "name" : "QuoteEntryRejectReason",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "369" : {
+      "name" : "LastMsgSeqNumProcessed",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "370" : {
+      "name" : "OnBehalfOfSendingTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "371" : {
+      "name" : "RefTagID",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "372" : {
+      "name" : "RefMsgType",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "373" : {
+      "name" : "SessionRejectReason",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "374" : {
+      "name" : "BidRequestTransType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "375" : {
+      "name" : "ContraBroker",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "376" : {
+      "name" : "ComplianceID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "377" : {
+      "name" : "SolicitedFlag",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "378" : {
+      "name" : "ExecRestatementReason",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "379" : {
+      "name" : "BusinessRejectRefID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "380" : {
+      "name" : "BusinessRejectReason",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "381" : {
+      "name" : "GrossTradeAmt",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "382" : {
+      "name" : "NoContraBrokers",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "383" : {
+      "name" : "MaxMessageSize",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "384" : {
+      "name" : "NoMsgTypes",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "385" : {
+      "name" : "MsgDirection",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "386" : {
+      "name" : "NoTradingSessions",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "387" : {
+      "name" : "TotalVolumeTraded",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "388" : {
+      "name" : "DiscretionInst",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "389" : {
+      "name" : "DiscretionOffset",
+      "dataType" : "PRICEOFFSET",
+      "description" : ""
+    },
+    "390" : {
+      "name" : "BidID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "391" : {
+      "name" : "ClientBidID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "392" : {
+      "name" : "ListName",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "393" : {
+      "name" : "TotalNumSecurities",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "394" : {
+      "name" : "BidType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "395" : {
+      "name" : "NumTickets",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "396" : {
+      "name" : "SideValue1",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "397" : {
+      "name" : "SideValue2",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "398" : {
+      "name" : "NoBidDescriptors",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "399" : {
+      "name" : "BidDescriptorType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "400" : {
+      "name" : "BidDescriptor",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "401" : {
+      "name" : "SideValueInd",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "402" : {
+      "name" : "LiquidityPctLow",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "403" : {
+      "name" : "LiquidityPctHigh",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "404" : {
+      "name" : "LiquidityValue",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "405" : {
+      "name" : "EFPTrackingError",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "406" : {
+      "name" : "FairValue",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "407" : {
+      "name" : "OutsideIndexPct",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "408" : {
+      "name" : "ValueOfFutures",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "409" : {
+      "name" : "LiquidityIndType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "410" : {
+      "name" : "WtAverageLiquidity",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "411" : {
+      "name" : "ExchangeForPhysical",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "412" : {
+      "name" : "OutMainCntryUIndex",
+      "dataType" : "AMT",
+      "description" : ""
+    },
+    "413" : {
+      "name" : "CrossPercent",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "414" : {
+      "name" : "ProgRptReqs",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "415" : {
+      "name" : "ProgPeriodInterval",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "416" : {
+      "name" : "IncTaxInd",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "417" : {
+      "name" : "NumBidders",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "418" : {
+      "name" : "TradeType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "419" : {
+      "name" : "BasisPxType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "420" : {
+      "name" : "NoBidComponents",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "421" : {
+      "name" : "Country",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "422" : {
+      "name" : "TotNoStrikes",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "423" : {
+      "name" : "PriceType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "424" : {
+      "name" : "DayOrderQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "425" : {
+      "name" : "DayCumQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "426" : {
+      "name" : "DayAvgPx",
+      "dataType" : "PRICE",
+      "description" : ""
+    },
+    "427" : {
+      "name" : "GTBookingInst",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "428" : {
+      "name" : "NoStrikes",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "429" : {
+      "name" : "ListStatusType",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "430" : {
+      "name" : "NetGrossInd",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "431" : {
+      "name" : "ListOrderStatus",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "432" : {
+      "name" : "ExpireDate",
+      "dataType" : "LOCALMKTDATE",
+      "description" : ""
+    },
+    "433" : {
+      "name" : "ListExecInstType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "434" : {
+      "name" : "CxlRejResponseTo",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "435" : {
+      "name" : "UnderlyingCouponRate",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "436" : {
+      "name" : "UnderlyingContractMultiplier",
+      "dataType" : "FLOAT",
+      "description" : ""
+    },
+    "437" : {
+      "name" : "ContraTradeQty",
+      "dataType" : "QTY",
+      "description" : ""
+    },
+    "438" : {
+      "name" : "ContraTradeTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "439" : {
+      "name" : "ClearingFirm",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "440" : {
+      "name" : "ClearingAccount",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "441" : {
+      "name" : "LiquidityNumSecurities",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "442" : {
+      "name" : "MultiLegReportingType",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "443" : {
+      "name" : "StrikeTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "444" : {
+      "name" : "ListStatusText",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "445" : {
+      "name" : "EncodedListStatusTextLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "446" : {
+      "name" : "EncodedListStatusText",
+      "dataType" : "DATA",
+      "description" : ""
+    }
+  },
+  "Components" : "components",
+  "Messages" : {
+    "0" : {
+      "name" : "Heartbeat",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "112" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "1" : {
+      "name" : "TestRequest",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "112" : {
+          "isRequired" : "Y"
+        }
+      }
+    },
+    "2" : {
+      "name" : "ResendRequest",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "7" : {
+          "isRequired" : "Y"
+        },
+        "16" : {
+          "isRequired" : "Y"
+        }
+      }
+    },
+    "3" : {
+      "name" : "Reject",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "45" : {
+          "isRequired" : "Y"
+        },
+        "371" : {
+          "isRequired" : "N"
+        },
+        "372" : {
+          "isRequired" : "N"
+        },
+        "373" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "4" : {
+      "name" : "SequenceReset",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "123" : {
+          "isRequired" : "N"
+        },
+        "36" : {
+          "isRequired" : "Y"
+        }
+      }
+    },
+    "5" : {
+      "name" : "Logout",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "6" : {
+      "name" : "IOI",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "23" : {
+          "isRequired" : "Y"
+        },
+        "28" : {
+          "isRequired" : "Y"
+        },
+        "26" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "Y"
+        },
+        "27" : {
+          "isRequired" : "Y"
+        },
+        "44" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "62" : {
+          "isRequired" : "N"
+        },
+        "25" : {
+          "isRequired" : "N"
+        },
+        "130" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "149" : {
+          "isRequired" : "N"
+        },
+        "218" : {
+          "isRequired" : "N"
+        },
+        "219" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "7" : {
+      "name" : "Advertisement",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "2" : {
+          "isRequired" : "Y"
+        },
+        "5" : {
+          "isRequired" : "Y"
+        },
+        "3" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "4" : {
+          "isRequired" : "Y"
+        },
+        "53" : {
+          "isRequired" : "Y"
+        },
+        "44" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "75" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        },
+        "149" : {
+          "isRequired" : "N"
+        },
+        "30" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "8" : {
+      "name" : "ExecutionReport",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "37" : {
+          "isRequired" : "Y"
+        },
+        "198" : {
+          "isRequired" : "N"
+        },
+        "11" : {
+          "isRequired" : "N"
+        },
+        "41" : {
+          "isRequired" : "N"
+        },
+        "109" : {
+          "isRequired" : "N"
+        },
+        "76" : {
+          "isRequired" : "N"
+        },
+        "66" : {
+          "isRequired" : "N"
+        },
+        "17" : {
+          "isRequired" : "Y"
+        },
+        "20" : {
+          "isRequired" : "Y"
+        },
+        "19" : {
+          "isRequired" : "N"
+        },
+        "150" : {
+          "isRequired" : "Y"
+        },
+        "39" : {
+          "isRequired" : "Y"
+        },
+        "103" : {
+          "isRequired" : "N"
+        },
+        "378" : {
+          "isRequired" : "N"
+        },
+        "1" : {
+          "isRequired" : "N"
+        },
+        "63" : {
+          "isRequired" : "N"
+        },
+        "64" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "Y"
+        },
+        "38" : {
+          "isRequired" : "N"
+        },
+        "152" : {
+          "isRequired" : "N"
+        },
+        "40" : {
+          "isRequired" : "N"
+        },
+        "44" : {
+          "isRequired" : "N"
+        },
+        "99" : {
+          "isRequired" : "N"
+        },
+        "211" : {
+          "isRequired" : "N"
+        },
+        "388" : {
+          "isRequired" : "N"
+        },
+        "389" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "376" : {
+          "isRequired" : "N"
+        },
+        "377" : {
+          "isRequired" : "N"
+        },
+        "59" : {
+          "isRequired" : "N"
+        },
+        "168" : {
+          "isRequired" : "N"
+        },
+        "432" : {
+          "isRequired" : "N"
+        },
+        "126" : {
+          "isRequired" : "N"
+        },
+        "18" : {
+          "isRequired" : "N"
+        },
+        "47" : {
+          "isRequired" : "N"
+        },
+        "32" : {
+          "isRequired" : "N"
+        },
+        "31" : {
+          "isRequired" : "N"
+        },
+        "194" : {
+          "isRequired" : "N"
+        },
+        "195" : {
+          "isRequired" : "N"
+        },
+        "30" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        },
+        "29" : {
+          "isRequired" : "N"
+        },
+        "151" : {
+          "isRequired" : "Y"
+        },
+        "14" : {
+          "isRequired" : "Y"
+        },
+        "6" : {
+          "isRequired" : "Y"
+        },
+        "424" : {
+          "isRequired" : "N"
+        },
+        "425" : {
+          "isRequired" : "N"
+        },
+        "426" : {
+          "isRequired" : "N"
+        },
+        "427" : {
+          "isRequired" : "N"
+        },
+        "75" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "113" : {
+          "isRequired" : "N"
+        },
+        "12" : {
+          "isRequired" : "N"
+        },
+        "13" : {
+          "isRequired" : "N"
+        },
+        "381" : {
+          "isRequired" : "N"
+        },
+        "119" : {
+          "isRequired" : "N"
+        },
+        "120" : {
+          "isRequired" : "N"
+        },
+        "155" : {
+          "isRequired" : "N"
+        },
+        "156" : {
+          "isRequired" : "N"
+        },
+        "21" : {
+          "isRequired" : "N"
+        },
+        "110" : {
+          "isRequired" : "N"
+        },
+        "111" : {
+          "isRequired" : "N"
+        },
+        "77" : {
+          "isRequired" : "N"
+        },
+        "210" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        },
+        "193" : {
+          "isRequired" : "N"
+        },
+        "192" : {
+          "isRequired" : "N"
+        },
+        "439" : {
+          "isRequired" : "N"
+        },
+        "440" : {
+          "isRequired" : "N"
+        },
+        "442" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "9" : {
+      "name" : "OrderCancelReject",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "37" : {
+          "isRequired" : "Y"
+        },
+        "198" : {
+          "isRequired" : "N"
+        },
+        "11" : {
+          "isRequired" : "Y"
+        },
+        "41" : {
+          "isRequired" : "Y"
+        },
+        "39" : {
+          "isRequired" : "Y"
+        },
+        "109" : {
+          "isRequired" : "N"
+        },
+        "76" : {
+          "isRequired" : "N"
+        },
+        "66" : {
+          "isRequired" : "N"
+        },
+        "1" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "434" : {
+          "isRequired" : "Y"
+        },
+        "102" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "A" : {
+      "name" : "Logon",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "98" : {
+          "isRequired" : "Y"
+        },
+        "108" : {
+          "isRequired" : "Y"
+        },
+        "95" : {
+          "isRequired" : "N"
+        },
+        "96" : {
+          "isRequired" : "N"
+        },
+        "141" : {
+          "isRequired" : "N"
+        },
+        "383" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "B" : {
+      "name" : "News",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "42" : {
+          "isRequired" : "N"
+        },
+        "61" : {
+          "isRequired" : "N"
+        },
+        "148" : {
+          "isRequired" : "Y"
+        },
+        "358" : {
+          "isRequired" : "N"
+        },
+        "359" : {
+          "isRequired" : "N"
+        },
+        "149" : {
+          "isRequired" : "N"
+        },
+        "95" : {
+          "isRequired" : "N"
+        },
+        "96" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "C" : {
+      "name" : "Email",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "164" : {
+          "isRequired" : "Y"
+        },
+        "94" : {
+          "isRequired" : "Y"
+        },
+        "42" : {
+          "isRequired" : "N"
+        },
+        "147" : {
+          "isRequired" : "Y"
+        },
+        "356" : {
+          "isRequired" : "N"
+        },
+        "357" : {
+          "isRequired" : "N"
+        },
+        "37" : {
+          "isRequired" : "N"
+        },
+        "11" : {
+          "isRequired" : "N"
+        },
+        "95" : {
+          "isRequired" : "N"
+        },
+        "96" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "D" : {
+      "name" : "NewOrderSingle",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "11" : {
+          "isRequired" : "Y"
+        },
+        "109" : {
+          "isRequired" : "N"
+        },
+        "76" : {
+          "isRequired" : "N"
+        },
+        "1" : {
+          "isRequired" : "N"
+        },
+        "63" : {
+          "isRequired" : "N"
+        },
+        "64" : {
+          "isRequired" : "N"
+        },
+        "21" : {
+          "isRequired" : "Y"
+        },
+        "18" : {
+          "isRequired" : "N"
+        },
+        "110" : {
+          "isRequired" : "N"
+        },
+        "111" : {
+          "isRequired" : "N"
+        },
+        "100" : {
+          "isRequired" : "N"
+        },
+        "81" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "140" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "Y"
+        },
+        "114" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "Y"
+        },
+        "38" : {
+          "isRequired" : "N"
+        },
+        "152" : {
+          "isRequired" : "N"
+        },
+        "40" : {
+          "isRequired" : "Y"
+        },
+        "44" : {
+          "isRequired" : "N"
+        },
+        "99" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "376" : {
+          "isRequired" : "N"
+        },
+        "377" : {
+          "isRequired" : "N"
+        },
+        "23" : {
+          "isRequired" : "N"
+        },
+        "117" : {
+          "isRequired" : "N"
+        },
+        "59" : {
+          "isRequired" : "N"
+        },
+        "168" : {
+          "isRequired" : "N"
+        },
+        "432" : {
+          "isRequired" : "N"
+        },
+        "126" : {
+          "isRequired" : "N"
+        },
+        "427" : {
+          "isRequired" : "N"
+        },
+        "12" : {
+          "isRequired" : "N"
+        },
+        "13" : {
+          "isRequired" : "N"
+        },
+        "47" : {
+          "isRequired" : "N"
+        },
+        "121" : {
+          "isRequired" : "N"
+        },
+        "120" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        },
+        "193" : {
+          "isRequired" : "N"
+        },
+        "192" : {
+          "isRequired" : "N"
+        },
+        "77" : {
+          "isRequired" : "N"
+        },
+        "203" : {
+          "isRequired" : "N"
+        },
+        "204" : {
+          "isRequired" : "N"
+        },
+        "210" : {
+          "isRequired" : "N"
+        },
+        "211" : {
+          "isRequired" : "N"
+        },
+        "388" : {
+          "isRequired" : "N"
+        },
+        "389" : {
+          "isRequired" : "N"
+        },
+        "439" : {
+          "isRequired" : "N"
+        },
+        "440" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "E" : {
+      "name" : "NewOrderList",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "66" : {
+          "isRequired" : "Y"
+        },
+        "390" : {
+          "isRequired" : "N"
+        },
+        "391" : {
+          "isRequired" : "N"
+        },
+        "414" : {
+          "isRequired" : "N"
+        },
+        "394" : {
+          "isRequired" : "Y"
+        },
+        "415" : {
+          "isRequired" : "N"
+        },
+        "433" : {
+          "isRequired" : "N"
+        },
+        "69" : {
+          "isRequired" : "N"
+        },
+        "352" : {
+          "isRequired" : "N"
+        },
+        "353" : {
+          "isRequired" : "N"
+        },
+        "68" : {
+          "isRequired" : "Y"
+        }
+      }
+    },
+    "F" : {
+      "name" : "OrderCancelRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "41" : {
+          "isRequired" : "Y"
+        },
+        "37" : {
+          "isRequired" : "N"
+        },
+        "11" : {
+          "isRequired" : "Y"
+        },
+        "66" : {
+          "isRequired" : "N"
+        },
+        "1" : {
+          "isRequired" : "N"
+        },
+        "109" : {
+          "isRequired" : "N"
+        },
+        "76" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "Y"
+        },
+        "60" : {
+          "isRequired" : "Y"
+        },
+        "38" : {
+          "isRequired" : "N"
+        },
+        "152" : {
+          "isRequired" : "N"
+        },
+        "376" : {
+          "isRequired" : "N"
+        },
+        "377" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "G" : {
+      "name" : "OrderCancelReplaceRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "37" : {
+          "isRequired" : "N"
+        },
+        "109" : {
+          "isRequired" : "N"
+        },
+        "76" : {
+          "isRequired" : "N"
+        },
+        "41" : {
+          "isRequired" : "Y"
+        },
+        "11" : {
+          "isRequired" : "Y"
+        },
+        "66" : {
+          "isRequired" : "N"
+        },
+        "1" : {
+          "isRequired" : "N"
+        },
+        "63" : {
+          "isRequired" : "N"
+        },
+        "64" : {
+          "isRequired" : "N"
+        },
+        "21" : {
+          "isRequired" : "Y"
+        },
+        "18" : {
+          "isRequired" : "N"
+        },
+        "110" : {
+          "isRequired" : "N"
+        },
+        "111" : {
+          "isRequired" : "N"
+        },
+        "100" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "Y"
+        },
+        "60" : {
+          "isRequired" : "Y"
+        },
+        "38" : {
+          "isRequired" : "N"
+        },
+        "152" : {
+          "isRequired" : "N"
+        },
+        "40" : {
+          "isRequired" : "Y"
+        },
+        "44" : {
+          "isRequired" : "N"
+        },
+        "99" : {
+          "isRequired" : "N"
+        },
+        "211" : {
+          "isRequired" : "N"
+        },
+        "388" : {
+          "isRequired" : "N"
+        },
+        "389" : {
+          "isRequired" : "N"
+        },
+        "376" : {
+          "isRequired" : "N"
+        },
+        "377" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "59" : {
+          "isRequired" : "N"
+        },
+        "168" : {
+          "isRequired" : "N"
+        },
+        "432" : {
+          "isRequired" : "N"
+        },
+        "126" : {
+          "isRequired" : "N"
+        },
+        "427" : {
+          "isRequired" : "N"
+        },
+        "12" : {
+          "isRequired" : "N"
+        },
+        "13" : {
+          "isRequired" : "N"
+        },
+        "47" : {
+          "isRequired" : "N"
+        },
+        "121" : {
+          "isRequired" : "N"
+        },
+        "120" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        },
+        "193" : {
+          "isRequired" : "N"
+        },
+        "192" : {
+          "isRequired" : "N"
+        },
+        "77" : {
+          "isRequired" : "N"
+        },
+        "203" : {
+          "isRequired" : "N"
+        },
+        "204" : {
+          "isRequired" : "N"
+        },
+        "210" : {
+          "isRequired" : "N"
+        },
+        "114" : {
+          "isRequired" : "N"
+        },
+        "439" : {
+          "isRequired" : "N"
+        },
+        "440" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "H" : {
+      "name" : "OrderStatusRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "37" : {
+          "isRequired" : "N"
+        },
+        "11" : {
+          "isRequired" : "Y"
+        },
+        "109" : {
+          "isRequired" : "N"
+        },
+        "1" : {
+          "isRequired" : "N"
+        },
+        "76" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "Y"
+        }
+      }
+    },
+    "J" : {
+      "name" : "Allocation",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "70" : {
+          "isRequired" : "Y"
+        },
+        "71" : {
+          "isRequired" : "Y"
+        },
+        "72" : {
+          "isRequired" : "N"
+        },
+        "196" : {
+          "isRequired" : "N"
+        },
+        "197" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "Y"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "53" : {
+          "isRequired" : "Y"
+        },
+        "30" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        },
+        "6" : {
+          "isRequired" : "Y"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "74" : {
+          "isRequired" : "N"
+        },
+        "75" : {
+          "isRequired" : "Y"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "63" : {
+          "isRequired" : "N"
+        },
+        "64" : {
+          "isRequired" : "N"
+        },
+        "381" : {
+          "isRequired" : "N"
+        },
+        "118" : {
+          "isRequired" : "N"
+        },
+        "77" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        },
+        "157" : {
+          "isRequired" : "N"
+        },
+        "158" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "K" : {
+      "name" : "ListCancelRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "66" : {
+          "isRequired" : "Y"
+        },
+        "60" : {
+          "isRequired" : "Y"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "L" : {
+      "name" : "ListExecute",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "66" : {
+          "isRequired" : "Y"
+        },
+        "391" : {
+          "isRequired" : "N"
+        },
+        "390" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "Y"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "M" : {
+      "name" : "ListStatusRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "66" : {
+          "isRequired" : "Y"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "N" : {
+      "name" : "ListStatus",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "66" : {
+          "isRequired" : "Y"
+        },
+        "429" : {
+          "isRequired" : "Y"
+        },
+        "82" : {
+          "isRequired" : "Y"
+        },
+        "431" : {
+          "isRequired" : "Y"
+        },
+        "83" : {
+          "isRequired" : "Y"
+        },
+        "444" : {
+          "isRequired" : "N"
+        },
+        "445" : {
+          "isRequired" : "N"
+        },
+        "446" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "68" : {
+          "isRequired" : "Y"
+        }
+      }
+    },
+    "P" : {
+      "name" : "AllocationInstructionAck",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "109" : {
+          "isRequired" : "N"
+        },
+        "76" : {
+          "isRequired" : "N"
+        },
+        "70" : {
+          "isRequired" : "Y"
+        },
+        "75" : {
+          "isRequired" : "Y"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "87" : {
+          "isRequired" : "Y"
+        },
+        "88" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "Q" : {
+      "name" : "DontKnowTrade",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "37" : {
+          "isRequired" : "Y"
+        },
+        "17" : {
+          "isRequired" : "Y"
+        },
+        "127" : {
+          "isRequired" : "Y"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "Y"
+        },
+        "38" : {
+          "isRequired" : "N"
+        },
+        "152" : {
+          "isRequired" : "N"
+        },
+        "32" : {
+          "isRequired" : "N"
+        },
+        "31" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "R" : {
+      "name" : "QuoteRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "131" : {
+          "isRequired" : "Y"
+        }
+      }
+    },
+    "S" : {
+      "name" : "Quote",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "131" : {
+          "isRequired" : "N"
+        },
+        "117" : {
+          "isRequired" : "Y"
+        },
+        "301" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "132" : {
+          "isRequired" : "N"
+        },
+        "133" : {
+          "isRequired" : "N"
+        },
+        "134" : {
+          "isRequired" : "N"
+        },
+        "135" : {
+          "isRequired" : "N"
+        },
+        "62" : {
+          "isRequired" : "N"
+        },
+        "188" : {
+          "isRequired" : "N"
+        },
+        "190" : {
+          "isRequired" : "N"
+        },
+        "189" : {
+          "isRequired" : "N"
+        },
+        "191" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "64" : {
+          "isRequired" : "N"
+        },
+        "40" : {
+          "isRequired" : "N"
+        },
+        "193" : {
+          "isRequired" : "N"
+        },
+        "192" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "T" : {
+      "name" : "SettlementInstructions",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "162" : {
+          "isRequired" : "Y"
+        },
+        "163" : {
+          "isRequired" : "Y"
+        },
+        "214" : {
+          "isRequired" : "Y"
+        },
+        "160" : {
+          "isRequired" : "Y"
+        },
+        "165" : {
+          "isRequired" : "Y"
+        },
+        "79" : {
+          "isRequired" : "Y"
+        },
+        "166" : {
+          "isRequired" : "N"
+        },
+        "75" : {
+          "isRequired" : "N"
+        },
+        "70" : {
+          "isRequired" : "N"
+        },
+        "30" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "168" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "Y"
+        },
+        "109" : {
+          "isRequired" : "N"
+        },
+        "76" : {
+          "isRequired" : "N"
+        },
+        "169" : {
+          "isRequired" : "N"
+        },
+        "170" : {
+          "isRequired" : "N"
+        },
+        "171" : {
+          "isRequired" : "N"
+        },
+        "172" : {
+          "isRequired" : "N"
+        },
+        "173" : {
+          "isRequired" : "N"
+        },
+        "174" : {
+          "isRequired" : "N"
+        },
+        "175" : {
+          "isRequired" : "N"
+        },
+        "176" : {
+          "isRequired" : "N"
+        },
+        "177" : {
+          "isRequired" : "N"
+        },
+        "178" : {
+          "isRequired" : "N"
+        },
+        "179" : {
+          "isRequired" : "N"
+        },
+        "180" : {
+          "isRequired" : "N"
+        },
+        "181" : {
+          "isRequired" : "N"
+        },
+        "182" : {
+          "isRequired" : "N"
+        },
+        "183" : {
+          "isRequired" : "N"
+        },
+        "184" : {
+          "isRequired" : "N"
+        },
+        "185" : {
+          "isRequired" : "N"
+        },
+        "186" : {
+          "isRequired" : "N"
+        },
+        "187" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "V" : {
+      "name" : "MarketDataRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "262" : {
+          "isRequired" : "Y"
+        },
+        "263" : {
+          "isRequired" : "Y"
+        },
+        "264" : {
+          "isRequired" : "Y"
+        },
+        "265" : {
+          "isRequired" : "N"
+        },
+        "266" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "W" : {
+      "name" : "MarketDataSnapshotFullRefresh",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "262" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "291" : {
+          "isRequired" : "N"
+        },
+        "292" : {
+          "isRequired" : "N"
+        },
+        "387" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "X" : {
+      "name" : "MarketDataIncrementalRefresh",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "262" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "Y" : {
+      "name" : "MarketDataRequestReject",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "262" : {
+          "isRequired" : "Y"
+        },
+        "281" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "Z" : {
+      "name" : "QuoteCancel",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "131" : {
+          "isRequired" : "N"
+        },
+        "117" : {
+          "isRequired" : "Y"
+        },
+        "298" : {
+          "isRequired" : "Y"
+        },
+        "301" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "a" : {
+      "name" : "QuoteStatusRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "117" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "54" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "b" : {
+      "name" : "QuoteAcknowledgement",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "131" : {
+          "isRequired" : "N"
+        },
+        "117" : {
+          "isRequired" : "N"
+        },
+        "297" : {
+          "isRequired" : "Y"
+        },
+        "300" : {
+          "isRequired" : "N"
+        },
+        "301" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "c" : {
+      "name" : "SecurityDefinitionRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "320" : {
+          "isRequired" : "Y"
+        },
+        "321" : {
+          "isRequired" : "Y"
+        },
+        "55" : {
+          "isRequired" : "N"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "d" : {
+      "name" : "SecurityDefinition",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "320" : {
+          "isRequired" : "Y"
+        },
+        "322" : {
+          "isRequired" : "Y"
+        },
+        "323" : {
+          "isRequired" : "N"
+        },
+        "393" : {
+          "isRequired" : "Y"
+        },
+        "55" : {
+          "isRequired" : "N"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "e" : {
+      "name" : "SecurityStatusRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "324" : {
+          "isRequired" : "Y"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "263" : {
+          "isRequired" : "Y"
+        },
+        "336" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "f" : {
+      "name" : "SecurityStatus",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "324" : {
+          "isRequired" : "N"
+        },
+        "55" : {
+          "isRequired" : "Y"
+        },
+        "65" : {
+          "isRequired" : "N"
+        },
+        "48" : {
+          "isRequired" : "N"
+        },
+        "22" : {
+          "isRequired" : "N"
+        },
+        "167" : {
+          "isRequired" : "N"
+        },
+        "200" : {
+          "isRequired" : "N"
+        },
+        "205" : {
+          "isRequired" : "N"
+        },
+        "201" : {
+          "isRequired" : "N"
+        },
+        "202" : {
+          "isRequired" : "N"
+        },
+        "206" : {
+          "isRequired" : "N"
+        },
+        "231" : {
+          "isRequired" : "N"
+        },
+        "223" : {
+          "isRequired" : "N"
+        },
+        "207" : {
+          "isRequired" : "N"
+        },
+        "106" : {
+          "isRequired" : "N"
+        },
+        "348" : {
+          "isRequired" : "N"
+        },
+        "349" : {
+          "isRequired" : "N"
+        },
+        "107" : {
+          "isRequired" : "N"
+        },
+        "350" : {
+          "isRequired" : "N"
+        },
+        "351" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "N"
+        },
+        "325" : {
+          "isRequired" : "N"
+        },
+        "326" : {
+          "isRequired" : "N"
+        },
+        "291" : {
+          "isRequired" : "N"
+        },
+        "292" : {
+          "isRequired" : "N"
+        },
+        "327" : {
+          "isRequired" : "N"
+        },
+        "328" : {
+          "isRequired" : "N"
+        },
+        "329" : {
+          "isRequired" : "N"
+        },
+        "330" : {
+          "isRequired" : "N"
+        },
+        "331" : {
+          "isRequired" : "N"
+        },
+        "332" : {
+          "isRequired" : "N"
+        },
+        "333" : {
+          "isRequired" : "N"
+        },
+        "31" : {
+          "isRequired" : "N"
+        },
+        "60" : {
+          "isRequired" : "N"
+        },
+        "334" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "g" : {
+      "name" : "TradingSessionStatusRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "335" : {
+          "isRequired" : "Y"
+        },
+        "336" : {
+          "isRequired" : "N"
+        },
+        "338" : {
+          "isRequired" : "N"
+        },
+        "339" : {
+          "isRequired" : "N"
+        },
+        "263" : {
+          "isRequired" : "Y"
+        }
+      }
+    },
+    "h" : {
+      "name" : "TradingSessionStatus",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "335" : {
+          "isRequired" : "N"
+        },
+        "336" : {
+          "isRequired" : "Y"
+        },
+        "338" : {
+          "isRequired" : "N"
+        },
+        "339" : {
+          "isRequired" : "N"
+        },
+        "325" : {
+          "isRequired" : "N"
+        },
+        "340" : {
+          "isRequired" : "Y"
+        },
+        "341" : {
+          "isRequired" : "N"
+        },
+        "342" : {
+          "isRequired" : "N"
+        },
+        "343" : {
+          "isRequired" : "N"
+        },
+        "344" : {
+          "isRequired" : "N"
+        },
+        "345" : {
+          "isRequired" : "N"
+        },
+        "387" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "i" : {
+      "name" : "MassQuote",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "131" : {
+          "isRequired" : "N"
+        },
+        "117" : {
+          "isRequired" : "Y"
+        },
+        "301" : {
+          "isRequired" : "N"
+        },
+        "293" : {
+          "isRequired" : "N"
+        },
+        "294" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "j" : {
+      "name" : "BusinessMessageReject",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "45" : {
+          "isRequired" : "N"
+        },
+        "372" : {
+          "isRequired" : "Y"
+        },
+        "379" : {
+          "isRequired" : "N"
+        },
+        "380" : {
+          "isRequired" : "Y"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "k" : {
+      "name" : "BidRequest",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "390" : {
+          "isRequired" : "N"
+        },
+        "391" : {
+          "isRequired" : "Y"
+        },
+        "374" : {
+          "isRequired" : "Y"
+        },
+        "392" : {
+          "isRequired" : "N"
+        },
+        "393" : {
+          "isRequired" : "Y"
+        },
+        "394" : {
+          "isRequired" : "Y"
+        },
+        "395" : {
+          "isRequired" : "N"
+        },
+        "15" : {
+          "isRequired" : "N"
+        },
+        "396" : {
+          "isRequired" : "N"
+        },
+        "397" : {
+          "isRequired" : "N"
+        },
+        "409" : {
+          "isRequired" : "N"
+        },
+        "410" : {
+          "isRequired" : "N"
+        },
+        "411" : {
+          "isRequired" : "N"
+        },
+        "412" : {
+          "isRequired" : "N"
+        },
+        "413" : {
+          "isRequired" : "N"
+        },
+        "414" : {
+          "isRequired" : "N"
+        },
+        "415" : {
+          "isRequired" : "N"
+        },
+        "416" : {
+          "isRequired" : "N"
+        },
+        "121" : {
+          "isRequired" : "N"
+        },
+        "417" : {
+          "isRequired" : "N"
+        },
+        "75" : {
+          "isRequired" : "N"
+        },
+        "418" : {
+          "isRequired" : "Y"
+        },
+        "419" : {
+          "isRequired" : "Y"
+        },
+        "443" : {
+          "isRequired" : "N"
+        },
+        "58" : {
+          "isRequired" : "N"
+        },
+        "354" : {
+          "isRequired" : "N"
+        },
+        "355" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "l" : {
+      "name" : "BidResponse",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "390" : {
+          "isRequired" : "N"
+        },
+        "391" : {
+          "isRequired" : "N"
+        }
+      }
+    },
+    "m" : {
+      "name" : "ListStrikePrice",
+      "category" : "app",
+      "type" : "Message",
+      "description" : "",
+      "members" : {
+        "66" : {
+          "isRequired" : "Y"
+        },
+        "422" : {
+          "isRequired" : "Y"
+        }
+      }
+    }
+  }
+}
