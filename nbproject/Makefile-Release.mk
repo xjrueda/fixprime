@@ -41,12 +41,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/FixDictionary.o \
 	${OBJECTDIR}/src/FixLoader.o \
 	${OBJECTDIR}/src/FixParser.o \
-	${OBJECTDIR}/src/Hypersonic.o \
 	${OBJECTDIR}/src/IntDataHolder.o \
 	${OBJECTDIR}/src/Message.o \
 	${OBJECTDIR}/src/Node.o \
 	${OBJECTDIR}/src/Protocol.o \
 	${OBJECTDIR}/src/StringDataHolder.o \
+	${OBJECTDIR}/src/Thorium.o \
 	${OBJECTDIR}/src/UIntDataHolder.o \
 	${OBJECTDIR}/src/Value.o \
 	${OBJECTDIR}/src/jsoncpp.o
@@ -115,11 +115,6 @@ ${OBJECTDIR}/src/FixParser.o: src/FixParser.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O3 -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixParser.o src/FixParser.cpp
 
-${OBJECTDIR}/src/Hypersonic.o: src/Hypersonic.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Hypersonic.o src/Hypersonic.cpp
-
 ${OBJECTDIR}/src/IntDataHolder.o: src/IntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
@@ -144,6 +139,11 @@ ${OBJECTDIR}/src/StringDataHolder.o: src/StringDataHolder.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O3 -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/StringDataHolder.o src/StringDataHolder.cpp
+
+${OBJECTDIR}/src/Thorium.o: src/Thorium.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O3 -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Thorium.o src/Thorium.cpp
 
 ${OBJECTDIR}/src/UIntDataHolder.o: src/UIntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -308,19 +308,6 @@ ${OBJECTDIR}/src/FixParser_nomain.o: ${OBJECTDIR}/src/FixParser.o src/FixParser.
 	    ${CP} ${OBJECTDIR}/src/FixParser.o ${OBJECTDIR}/src/FixParser_nomain.o;\
 	fi
 
-${OBJECTDIR}/src/Hypersonic_nomain.o: ${OBJECTDIR}/src/Hypersonic.o src/Hypersonic.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/src/Hypersonic.o`; \
-	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
-	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
-	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
-	then  \
-	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -O3 -I. -I. -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Hypersonic_nomain.o src/Hypersonic.cpp;\
-	else  \
-	    ${CP} ${OBJECTDIR}/src/Hypersonic.o ${OBJECTDIR}/src/Hypersonic_nomain.o;\
-	fi
-
 ${OBJECTDIR}/src/IntDataHolder_nomain.o: ${OBJECTDIR}/src/IntDataHolder.o src/IntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	@NMOUTPUT=`${NM} ${OBJECTDIR}/src/IntDataHolder.o`; \
@@ -384,6 +371,19 @@ ${OBJECTDIR}/src/StringDataHolder_nomain.o: ${OBJECTDIR}/src/StringDataHolder.o 
 	    $(COMPILE.cc) -O3 -I. -I. -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/StringDataHolder_nomain.o src/StringDataHolder.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/StringDataHolder.o ${OBJECTDIR}/src/StringDataHolder_nomain.o;\
+	fi
+
+${OBJECTDIR}/src/Thorium_nomain.o: ${OBJECTDIR}/src/Thorium.o src/Thorium.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/src/Thorium.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O3 -I. -I. -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Thorium_nomain.o src/Thorium.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/src/Thorium.o ${OBJECTDIR}/src/Thorium_nomain.o;\
 	fi
 
 ${OBJECTDIR}/src/UIntDataHolder_nomain.o: ${OBJECTDIR}/src/UIntDataHolder.o src/UIntDataHolder.cpp 

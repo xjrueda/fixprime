@@ -36,12 +36,12 @@
       <itemPath>src/FixDictionary.cpp</itemPath>
       <itemPath>src/FixLoader.cpp</itemPath>
       <itemPath>src/FixParser.cpp</itemPath>
-      <itemPath>src/Hypersonic.cpp</itemPath>
       <itemPath>src/IntDataHolder.cpp</itemPath>
       <itemPath>src/Message.cpp</itemPath>
       <itemPath>src/Node.cpp</itemPath>
       <itemPath>src/Protocol.cpp</itemPath>
       <itemPath>src/StringDataHolder.cpp</itemPath>
+      <itemPath>src/Thorium.cpp</itemPath>
       <itemPath>src/UIntDataHolder.cpp</itemPath>
       <itemPath>src/Value.cpp</itemPath>
       <itemPath>src/jsoncpp.cpp</itemPath>
@@ -243,8 +243,6 @@
       </item>
       <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/Hypersonic.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/IntDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Message.cpp" ex="false" tool="1" flavor2="0">
@@ -254,6 +252,8 @@
       <item path="src/Protocol.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/StringDataHolder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Thorium.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/UIntDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -449,8 +449,6 @@
       </item>
       <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/Hypersonic.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/IntDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Message.cpp" ex="false" tool="1" flavor2="0">
@@ -460,6 +458,8 @@
       <item path="src/Protocol.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/StringDataHolder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Thorium.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/UIntDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>
