@@ -191,7 +191,7 @@ namespace hfe {
         try {
             if (!val.empty()) {
                 if (!s.empty())
-                    s += '\n';
+                    s += '\001';
                 s = s + boost::lexical_cast<string>(fieldId) + string("=") + boost::lexical_cast<string>(val);
             }
         } catch (exception& e) {

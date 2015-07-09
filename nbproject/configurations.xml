@@ -89,6 +89,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>FixSpecifications/FIX44.json</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -119,6 +120,8 @@
           <output>${TESTDIR}/TestFiles/f3</output>
         </linkerTool>
       </compileType>
+      <item path="FixSpecifications/FIX44.json" ex="false" tool="3" flavor2="0">
+      </item>
       <folder path="TestFiles/f1">
         <cTool>
           <commandLine>`cppunit-config --cflags`</commandLine>
@@ -324,6 +327,8 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="FixSpecifications/FIX44.json" ex="false" tool="3" flavor2="0">
+      </item>
       <folder path="TestFiles/f1">
         <cTool>
           <commandLine>`cppunit-config --cflags`</commandLine>
