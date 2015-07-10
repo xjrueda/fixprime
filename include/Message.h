@@ -12,7 +12,7 @@
 
 using namespace std;
 
-namespace hfe {
+namespace fprime {
 
     class Message {
     public:
@@ -25,17 +25,17 @@ namespace hfe {
             SESSION
         };
         
-        hfe::Node header;
-        hfe::Node body;
-        hfe::Node trailer;
+        fprime::Node header;
+        fprime::Node body;
+        fprime::Node trailer;
         
-        hfe::Node& getHeader();
-        hfe::Node& getBody();
-        hfe::Node& getTrailer();
+        fprime::Node& getHeader();
+        fprime::Node& getBody();
+        fprime::Node& getTrailer();
 
-        void setHeader(hfe::Node);
-        void setBody(hfe::Node);
-        void setTrailer(hfe::Node);
+        void setHeader(fprime::Node);
+        void setBody(fprime::Node);
+        void setTrailer(fprime::Node);
         string toFix();
     private:
 //        FIXDF::Node header;

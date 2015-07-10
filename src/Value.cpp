@@ -8,7 +8,7 @@
 #include "Value.h"
 
 
-namespace hfe {
+namespace fprime {
 
     Value::Value() {
     }

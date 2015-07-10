@@ -10,9 +10,9 @@
 
 #include "DataHolder.h"
 
-namespace hfe {
+namespace fprime {
 
-    class StringDataHolder : public hfe::DataHolder {
+    class StringDataHolder : public fprime::DataHolder {
     public:
         StringDataHolder();
         StringDataHolder(const StringDataHolder& orig);

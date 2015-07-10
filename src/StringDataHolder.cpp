@@ -7,7 +7,7 @@
 
 #include "StringDataHolder.h"
 
-namespace hfe {
+namespace fprime {
 
     StringDataHolder::StringDataHolder() {
     }

@@ -10,7 +10,7 @@
 
 #include "DataHolder.h"
 
-namespace hfe {
+namespace fprime {
 
     class UIntDataHolder: public DataHolder {
     public:

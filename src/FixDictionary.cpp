@@ -7,7 +7,7 @@
 
 #include "FixDictionary.h"
 
-namespace hfe {
+namespace fprime {
 
     FixDictionary::FixDictionary() {
     }
@@ -32,7 +32,7 @@ namespace hfe {
                     throw std::runtime_error("Protocol " +  *itr + " could not be load");
                 } else {
                     try {
-                    hfe::Protocol::ProtocolPtr protocol(new hfe::Protocol); 
+                    fprime::Protocol::ProtocolPtr protocol(new fprime::Protocol); 
                     protocol->setSpecification(protocolSpec);
                     protocol->setVersion(*itr);
                     protocols[*itr] = protocol;
@@ -48,8 +48,8 @@ namespace hfe {
         } 
     }
     
-    hfe::Protocol::ProtocolPtr FixDictionary::getProtocol(string version) {
-        map<string,hfe::Protocol::ProtocolPtr>::iterator search;
+    fprime::Protocol::ProtocolPtr FixDictionary::getProtocol(string version) {
+        map<string,fprime::Protocol::ProtocolPtr>::iterator search;
         search = protocols.find(version);
         if (search != protocols.end())
             return search->second;

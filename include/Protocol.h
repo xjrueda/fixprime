@@ -22,32 +22,32 @@
 
 using namespace std;
 
-namespace hfe {
+namespace fprime {
     class Protocol {
     public:
         typedef shared_ptr<Protocol> ProtocolPtr;
         Protocol();
         virtual ~Protocol();
-        void addField(hfe::Field::FieldPtr);
-        void addComponent(hfe::Component::ComponentPtr);
-        hfe::Field::FieldPtr getField(unsigned int);
+        void addField(fprime::Field::FieldPtr);
+        void addComponent(fprime::Component::ComponentPtr);
+        fprime::Field::FieldPtr getField(unsigned int);
         void load();
 
         void setVersion(const string);
         void setSpecification(Json::Value);
         string getVersion();
-        hfe::Message getMessage(string);
-        hfe::Component::ComponentPtr getComponent(string);
+        fprime::Message getMessage(string);
+        fprime::Component::ComponentPtr getComponent(string);
         Json::Value& getSpecification();
-        void populateNode(hfe::Node&, Json::Value, bool);
+        void populateNode(fprime::Node&, Json::Value, bool);
     private:
         string version;
         Json::Value protocolSpec;
         ProtocolPtr protocolPtr;
-        map<unsigned int, hfe::Field::FieldPtr > fields;
+        map<unsigned int, fprime::Field::FieldPtr > fields;
         map<string,string> dataTypes;
-        map<const string, hfe::Message> messages;
-        map<string,hfe::Component::ComponentPtr> components; 
+        map<const string, fprime::Message> messages;
+        map<string,fprime::Component::ComponentPtr> components; 
         void loadFields();
         void loadComponents();
         void loadMessages();

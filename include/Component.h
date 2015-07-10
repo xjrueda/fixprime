@@ -16,25 +16,25 @@
 #include "Field.h"
 
 using namespace std;
-namespace hfe {
+namespace fprime {
 
     class Component {
     public:
         struct FieldT {
-            hfe::Field::FieldPtr field;
+            fprime::Field::FieldPtr field;
             bool isRequired;
         };
-        typedef shared_ptr<hfe::Component> ComponentPtr;
+        typedef shared_ptr<fprime::Component> ComponentPtr;
         Component(string);
         Component(const Component& orig);
         virtual ~Component();
         
-        void addField(hfe::Component::FieldT);
-        void addNestedComponent(hfe::Component::ComponentPtr);
-        vector<hfe::Component::FieldT> getFields();
-        vector<hfe::Component::ComponentPtr> getNestedComponents();
-        void setControlField(hfe::Field::FieldPtr);
-        hfe::Field::FieldPtr getControlField();
+        void addField(fprime::Component::FieldT);
+        void addNestedComponent(fprime::Component::ComponentPtr);
+        vector<fprime::Component::FieldT> getFields();
+        vector<fprime::Component::ComponentPtr> getNestedComponents();
+        void setControlField(fprime::Field::FieldPtr);
+        fprime::Field::FieldPtr getControlField();
         void setType(string);
         string getType();
         void removeFields();
@@ -42,9 +42,9 @@ namespace hfe {
         string getName();
         
     private:
-        vector<hfe::Component::FieldT> fields;
-        vector<hfe::Component::ComponentPtr> nestedComponents;
-        hfe::Field::FieldPtr controlField;
+        vector<fprime::Component::FieldT> fields;
+        vector<fprime::Component::ComponentPtr> nestedComponents;
+        fprime::Field::FieldPtr controlField;
         string name;
         string _type;
     };

@@ -15,16 +15,16 @@
 #include <map>
 #include <string>
 
-namespace hfe {
+namespace fprime {
     class FixDictionary {
     public:
         typedef shared_ptr<FixDictionary> FixDictionaryPtr;
         FixDictionary();
         virtual ~FixDictionary();
         void loadProtocols(string);
-        hfe::Protocol::ProtocolPtr getProtocol(string);
+        fprime::Protocol::ProtocolPtr getProtocol(string);
     private:
-        map<string,hfe::Protocol::ProtocolPtr> protocols;
+        map<string,fprime::Protocol::ProtocolPtr> protocols;
         void loadFields(Json::Value);
     };
 }

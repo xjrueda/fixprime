@@ -8,7 +8,7 @@
 #include "IntDataHolder.h"
 
 
-namespace hfe {
+namespace fprime {
 
     IntDataHolder::IntDataHolder() {
     }

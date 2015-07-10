@@ -7,7 +7,7 @@
 
 #include "Message.h"
 
-namespace hfe {
+namespace fprime {
 
     Message::Message() {
     }
@@ -21,27 +21,27 @@ namespace hfe {
     Message::~Message() {
     }
 
-    hfe::Node& Message::getHeader() {
+    fprime::Node& Message::getHeader() {
         return header;
     }
 
-    hfe::Node& Message::getBody() {
+    fprime::Node& Message::getBody() {
         return body;
     }
 
-    hfe::Node& Message::getTrailer() {
+    fprime::Node& Message::getTrailer() {
         return trailer;
     };
 
-    void Message::setHeader(hfe::Node _header) {
+    void Message::setHeader(fprime::Node _header) {
         header = _header;
     }
 
-    void Message::setBody(hfe::Node _body) {
+    void Message::setBody(fprime::Node _body) {
         body = _body;
     }
 
-    void Message::setTrailer(hfe::Node _trailer) {
+    void Message::setTrailer(fprime::Node _trailer) {
         trailer = _trailer;
     }
     

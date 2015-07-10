@@ -15,11 +15,11 @@
 
 using namespace std;
 
-namespace hfe {
+namespace fprime {
     class Component;
     class Field {
     public:
-        typedef std::shared_ptr<hfe::Field> FieldPtr;
+        typedef std::shared_ptr<fprime::Field> FieldPtr;
         enum FieldDataType {
             Amt,
             Boolean,

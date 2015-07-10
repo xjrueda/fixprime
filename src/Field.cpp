@@ -14,13 +14,13 @@
 
 using namespace std;
 
-namespace hfe {
+namespace fprime {
 
     //    Field::Field() {
     //    }
 
     Field::Field(unsigned int id) {
-        if (id != NULL)
+        if (id)
             _id = id;
         else
             throw std::runtime_error("at Field.Constructor attribute could not be empty.");
@@ -30,7 +30,7 @@ namespace hfe {
     }
 
     void Field::setId(unsigned int id) {
-        if (id != NULL)
+        if (id)
             _id = id;
         else
             throw std::runtime_error("at Field.setId: Id attribute could not be empty.");
@@ -52,7 +52,7 @@ namespace hfe {
     }
 
     unsigned int Field::getId() {
-        if (_id != NULL)
+        if (_id)
             return _id;
         else
             throw std::runtime_error("at Field.getId: Id attribute is empty.");

@@ -8,7 +8,7 @@
 #include "Protocol.h"
 #include "Component.h"
 
-namespace hfe {
+namespace fprime {
 
     Protocol::Protocol() {
     }
@@ -16,15 +16,15 @@ namespace hfe {
     Protocol::~Protocol() {
     }
 
-    void Protocol::addField(hfe::Field::FieldPtr field) {
+    void Protocol::addField(fprime::Field::FieldPtr field) {
         fields[field->getId()] = field;
     }
 
-    void Protocol::addComponent(hfe::Component::ComponentPtr component) {
+    void Protocol::addComponent(fprime::Component::ComponentPtr component) {
         components[component->getName()] = component;
     }
 
-    hfe::Component::ComponentPtr Protocol::getComponent(string compName) {
+    fprime::Component::ComponentPtr Protocol::getComponent(string compName) {
         auto search = components.find(compName);
         if (search == components.end())
             throw ComponentNotFound(compName);
@@ -32,8 +32,8 @@ namespace hfe {
             return search->second;
     }
 
-    hfe::Field::FieldPtr Protocol::getField(unsigned int id) {
-        map<unsigned int, hfe::Field::FieldPtr >::iterator search;
+    fprime::Field::FieldPtr Protocol::getField(unsigned int id) {
+        map<unsigned int, fprime::Field::FieldPtr >::iterator search;
         search = fields.find(id);
         if (search != fields.end())
             return search->second;
@@ -63,7 +63,7 @@ namespace hfe {
                 // process the fields
                 for (std::vector<string>::iterator itr = fieldCodes.begin(); itr != fieldCodes.end(); itr++) {
                     try {
-                        hfe::Field::FieldPtr field(new hfe::Field(boost::lexical_cast<unsigned int>(*itr)));
+                        fprime::Field::FieldPtr field(new fprime::Field(boost::lexical_cast<unsigned int>(*itr)));
                         // completes the field properties
                         field->setName(protocolSpec["Fields"][*itr]["name"].asString());
                         field->setDataType(protocolSpec["Fields"][*itr]["dataType"].asString());
@@ -97,7 +97,7 @@ namespace hfe {
                 throw std::runtime_error("No components specified for current  protocol ");
             } else {
 
-                vector<pair < hfe::Component::ComponentPtr, string>> componentDependencies;
+                vector<pair < fprime::Component::ComponentPtr, string>> componentDependencies;
                 std::vector<string> names = protocolSpec["Components"].getMemberNames();
                 // Process the components
                 for (std::vector<string>::iterator itr = names.begin(); itr != names.end(); itr++) {
@@ -109,12 +109,12 @@ namespace hfe {
 
                     string componentName = string(*itr);
                     // Creates the component pointer
-                    hfe::Component::ComponentPtr component(new Component(componentName));
+                    fprime::Component::ComponentPtr component(new Component(componentName));
 
                     if (componentType == "BlockRepeating") {
                         try {
                             unsigned int controlfld = boost::lexical_cast<unsigned int>(componentSpec["controlField"].asString());
-                            hfe::Field::FieldPtr fieldPtr = this->getField(controlfld);
+                            fprime::Field::FieldPtr fieldPtr = this->getField(controlfld);
                             component->setControlField(fieldPtr);
                             component->setType(componentType);
                         } catch (boost::bad_lexical_cast& e) {
@@ -139,10 +139,10 @@ namespace hfe {
                         if (fld["isComponent"] == "Y") {
                             //Nested components
                             try {
-                                hfe::Component::ComponentPtr nestedComponent = this->getComponent(*memberItr);
+                                fprime::Component::ComponentPtr nestedComponent = this->getComponent(*memberItr);
                                 component->addNestedComponent(nestedComponent);
                             } catch (ComponentNotFound& e) {
-                                pair<hfe::Component::ComponentPtr, string> depedency(component, *memberItr);
+                                pair<fprime::Component::ComponentPtr, string> depedency(component, *memberItr);
                                 componentDependencies.push_back(depedency);
                             }
                         } else {
@@ -154,7 +154,7 @@ namespace hfe {
                                 throw runtime_error("at Protocol.LoadComponents: Loading component " + string(*itr) + ", " + string(*memberItr) + " is not a valid field id.");
                             }
                             //gets the field pointer from current protocol
-                            hfe::Component::FieldT fieldt;
+                            fprime::Component::FieldT fieldt;
                             fieldt.field = this->getField(field);
 
                             if (fieldt.field->getDataType() == "NumInGroup") {
@@ -177,10 +177,10 @@ namespace hfe {
 
                     this->addComponent(component);
                 }
-                std::vector<pair < hfe::Component::ComponentPtr, string>>::iterator depItr;
+                std::vector<pair < fprime::Component::ComponentPtr, string>>::iterator depItr;
                 // Stablishes all missing component dependencies
                 for (depItr = componentDependencies.begin(); depItr != componentDependencies.end(); depItr++) {
-                    hfe::Component::ComponentPtr dependent = depItr->first;
+                    fprime::Component::ComponentPtr dependent = depItr->first;
                     try {
                         dependent->addNestedComponent(this->getComponent(depItr->second));
                     } catch (ComponentNotFound& e) {
@@ -201,8 +201,8 @@ namespace hfe {
                 // gets the header and trailer specifications
                 Json::Value headerSpec = protocolSpec["Components"]["StandardHeader"];
                 Json::Value trailerSpec = protocolSpec["Components"]["StandardTrailer"];
-                hfe::Node header(hfe::Node::ROOT_NODE);
-                hfe::Node trailer(hfe::Node::ROOT_NODE);
+                fprime::Node header(fprime::Node::ROOT_NODE);
+                fprime::Node trailer(fprime::Node::ROOT_NODE);
                 try {
                     populateNode(header, headerSpec, true);
                 } catch (exception& e) {
@@ -219,9 +219,9 @@ namespace hfe {
                 // process the message list
                 for (std::vector<string>::iterator itr = messageList.begin(); itr != messageList.end(); itr++) {
                     try {
-                        hfe::Message message(*itr);
+                        fprime::Message message(*itr);
                         Json::Value bodySpec = protocolSpec["Messages"][*itr];
-                        hfe::Node body(hfe::Node::ROOT_NODE);
+                        fprime::Node body(fprime::Node::ROOT_NODE);
                         populateNode(body, bodySpec, true);
 
                         message.setHeader(header);
@@ -250,8 +250,8 @@ namespace hfe {
         protocolSpec = protSpec;
     }
 
-    hfe::Message Protocol::getMessage(string msgId) {
-        map<const string, hfe::Message>::iterator search;
+    fprime::Message Protocol::getMessage(string msgId) {
+        map<const string, fprime::Message>::iterator search;
         search = messages.find(msgId);
         if (search != messages.end())
             return search->second;
@@ -264,23 +264,23 @@ namespace hfe {
         return protocolSpec;
     }
 
-    void Protocol::populateNode(hfe::Node& node, Json::Value nodeSpec, bool requiredFlag) {
+    void Protocol::populateNode(fprime::Node& node, Json::Value nodeSpec, bool requiredFlag) {
         try {
             node.setProtocol(this);
             Json::Value members = nodeSpec["members"];
             std::vector<string> memberList = members.getMemberNames();
             for (std::vector<string>::iterator itr = memberList.begin(); itr != memberList.end(); itr++) {
                 try {
-                    hfe::Node child;
-                    hfe::Field::FieldPtr fieldPtr;
+                    fprime::Node child;
+                    fprime::Field::FieldPtr fieldPtr;
                     child.setProtocol(this);
                     if (members[*itr]["isComponent"] == "Y") {
-                        hfe::Component::ComponentPtr componentPtr = this->getComponent(string(*itr));
+                        fprime::Component::ComponentPtr componentPtr = this->getComponent(string(*itr));
                         if (componentPtr == nullptr)
                             throw std::runtime_error("Component :" + string(*itr) + " did not found.");
                         if (componentPtr->getType() == "BlockRepeating") {
                             try {
-                                child.setType(hfe::Node::REPEATING_GROUP);
+                                child.setType(fprime::Node::REPEATING_GROUP);
                                 fieldPtr = componentPtr->getControlField();
                                 if (fieldPtr == nullptr)
                                     throw std::runtime_error("control field for Component :" + string(*itr) + " did not found.");
@@ -305,7 +305,7 @@ namespace hfe {
                                     " is of type NumInGroup and cannot be assigned directly to components or messages. add the corresponding component.";
                             throw std::runtime_error(msg.str());
                         }
-                        child.setType(hfe::Node::FIELD_NODE);
+                        child.setType(fprime::Node::FIELD_NODE);
 
                         if (members[*itr]["isRequired"] == "Y")
                             child.setRequired(true);

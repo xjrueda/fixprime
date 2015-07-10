@@ -10,7 +10,7 @@
 
 #include "Component.h"
 
-namespace hfe {
+namespace fprime {
 
     Component::Component(string compName): name(compName) {
     }
@@ -21,18 +21,18 @@ namespace hfe {
     Component::~Component() {
     }
     
-    void Component::addField(hfe::Component::FieldT field) {
+    void Component::addField(fprime::Component::FieldT field) {
         fields.push_back(field);
     }
     
-    void Component::addNestedComponent(hfe::Component::ComponentPtr componentPtr) {
+    void Component::addNestedComponent(fprime::Component::ComponentPtr componentPtr) {
         nestedComponents.push_back(componentPtr);
     }
-    void Component::setControlField(hfe::Field::FieldPtr ctrlField) {
+    void Component::setControlField(fprime::Field::FieldPtr ctrlField) {
         controlField = ctrlField;
     }
     
-    hfe::Field::FieldPtr Component::getControlField() {
+    fprime::Field::FieldPtr Component::getControlField() {
         if (controlField != nullptr)
             return controlField;
         else
@@ -43,11 +43,11 @@ namespace hfe {
         fields.clear();
     }
     
-    vector<hfe::Component::FieldT> Component::getFields() {
+    vector<fprime::Component::FieldT> Component::getFields() {
         return  fields;
     }
     
-    vector<hfe::Component::ComponentPtr> Component::getNestedComponents() {
+    vector<fprime::Component::ComponentPtr> Component::getNestedComponents() {
         return nestedComponents;
     }
     

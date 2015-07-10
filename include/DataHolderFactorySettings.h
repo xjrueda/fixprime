@@ -12,7 +12,7 @@
 #include <string>
 using namespace std;
 
-namespace hfe {
+namespace fprime {
 
     enum DataTypeList {
         INVALIDDATATYPE,

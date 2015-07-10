@@ -13,7 +13,7 @@
 
 using namespace std;
 
-namespace hfe {
+namespace fprime {
 
     class InvalidNodeNesting : public exception {
     public:

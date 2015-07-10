@@ -9,7 +9,7 @@
 #include "Protocol.h"
 #include "Component.h"
 
-namespace hfe {
+namespace fprime {
 
     Node::Node() : position(0) {
     }
@@ -36,7 +36,7 @@ namespace hfe {
 
     // Getters
 
-    hfe::Field::FieldPtr Node::getField() {
+    fprime::Field::FieldPtr Node::getField() {
         if (field == nullptr)
             throw runtime_error("No field setted for the node");
         return field;
@@ -59,11 +59,11 @@ namespace hfe {
         _type = nodeType;
     }
 
-    void Node::setField(hfe::Field::FieldPtr fld) {
+    void Node::setField(fprime::Field::FieldPtr fld) {
         try {
             if (fld == nullptr)
                 throw runtime_error("Invalid field assigment to node.");
-            hfe::DataHolderFactory factory;
+            fprime::DataHolderFactory factory;
             value = factory.create(fld->getDataType());
 
             if (_type == GROUP_INSTANCE) {
@@ -93,34 +93,34 @@ namespace hfe {
         isRequired = reqFlag;
     }
 
-    void Node::setProtocol(hfe::Protocol* prot) {
+    void Node::setProtocol(fprime::Protocol* prot) {
         protocolPtr = prot;
     }
 
-    void Node::setComponent(hfe::Component::ComponentPtr compPtr) {
+    void Node::setComponent(fprime::Component::ComponentPtr compPtr) {
         componentPtr = compPtr;
     }
 
     //    //Group operations
 
-    void Node::appendChild(hfe::Node node) {
+    void Node::appendChild(fprime::Node node) {
         if (!nestingRule(_type, node.getType())) {
             throw InvalidNodeNesting(decodeNodeType(_type), decodeNodeType(node.getType()));
         }
         position++;
         
-        if (node.getType() == hfe::Node::GROUP_INSTANCE) {          
+        if (node.getType() == fprime::Node::GROUP_INSTANCE) {          
             unsigned int instanceId = (this->childsByFieldId.size()) + 1;
             this->childsByFieldId[instanceId] = node;
         }
         
-        if ((node.getType() == hfe::Node::REPEATING_GROUP) || (node.getType() == hfe::Node::FIELD_NODE))
+        if ((node.getType() == fprime::Node::REPEATING_GROUP) || (node.getType() == fprime::Node::FIELD_NODE))
             this->childsByFieldId[node.field->getId()] = node;
 
 //        this->childsByPosition[position] = node;
     }
 
-    hfe::Node& Node::appendGroupInstance() {
+    fprime::Node& Node::appendGroupInstance() {
         if (_type != Node::NodeType::REPEATING_GROUP) {
             throw std::runtime_error("appendGroupInstance is only allowed for BlockRepeating.");
         } else {
@@ -131,7 +131,7 @@ namespace hfe {
     }
     //operators
 
-    hfe::Node& Node::operator()(unsigned int fieldId) {
+    fprime::Node& Node::operator()(unsigned int fieldId) {
         if (_type == Node::NodeType::REPEATING_GROUP) {
             throw runtime_error("The operator () is not available for repeating groups. Use []");
         }
@@ -147,7 +147,7 @@ namespace hfe {
 
     }
 
-    hfe::Node& Node::operator[](unsigned int instanceIndex) {
+    fprime::Node& Node::operator[](unsigned int instanceIndex) {
         if (_type != Node::NodeType::REPEATING_GROUP) {
             throw runtime_error("The operator[] is only available for repeating groups.");
         }
@@ -261,26 +261,26 @@ namespace hfe {
         return typeStr;
     }
 
-    void Node::resolveComponent(hfe::Component::ComponentPtr componentPtr) {
+    void Node::resolveComponent(fprime::Component::ComponentPtr componentPtr) {
         // process fields
-        vector<hfe::Component::FieldT> fields = componentPtr->getFields();
-        vector<hfe::Component::FieldT>::iterator iter;
+        vector<fprime::Component::FieldT> fields = componentPtr->getFields();
+        vector<fprime::Component::FieldT>::iterator iter;
         for (iter = fields.begin(); iter < fields.end(); iter++) {
-            hfe::Component::FieldT fieldt = *iter;
+            fprime::Component::FieldT fieldt = *iter;
             string fieldType = fieldt.field->getDataType();
-            hfe::Node child;
+            fprime::Node child;
             if (fieldType == "NumInGroup") {
                 cout << "Repeating field NumInGroup " << fieldt.field->getId() << endl;
-                child.setType(hfe::Node::REPEATING_GROUP);
+                child.setType(fprime::Node::REPEATING_GROUP);
                 if (this->componentPtr == nullptr)
                     throw runtime_error("at Node.resolveComponent: Component for repeating group " + fieldt.field->getName() + " was not found.");
                 else {
-                    hfe::Field::FieldPtr ctrlFieldPtr = this->componentPtr->getControlField();
+                    fprime::Field::FieldPtr ctrlFieldPtr = this->componentPtr->getControlField();
                     child.setField(ctrlFieldPtr);
                 }
                 //                cout << "Repeating control field resolved " << child.getField()->getId() << endl;
             } else {
-                child.setType(hfe::Node::FIELD_NODE);
+                child.setType(fprime::Node::FIELD_NODE);
                 child.setField(fieldt.field);
             };
 
@@ -292,10 +292,10 @@ namespace hfe {
 
         // process components
 
-        vector<hfe::Component::ComponentPtr> nestedComponents = componentPtr->getNestedComponents();
-        vector<hfe::Component::ComponentPtr>::iterator cmpIter;
+        vector<fprime::Component::ComponentPtr> nestedComponents = componentPtr->getNestedComponents();
+        vector<fprime::Component::ComponentPtr>::iterator cmpIter;
         for (cmpIter = nestedComponents.begin(); cmpIter < nestedComponents.end(); cmpIter++) {
-            hfe::Component::ComponentPtr nestedComponent = *cmpIter;
+            fprime::Component::ComponentPtr nestedComponent = *cmpIter;
             resolveComponent(nestedComponent);
         }
 

@@ -23,7 +23,7 @@
 using namespace std;
 
 
-namespace hfe {
+namespace fprime {
     class Protocol;
     class Node {
     public:
@@ -34,14 +34,14 @@ namespace hfe {
             REPEATING_GROUP,
             GROUP_INSTANCE
         };
-        typedef map<unsigned int, hfe::Node> NodeMap;
+        typedef map<unsigned int, fprime::Node> NodeMap;
         Node();
         Node(NodeType);
         Node(const Node& other);
         virtual ~Node();
 
         // Getters
-        hfe::Field::FieldPtr getField();
+        fprime::Field::FieldPtr getField();
         string getValue();
         NodeType getType();
 
@@ -49,31 +49,31 @@ namespace hfe {
         void setType(NodeType);
 
 
-        void setField(hfe::Field::FieldPtr);
+        void setField(fprime::Field::FieldPtr);
         void setValue(string);
         void setRequired(bool);
-        void setProtocol(hfe::Protocol*);
-        void setComponent(hfe::Component::ComponentPtr);
+        void setProtocol(fprime::Protocol*);
+        void setComponent(fprime::Component::ComponentPtr);
 
         //Group operations
-        void appendChild(hfe::Node);
-        hfe::Node& appendGroupInstance();
-        void resolveComponent(hfe::Component::ComponentPtr);
+        void appendChild(fprime::Node);
+        fprime::Node& appendGroupInstance();
+        void resolveComponent(fprime::Component::ComponentPtr);
         //operators
 
-        hfe::Node& operator()(unsigned int);
-        hfe::Node& operator[](unsigned int);
+        fprime::Node& operator()(unsigned int);
+        fprime::Node& operator[](unsigned int);
 
         // Utilities
 
         void stringify(string& outputString);
     private:
         NodeType _type;
-        hfe::DataHolder::DataTypePtr value;
+        fprime::DataHolder::DataTypePtr value;
         unsigned int position;
         bool isRequired;
 
-        hfe::Field::FieldPtr field;
+        fprime::Field::FieldPtr field;
 //        NodeMap childsByPosition;
         NodeMap childsByFieldId;
 
@@ -84,8 +84,8 @@ namespace hfe {
         string decodeNodeType(NodeType);
         Json::Value nodeSpec;
         Json::Value components;
-        hfe::Protocol* protocolPtr;
-        hfe::Component::ComponentPtr componentPtr;
+        fprime::Protocol* protocolPtr;
+        fprime::Component::ComponentPtr componentPtr;
         
     };
 }

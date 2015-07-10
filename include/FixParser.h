@@ -22,7 +22,7 @@
 #include <boost/lexical_cast.hpp>
 
 using namespace std;
-namespace hfe {
+namespace fprime {
 
     class FixParser {
     public:
@@ -58,23 +58,23 @@ namespace hfe {
                     throw runtime_error("at SerializedMessage.getMsgType: message type not specified.");
             }
         };
-        void setProtocol(hfe::Protocol::ProtocolPtr);
+        void setProtocol(fprime::Protocol::ProtocolPtr);
         void setSeparator(char);
 
 
-        hfe::FixParser::FlatMessage explode(const string str);
+        fprime::FixParser::FlatMessage explode(const string str);
         std::uint8_t checkSum(string msg);
 
-        hfe::Message parseMessage(hfe::FixParser::FlatMessage);
+        fprime::Message parseMessage(fprime::FixParser::FlatMessage);
 
     private:
-        hfe::Protocol::ProtocolPtr protocolPtr;
+        fprime::Protocol::ProtocolPtr protocolPtr;
 
 
 
         char separator;
 
-        bool parseLevel(OrderedMap, unsigned int&, hfe::Node&, unsigned int, bool);
+        bool parseLevel(OrderedMap, unsigned int&, fprime::Node&, unsigned int, bool);
     };
 }
 #endif	/* FIXPARSER_H */

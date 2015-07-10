@@ -14,14 +14,14 @@
 #include "UIntDataHolder.h"
 #include "StringDataHolder.h"
 
-namespace hfe {
+namespace fprime {
 
     class DataHolderFactory {
     public:
         DataHolderFactory();
         DataHolderFactory(const DataHolderFactory& orig);
         virtual ~DataHolderFactory();
-        hfe::DataHolder::DataTypePtr create(string);
+        fprime::DataHolder::DataTypePtr create(string);
     private:
         DataTypesMap DataTypes;
     };

@@ -8,7 +8,7 @@
 #include "UIntDataHolder.h"
 
 
-namespace hfe {
+namespace fprime {
 
     UIntDataHolder::UIntDataHolder() {
     }

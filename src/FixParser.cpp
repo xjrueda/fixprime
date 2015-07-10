@@ -8,7 +8,7 @@
 #include "FixParser.h"
 
 
-namespace hfe {
+namespace fprime {
 
     FixParser::FixParser() {
         separator = '\001';
@@ -20,14 +20,14 @@ namespace hfe {
     FixParser::~FixParser() {
     }
 
-    void FixParser::setProtocol(hfe::Protocol::ProtocolPtr protPtr) {
+    void FixParser::setProtocol(fprime::Protocol::ProtocolPtr protPtr) {
         protocolPtr = protPtr;
     }
     void FixParser::setSeparator(char sepChar) {
         separator = sepChar;
     }
     
-    bool FixParser::parseLevel(OrderedMap map, unsigned int& position, hfe::Node& node, unsigned int groupBeginning, bool isGroupInstance) {
+    bool FixParser::parseLevel(OrderedMap map, unsigned int& position, fprime::Node& node, unsigned int groupBeginning, bool isGroupInstance) {
         int instanceCounter = 0;
         for (OrderedMap::iterator it = map.find(position); it != map.end(); std::advance(it, position - (std::distance(map.begin(), it)))) {
             position++;
@@ -42,12 +42,12 @@ namespace hfe {
                 }
             }
             switch (node(it->second.field).getType()) {
-                case hfe::Node::FIELD_NODE:
+                case fprime::Node::FIELD_NODE:
                 {
                     node(it->second.field).setValue(it->second.value);
                     break;
                 }
-                case hfe::Node::REPEATING_GROUP:
+                case fprime::Node::REPEATING_GROUP:
                 {
                     int value = boost::lexical_cast<unsigned int>(it->second.value);
                     node(it->second.field).setValue(it->second.value);
@@ -68,8 +68,8 @@ namespace hfe {
         }
     }
 
-    hfe::Message FixParser::parseMessage(hfe::FixParser::FlatMessage message) {
-        hfe::Message fixMessage = protocolPtr->getMessage(message.getMsgType());
+    fprime::Message FixParser::parseMessage(fprime::FixParser::FlatMessage message) {
+        fprime::Message fixMessage = protocolPtr->getMessage(message.getMsgType());
         unsigned int position = 0;
         bool result = false;
         result = parseLevel(message.orderedMap, position, fixMessage.header, 0, false);
@@ -78,9 +78,9 @@ namespace hfe {
         return fixMessage;
     }
 
-    hfe::FixParser::FlatMessage FixParser::explode(const string str) {
+    fprime::FixParser::FlatMessage FixParser::explode(const string str) {
         string next;
-        hfe::FixParser::FlatMessage result;
+        fprime::FixParser::FlatMessage result;
         unsigned int position = 0;
 
         // For each character in the string

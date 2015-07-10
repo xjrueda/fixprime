@@ -7,10 +7,10 @@
 
 #include "DataHolderFactory.h"
 
-namespace hfe {
+namespace fprime {
 
     DataHolderFactory::DataHolderFactory() {
-        hfe::DataHolderFactory::DataTypes.initialize();
+        fprime::DataHolderFactory::DataTypes.initialize();
     }
 
     DataHolderFactory::DataHolderFactory(const DataHolderFactory& orig) {
@@ -19,10 +19,10 @@ namespace hfe {
     DataHolderFactory::~DataHolderFactory() {
     }
 
-    hfe::DataHolder::DataTypePtr DataHolderFactory::create(string dataTypeId) {
+    fprime::DataHolder::DataTypePtr DataHolderFactory::create(string dataTypeId) {
         try {
-            hfe::DataHolder::DataTypePtr MyDataType;
-            hfe::DataTypeList selectedDataType = hfe::DataHolderFactory::DataTypes.DataTypes[dataTypeId];
+            fprime::DataHolder::DataTypePtr MyDataType;
+            fprime::DataTypeList selectedDataType = fprime::DataHolderFactory::DataTypes.DataTypes[dataTypeId];
 
             if (selectedDataType != 0) {
                 switch (selectedDataType) {
