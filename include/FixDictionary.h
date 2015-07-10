@@ -11,7 +11,7 @@
 #include "Protocol.h"
 #include "FixDictionaryExceptions.h"
 #include "FixLoader.h"
-#include <json/json.h>
+#include "jsoncpp.h"
 #include <map>
 #include <string>
 

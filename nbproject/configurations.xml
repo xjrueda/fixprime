@@ -22,6 +22,7 @@
       <itemPath>include/StringDataHolder.h</itemPath>
       <itemPath>include/UIntDataHolder.h</itemPath>
       <itemPath>include/Value.h</itemPath>
+      <itemPath>include/jsoncpp.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -81,13 +82,11 @@
             <pElem>/usr/local/include</pElem>
             <pElem>include</pElem>
             <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>include</pElem>
-            <pElem>.</pElem>
           </incDir>
+          <commandLine>-O3</commandLine>
         </ccTool>
         <linkerTool>
-          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fixPrime</output>
+          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libFixPrime.${CND_DLIB_EXT}</output>
           <linkerLibItems>
             <linkerLibLibItem>boost_system</linkerLibLibItem>
           </linkerLibItems>
@@ -146,6 +145,8 @@
       <item path="include/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Value.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/jsoncpp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -279,6 +280,8 @@
       <item path="include/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Value.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/jsoncpp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>
