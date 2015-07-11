@@ -69,81 +69,81 @@ LDLIBSOPTIONS=`cppunit-config --libs` -lcunit `cppunit-config --libs` `cppunit-c
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${TESTDIR}/TestFiles/f5
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${TESTDIR}/TestFiles/f1
 
-${TESTDIR}/TestFiles/f5: ${OBJECTFILES}
+${TESTDIR}/TestFiles/f1: ${OBJECTFILES}
 	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.cc} -o ${TESTDIR}/TestFiles/f5 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${TESTDIR}/TestFiles/f1 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/src/Component.o: src/Component.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Component.o src/Component.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Component.o src/Component.cpp
 
 ${OBJECTDIR}/src/DataHolderFactory.o: src/DataHolderFactory.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DataHolderFactory.o src/DataHolderFactory.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DataHolderFactory.o src/DataHolderFactory.cpp
 
 ${OBJECTDIR}/src/Field.o: src/Field.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Field.o src/Field.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Field.o src/Field.cpp
 
 ${OBJECTDIR}/src/FixDictionary.o: src/FixDictionary.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixDictionary.o src/FixDictionary.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixDictionary.o src/FixDictionary.cpp
 
 ${OBJECTDIR}/src/FixLoader.o: src/FixLoader.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixLoader.o src/FixLoader.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixLoader.o src/FixLoader.cpp
 
 ${OBJECTDIR}/src/FixParser.o: src/FixParser.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixParser.o src/FixParser.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixParser.o src/FixParser.cpp
 
 ${OBJECTDIR}/src/IntDataHolder.o: src/IntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/IntDataHolder.o src/IntDataHolder.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/IntDataHolder.o src/IntDataHolder.cpp
 
 ${OBJECTDIR}/src/Message.o: src/Message.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Message.o src/Message.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Message.o src/Message.cpp
 
 ${OBJECTDIR}/src/Node.o: src/Node.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Node.o src/Node.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Node.o src/Node.cpp
 
 ${OBJECTDIR}/src/Protocol.o: src/Protocol.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Protocol.o src/Protocol.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Protocol.o src/Protocol.cpp
 
 ${OBJECTDIR}/src/StringDataHolder.o: src/StringDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/StringDataHolder.o src/StringDataHolder.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/StringDataHolder.o src/StringDataHolder.cpp
 
 ${OBJECTDIR}/src/UIntDataHolder.o: src/UIntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/UIntDataHolder.o src/UIntDataHolder.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/UIntDataHolder.o src/UIntDataHolder.cpp
 
 ${OBJECTDIR}/src/Value.o: src/Value.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Value.o src/Value.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Value.o src/Value.cpp
 
 ${OBJECTDIR}/src/jsoncpp.o: src/jsoncpp.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/jsoncpp.o src/jsoncpp.cpp
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/jsoncpp.o src/jsoncpp.cpp
 
 # Subprojects
 .build-subprojects:
@@ -151,7 +151,7 @@ ${OBJECTDIR}/src/jsoncpp.o: src/jsoncpp.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${TESTDIR}/TestFiles/f5
+	${RM} ${TESTDIR}/TestFiles/f1
 
 # Subprojects
 .clean-subprojects:
