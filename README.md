@@ -78,8 +78,108 @@ int main(int argc, char** argv) {
         cout << "An exception has ocurred loading fix protocols: " << e.what() << endl;
     }
 ```
+### Producing messages
 
-
+``` c++  
+#include "FixDictionary.h"
+using namespace std;
+using namespace fprime;
+int main(int argc, char** argv) {
+    try {
+        FixDictionary::FixDictionaryPtr fixDictionaryPtr(new FixDictionary);
+        fixDictionaryPtr->loadProtocols("yourpath/FixPrime/FixSpecifications/FixVersions.json");
+        Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
+        cout << "Protocols loaded sucessfully." << endl;
+      
+        //Get the desired message specifications
+        Message logon = protocolPtr->getMessage("A");
+      
+        // Set the message values
+        logon.getHeader()(8).setValue("FIX.4.4");
+        logon.getHeader()(49).setValue("ANYSENDER");
+        logon.getHeader()(56).setValue("ANYTARGET");
+        logon.getBody()(553).setValue("myUserName");
+        logon.getBody()(554).setValue("myPassword");
+        
+        // Serialize the message
+        cout << "Logon message in fix format is:  " << logon.toFix() << endl;
+        return 0;
+    } catch (const exception& e) {
+        cout << "An exception has ocurred loading fix protocols: " << e.what() << endl;
+    }
+}
+```
+### Populating repeating groups
+``` c++  
+#include "FixDictionary.h"
+using namespace std;
+using namespace fprime;
+int main(int argc, char** argv) {
+    try {
+        FixDictionary::FixDictionaryPtr fixDictionaryPtr(new FixDictionary);
+        fixDictionaryPtr->loadProtocols("yourpath/FixPrime/FixSpecifications/FixVersions.json");
+        Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
+        cout << "Protocols loaded sucessfully." << endl;
+      
+        //Get the desired message specifications
+        Message logon = protocolPtr->getMessage("A");
+      
+        // Set the message values
+        newOrderSingle.getHeader()(8).setValue("FIX.4.4");
+        newOrderSingle.getHeader()(49).setValue("ANYSENDER");
+        newOrderSingle.getHeader()(56).setValue("ANYTARGET");
+        newOrderSingle.getBody()(453).setValue("1");
+        newOrderSingle.getBody()(453).appendGroupInstance();
+        newOrderSingle.getBody()(453)[1](448).setValue("EXEFIRM00001");
+        newOrderSingle.getBody()(453)[1](447).setValue("C");
+        newOrderSingle.getBody()(453)[1](452).setValue("1");
+        newOrderSingle.getBody()(453).appendGroupInstance();
+        newOrderSingle.getBody()(453)[2](448).setValue("ENTERINFIRM01");
+        newOrderSingle.getBody()(453)[2](447).setValue("C");
+        newOrderSingle.getBody()(453)[2](452).setValue("7");
+        
+        
+        // Serialize the message
+        cout << "New Order message in fix format is:  " << newOrderSingle.toFix() << endl;
+        return 0;
+    } catch (const exception& e) {
+        cout << "An exception has ocurred loading fix protocols: " << e.what() << endl;
+    }
+}
+```
+### Parsing raw messages
+``` c++  
+#include "FixParser.h"
+#include "Message.h"
+#include "Protocol.h"
+#include "FixDictionary.h"
+using namespace std;
+using namespace fprime;
+int main(int argc, char** argv) {
+    try {
+        FixDictionary::FixDictionaryPtr fixDictionaryPtr(new FixDictionary);
+        fixDictionaryPtr->loadProtocols("yourpath/FixPrime/FixSpecifications/FixVersions.json");
+        Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
+        string rawMessage = string("8=FIX.4.49=10335=A34=149=SENDER50=123X05") +
+                            string("52=20150612-17:13:07.77856=TARGET98=0108=10141=Y") +
+                            string("553=myuser554=mypwd10=189");
+        // Instanciate the parser        
+        FixParser parser;
+        //assign the de desired protocol to the parser
+        parser.setProtocol(protocolPtr);
+        // fast parsing. It is just a tag=value map.
+        FixParser::FlatMessage flatMessage = parser.explode(rawMessage);
+        //complete message parsin. Retuns a Message Object of the coresponding fix message type
+        Message fixmsg = parser.parseMessage(flatMessage);
+        // get message values
+        string msgType = fixmsg.getHeader()(35).getValue();
+        cout << "Message type is " << msgType << endl;
+        return 0;
+    } catch (const exception& e) {
+        cout << "An exception has ocurred loading fix protocols: " << e.what() << endl;
+    }
+}
+```
 
 [Boost libraries]:http://www.boost.org
 [Jsoncpp]:https://github.com/open-source-parsers/jsoncpp
