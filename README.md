@@ -4,13 +4,13 @@ FixPrime is a project (still under development), whose scope is to provide a ver
 ###Currently available features in test:
  - Full customization of the specification of all fix protocol versions.
  - Message parser.
- - Message serializator.
+ - Message serializer.
  - Unlimited Nesting of repeating groups.
 
 ###Complete set of features planned in the project scope:
   - Full protocols customization.
   - Message parser.
-  - Message serializator.
+  - Message serializer.
   - Customization of callback for Fix protocol events.
   - Automatic message sequencing.
   - Automatic session layer interaction.
@@ -29,7 +29,6 @@ Download and install the boost libraries following the [boost libraries]'s site 
 
 ###Quick Start using Fix Prime
 Download and install the boost libraries following the [boost libraries]'s site instructions.
-Even though the project uses jsoncpp, you don't need to do anything about it, because the project has included the amalgamated version of jsoncpp source code.
 
 Clone the project in your system.
 ``` sh
@@ -39,7 +38,7 @@ Build the project using the MakeFile included.
 ```sh
 make
 ```
-copy the library into your local lib folder. Replace 'yourpath' for the propper path in your system.
+copy the library into your local lib folder. Replace 'yourpath' for the appropiate path in your system.
 ```sh
 sudo cp yourpath/fixprime/dist/Debug/GNU-Linux-x86/libsFixPrime.so /usr/local/lib
 ```
@@ -52,30 +51,30 @@ int main(int argc, char** argv) {
     try {
         /* 
          * Instantiate  the fix dictionary.
-         * You can uses a pointer to the dictionary and load all protocol 
+         * You can use a shared pointer to the dictionary and load all protocol 
          * specifications only once in order to be used  in all application 
          * contexts.
          * 
-         * Other opcion is instantiate directly a instance of the dictionary 
+         * Other option is instantiate directly a instance of the dictionary 
          * like this:
          *  
          * FixDictionary myFixDictionary;
          */
         FixDictionary::FixDictionaryPtr fixDictionaryPtr(new FixDictionary);
         /*
-         * Load the procolos defined on the folder FixSpecifications.
+         * Load the protocols defined on the folder FixSpecifications.
          * The file FixVersion contains the path for every fix protocol specification
-         * Replace yourpath for your propper path in your operating system
+         * Replace yourpath for your path in your operating system
          */
         fixDictionaryPtr->loadProtocols("yourpath/FixPrime/FixSpecifications/FixVersions.json");
         /*
          * Use the desired protocol version
          */
         Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
-        cout << "Protocols loaded sucessfully." << endl;
+        cout << "Protocols loaded successfully." << endl;
         return 0;
     } catch (const exception& e) {
-        cout << "An exception has ocurred loading fix protocols: " << e.what() << endl;
+        cout << "An exception was raised loading fix protocols: " << e.what() << endl;
     }
 ```
 ### Producing messages
@@ -105,7 +104,7 @@ int main(int argc, char** argv) {
         cout << "Logon message in fix format is:  " << logon.toFix() << endl;
         return 0;
     } catch (const exception& e) {
-        cout << "An exception has ocurred loading fix protocols: " << e.what() << endl;
+        cout << "An exception was raised loading fix protocols: " << e.what() << endl;
     }
 }
 ```
@@ -119,7 +118,7 @@ int main(int argc, char** argv) {
         FixDictionary::FixDictionaryPtr fixDictionaryPtr(new FixDictionary);
         fixDictionaryPtr->loadProtocols("yourpath/FixPrime/FixSpecifications/FixVersions.json");
         Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
-        cout << "Protocols loaded sucessfully." << endl;
+        cout << "Protocols loaded successfully." << endl;
       
         //Get the desired message specifications
         Message logon = protocolPtr->getMessage("A");
@@ -143,7 +142,7 @@ int main(int argc, char** argv) {
         cout << "New Order message in fix format is:  " << newOrderSingle.toFix() << endl;
         return 0;
     } catch (const exception& e) {
-        cout << "An exception has ocurred loading fix protocols: " << e.what() << endl;
+        cout << "An exception was raised loading fix protocols: " << e.what() << endl;
     }
 }
 ```
@@ -176,7 +175,7 @@ int main(int argc, char** argv) {
         cout << "Message type is " << msgType << endl;
         return 0;
     } catch (const exception& e) {
-        cout << "An exception has ocurred loading fix protocols: " << e.what() << endl;
+        cout << "An exception was raised loading fix protocols: " << e.what() << endl;
     }
 }
 ```
