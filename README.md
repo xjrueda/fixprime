@@ -169,7 +169,7 @@ int main(int argc, char** argv) {
         parser.setProtocol(protocolPtr);
         // fast parsing. It is just a tag=value map.
         FixParser::FlatMessage flatMessage = parser.explode(rawMessage);
-        //complete message parsin. Retuns a Message Object of the coresponding fix message type
+        //Complete message parsing. Returns a Message Object of the corresponding fix message type
         Message fixmsg = parser.parseMessage(flatMessage);
         // get message values
         string msgType = fixmsg.getHeader()(35).getValue();
@@ -180,6 +180,9 @@ int main(int argc, char** argv) {
     }
 }
 ```
+
+New Features will be released soon.
+
 
 [Boost libraries]:http://www.boost.org
 [Jsoncpp]:https://github.com/open-source-parsers/jsoncpp
