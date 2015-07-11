@@ -8,7 +8,7 @@ FixPrime is a project (still under development), whose scope is to provide a ver
  - Unlimited Nesting of repeating groups.
 
 ###Complete set of features planned in the project scope:
-  - Full customization of the specification of all fix protocol versions.
+  - Full protocols customization.
   - Message parser.
   - Message serializator.
   - Customization of callback for Fix protocol events.
