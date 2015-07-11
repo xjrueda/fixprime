@@ -28,7 +28,22 @@ Download and install the boost libraries following the [boost libraries]'s site 
 [Jsoncpp] - Even though the project uses jsoncpp, you don't need to do anything about it, because the project has included the amalgamated version of jsoncpp source code.
 
 ###Quick Start using Fix Prime
+Download and install the boost libraries following the [boost libraries]'s site instructions.
+Even though the project uses jsoncpp, you don't need to do anything about it, because the project has included the amalgamated version of jsoncpp source code.
 
+Clone the project in your system.
+``` sh
+git clone https://github.com/xjrueda/fixprime.git
+```
+Build the project using the MakeFile included.
+```sh
+make
+```
+copy the library into your local lib folder. Replace 'yourpath' for the propper path in your system.
+```sh
+sudo cp yourpath/fixprime/dist/Debug/GNU-Linux-x86/libsFixPrime.so /usr/local/lib
+```
+Start using the library.  Create a new project and link it with the libsFixPrime.so library
 ``` c++  
 #include "FixDictionary.h"
 using namespace std;
@@ -66,5 +81,5 @@ int main(int argc, char** argv) {
 
 
 
-[boost libraries]:http://www.boost.org
+[Boost libraries]:http://www.boost.org
 [Jsoncpp]:https://github.com/open-source-parsers/jsoncpp
