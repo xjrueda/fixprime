@@ -73,6 +73,11 @@
             <pElem>.</pElem>
             <pElem>.</pElem>
             <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
           </incDir>
           <commandLine>`cppunit-config --cflags`</commandLine>
         </cTool>
@@ -82,39 +87,21 @@
           <incDir>
             <pElem>/usr/local/include</pElem>
             <pElem>include</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
           </incDir>
           <commandLine>-O3</commandLine>
         </ccTool>
         <linkerTool>
-          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsFixPrime.${CND_DLIB_EXT}</output>
+          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libFixPrime.${CND_DLIB_EXT}</output>
           <linkerLibItems>
             <linkerLibLibItem>boost_system</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <folder path="TestFiles/f1">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <output>${TESTDIR}/TestFiles/f1</output>
-        </linkerTool>
-      </folder>
       <item path="include/Component.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/DataHolder.h" ex="false" tool="3" flavor2="0">
@@ -199,6 +186,11 @@
             <pElem>.</pElem>
             <pElem>.</pElem>
             <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
           </incDir>
           <commandLine>`cppunit-config --cflags`</commandLine>
         </cTool>
@@ -207,6 +199,11 @@
           <architecture>2</architecture>
           <standard>8</standard>
           <incDir>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
             <pElem>.</pElem>
             <pElem>.</pElem>
             <pElem>.</pElem>
@@ -237,29 +234,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <folder path="TestFiles/f1">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <output>${TESTDIR}/TestFiles/f1</output>
-        </linkerTool>
-      </folder>
       <item path="include/Component.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/DataHolder.h" ex="false" tool="3" flavor2="0">

@@ -60,6 +60,8 @@ namespace fprime {
         struct FlatMessage {
             OrderedMap orderedMap;
             TagsMap tagsMap;
+            unsigned int bodylength = 0;
+            unsigned int checkSum = 0;
 
             string getProtocol() {
                 TagsMap::iterator search = tagsMap.find(8);

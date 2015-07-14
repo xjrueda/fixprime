@@ -23,10 +23,11 @@ namespace fprime {
     void FixParser::setProtocol(fprime::Protocol::ProtocolPtr protPtr) {
         protocolPtr = protPtr;
     }
+
     void FixParser::setSeparator(char sepChar) {
         separator = sepChar;
     }
-    
+
     bool FixParser::parseLevel(OrderedMap map, unsigned int& position, fprime::Node& node, unsigned int groupBeginning, bool isGroupInstance) {
         int instanceCounter = 0;
         for (OrderedMap::iterator it = map.find(position); it != map.end(); std::advance(it, position - (std::distance(map.begin(), it)))) {
@@ -82,7 +83,8 @@ namespace fprime {
         string next;
         fprime::FixParser::FlatMessage result;
         unsigned int position = 0;
-
+        unsigned int bodyLength = 0;
+        bool inBody = false;
         // For each character in the string
         for (string::const_iterator it = str.begin(); it != str.end(); it++) {
             // If we've hit the terminal character
@@ -98,6 +100,15 @@ namespace fprime {
                         FixPair fixPair;
                         fixPair.field = atoi(fieldTag.c_str());
                         fixPair.value = fieldValue;
+                        
+                        if (fixPair.field == 35 && !inBody)
+                            inBody = true;
+                        if (fixPair.field == 10 && inBody)
+                            inBody = false;
+                        
+                        if (inBody) {
+                            bodyLength += string(fieldTag.c_str()).size() +  fixPair.value.size() + 2;
+                        }
                         result.orderedMap.insert(pair<unsigned int, FixPair>(position, fixPair));
                         result.tagsMap.insert(pair<unsigned int, string>(atoi(fieldTag.c_str()), fieldValue));
                         next.clear();
@@ -110,6 +121,8 @@ namespace fprime {
                 next += *it;
             }
         }
+        result.bodylength = bodyLength;
+        result.checkSum = checkSum(str);
         return result;
     }
 
@@ -121,7 +134,6 @@ namespace fprime {
         if (endPos == string::npos)
             throw runtime_error("at FixParser.checkSum: Checksum field did not found");
         string _msg = msg.substr(startPos, msg.size() - (msg.size() - endPos));
-        printf("startpos %d endpos %d", startPos, endPos);
         uint8_t cs = std::accumulate(_msg.begin(), _msg.end(), static_cast<std::uint8_t> (0));
         return cs % 256;
     }

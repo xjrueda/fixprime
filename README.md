@@ -25,6 +25,8 @@ FixPrime is a project (still under development), whose scope is to provide a ver
 [boost libraries] - Release 1.58.0
 Download and install the boost libraries following the [boost libraries]'s site instructions.
 
+GNU Compiler for c++ version 4.7.2 or above
+
 [Jsoncpp] - Even though the project uses jsoncpp, you don't need to do anything about it, because the project has included the amalgamated version of jsoncpp source code.
 
 ###Quick Start using Fix Prime
