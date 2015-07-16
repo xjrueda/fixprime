@@ -14,6 +14,7 @@ namespace fprime {
     }
 
     Protocol::~Protocol() {
+//        cout << "Protocol " << version << " released" << endl;
     }
 
     void Protocol::addField(fprime::Field::FieldPtr field) {

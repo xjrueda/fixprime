@@ -4,17 +4,20 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>include/CallbacksManager.h</itemPath>
       <itemPath>include/Component.h</itemPath>
       <itemPath>include/DataHolder.h</itemPath>
       <itemPath>include/DataHolderFactory.h</itemPath>
       <itemPath>include/DataHolderFactorySettings.h</itemPath>
       <itemPath>include/DataTypePolicy.h</itemPath>
+      <itemPath>include/Engine.h</itemPath>
       <itemPath>include/Field.h</itemPath>
       <itemPath>include/FixDictionary.h</itemPath>
       <itemPath>include/FixDictionaryExceptions.h</itemPath>
       <itemPath>include/FixLoader.h</itemPath>
       <itemPath>include/FixParser.h</itemPath>
       <itemPath>include/FixParserExceptions.h</itemPath>
+      <itemPath>include/FixSession.h</itemPath>
       <itemPath>include/IntDataHolder.h</itemPath>
       <itemPath>include/Message.h</itemPath>
       <itemPath>include/Node.h</itemPath>
@@ -31,12 +34,15 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/CallbacksManager.cpp</itemPath>
       <itemPath>src/Component.cpp</itemPath>
       <itemPath>src/DataHolderFactory.cpp</itemPath>
+      <itemPath>src/Engine.cpp</itemPath>
       <itemPath>src/Field.cpp</itemPath>
       <itemPath>src/FixDictionary.cpp</itemPath>
       <itemPath>src/FixLoader.cpp</itemPath>
       <itemPath>src/FixParser.cpp</itemPath>
+      <itemPath>src/FixSession.cpp</itemPath>
       <itemPath>src/IntDataHolder.cpp</itemPath>
       <itemPath>src/Message.cpp</itemPath>
       <itemPath>src/Node.cpp</itemPath>
@@ -102,6 +108,8 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="include/CallbacksManager.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/Component.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/DataHolder.h" ex="false" tool="3" flavor2="0">
@@ -115,6 +123,8 @@
       </item>
       <item path="include/DataTypePolicy.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Engine.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/Field.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/FixDictionary.h" ex="false" tool="3" flavor2="0">
@@ -126,6 +136,8 @@
       <item path="include/FixParser.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/FixSession.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/IntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -143,9 +155,13 @@
       </item>
       <item path="include/jsoncpp.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/CallbacksManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/DataHolderFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Engine.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Field.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -154,6 +170,8 @@
       <item path="src/FixLoader.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FixSession.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/IntDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -234,6 +252,8 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="include/CallbacksManager.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/Component.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/DataHolder.h" ex="false" tool="3" flavor2="0">
@@ -247,6 +267,8 @@
       </item>
       <item path="include/DataTypePolicy.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Engine.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/Field.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/FixDictionary.h" ex="false" tool="3" flavor2="0">
@@ -258,6 +280,8 @@
       <item path="include/FixParser.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/FixSession.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/IntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -275,9 +299,13 @@
       </item>
       <item path="include/jsoncpp.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/CallbacksManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/Component.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/DataHolderFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Engine.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Field.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -286,6 +314,8 @@
       <item path="src/FixLoader.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FixSession.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/IntDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>

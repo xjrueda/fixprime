@@ -5,6 +5,8 @@
  * Created on 9 de junio de 2015, 12:07 PM
  */
 
+#include <mutex>
+
 #include "FixParser.h"
 
 
@@ -100,14 +102,14 @@ namespace fprime {
                         FixPair fixPair;
                         fixPair.field = atoi(fieldTag.c_str());
                         fixPair.value = fieldValue;
-                        
+
                         if (fixPair.field == 35 && !inBody)
                             inBody = true;
                         if (fixPair.field == 10 && inBody)
                             inBody = false;
-                        
+
                         if (inBody) {
-                            bodyLength += string(fieldTag.c_str()).size() +  fixPair.value.size() + 2;
+                            bodyLength += string(fieldTag.c_str()).size() + fixPair.value.size() + 2;
                         }
                         result.orderedMap.insert(pair<unsigned int, FixPair>(position, fixPair));
                         result.tagsMap.insert(pair<unsigned int, string>(atoi(fieldTag.c_str()), fieldValue));

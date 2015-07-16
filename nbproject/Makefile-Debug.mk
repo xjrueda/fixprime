@@ -35,12 +35,15 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/CallbacksManager.o \
 	${OBJECTDIR}/src/Component.o \
 	${OBJECTDIR}/src/DataHolderFactory.o \
+	${OBJECTDIR}/src/Engine.o \
 	${OBJECTDIR}/src/Field.o \
 	${OBJECTDIR}/src/FixDictionary.o \
 	${OBJECTDIR}/src/FixLoader.o \
 	${OBJECTDIR}/src/FixParser.o \
+	${OBJECTDIR}/src/FixSession.o \
 	${OBJECTDIR}/src/IntDataHolder.o \
 	${OBJECTDIR}/src/Message.o \
 	${OBJECTDIR}/src/Node.o \
@@ -75,6 +78,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libFixPrime.${CND_DLIB_EXT}: ${OBJECT
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libFixPrime.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared -fPIC
 
+${OBJECTDIR}/src/CallbacksManager.o: src/CallbacksManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -I. -I. -I. -I. -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/CallbacksManager.o src/CallbacksManager.cpp
+
 ${OBJECTDIR}/src/Component.o: src/Component.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
@@ -84,6 +92,11 @@ ${OBJECTDIR}/src/DataHolderFactory.o: src/DataHolderFactory.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -I. -I. -I. -I. -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DataHolderFactory.o src/DataHolderFactory.cpp
+
+${OBJECTDIR}/src/Engine.o: src/Engine.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -I. -I. -I. -I. -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Engine.o src/Engine.cpp
 
 ${OBJECTDIR}/src/Field.o: src/Field.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -104,6 +117,11 @@ ${OBJECTDIR}/src/FixParser.o: src/FixParser.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -I. -I. -I. -I. -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixParser.o src/FixParser.cpp
+
+${OBJECTDIR}/src/FixSession.o: src/FixSession.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -I. -I. -I. -I. -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixSession.o src/FixSession.cpp
 
 ${OBJECTDIR}/src/IntDataHolder.o: src/IntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

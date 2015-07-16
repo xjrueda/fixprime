@@ -27,6 +27,7 @@ namespace fprime {
     }
 
     Field::~Field() {
+//        cout << "field " << _id << " released" << endl;
     }
 
     void Field::setId(unsigned int id) {
