@@ -2,7 +2,6 @@
 
 #include "FixSession.h"
 
-
 namespace fprime {
 
     FixSession::FixSession() : connected(false), ibpRunning(false) {
@@ -16,8 +15,7 @@ namespace fprime {
     }
 
     void FixSession::inboundProcessor() {
-        if (!connected)
-            throw runtime_error("at FixSession.inboundProcessor : session not connected");
+        setIbRunning(true);
         fprime::FixParser parser;
         parser.setProtocol(protocolPtr);
         parser.setSeparator('\001');
@@ -40,10 +38,11 @@ namespace fprime {
                 callbacksManager->executeCallback(callbackKey, fixMsg, this);
 
             } catch (exception& e) {
-                cout << "at FixSession.inboundProcessor :" << e.what() << endl;
-                cout.flush();
+                setIbRunning(false);
+                //TODO log error
             }
         }
+
     }
 
     void FixSession::setCallbackManager(fprime::CallbacksManager::CallbacksManagerPtr cbMan) {
@@ -54,23 +53,27 @@ namespace fprime {
         protocolPtr = protPtr;
     }
 
-    void FixSession::startInboundProcessor() {
-        mutex lock;
-        lock.lock();
-        ibpRunning = true;
-        lock.unlock();
-
-        // lauch the processor for inbound messages
-        thread t1(bind(&FixSession::inboundProcessor, this));
-        t1.detach();
+    bool FixSession::startInboundProcessor() {
+        try {
+            // launch the processor for inbound messages
+            thread t1(bind(&FixSession::inboundProcessor, this));
+            t1.detach();
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
 
-    void FixSession::stopInboundProcessor() {
-        mutex lock;
-        lock.lock();
-        usleep(1000000);
-        ibpRunning = false;
-        lock.unlock();
+    bool FixSession::stopInboundProcessor() {
+        if (inboundQueue.empty()) {
+            setIbRunning(false);
+            return true;
+        } else
+            return false;
+    }
+    
+    void FixSession::stopAbortProcessor() {
+            setIbRunning(false);
     }
 
     void FixSession::pushInbound(const string msg) {
@@ -81,18 +84,76 @@ namespace fprime {
     }
 
     bool FixSession::connect() {
-        mutex lock;
-        lock.lock();
-        connected = true;
-        lock.unlock();
-        return true;
+        setConnected(true);
     }
 
     bool FixSession::disconnect() {
+        setConnected(false);
+    }
+
+    void FixSession::startAcceptor(boost::asio::io_service& io_service, unsigned short port) {
+        tcp::acceptor a(io_service, tcp::endpoint(tcp::v4(), port));
+        tcp::socket sock(io_service);
+        a.accept(sock);
+        setConnected(true);
+        try {
+            while (connected) {
+                char data[max_length];
+                cout << "receiving" << endl;
+                boost::system::error_code error;
+                size_t length = sock.read_some(boost::asio::buffer(data), error);
+                if (error == boost::asio::error::eof)
+                    break; // Connection closed cleanly by peer.
+                else if (error)
+                    throw boost::system::system_error(error); // Some other error.
+                pushInbound(string(data));
+            }
+            a.close();
+            setConnected(false);
+        } catch (std::exception& e) {
+            setConnected(false);
+            std::cerr << "at FixSession.startAcceptor: " << e.what() << "\n";
+        }
+    }
+
+    void FixSession::start(boost::asio::io_service& io_service, unsigned short port) {
+        if (!startInboundProcessor())
+            throw runtime_error("at FixSession.start : InboundProcessor could not be started.");
+        setSessionRunning(true);
+        startAcceptor(io_service, port);
+    }
+
+    void FixSession::stop() {
+        disconnect();
+        bool emtyqueue = false;
+        while (!emtyqueue) {
+            emtyqueue = stopInboundProcessor();
+            usleep(500000);
+        }    
+    }
+
+
+    // Private methods
+
+    void FixSession::setConnected(bool val) {
         mutex lock;
         lock.lock();
-        connected = false;
+        connected = val;
         lock.unlock();
-        return true;
     }
+
+    void FixSession::setSessionRunning(bool val) {
+        mutex lock;
+        lock.lock();
+        sessionRunning = val;
+        lock.unlock();
+    }
+
+    void FixSession::setIbRunning(bool val) {
+        mutex lock;
+        lock.lock();
+        ibpRunning = val;
+        lock.unlock();
+    }
+
 }

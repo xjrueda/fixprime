@@ -28,6 +28,7 @@
 #ifndef FIXSESSION_H
 #define	FIXSESSION_H
 
+#include <boost/asio.hpp>
 #include "CallbacksManager.h"
 #include "FixParser.h"
 #include "Message.h"
@@ -36,7 +37,12 @@
 #include <thread>
 #include <mutex>
 
+
+using boost::asio::ip::tcp;
+
 namespace fprime {
+
+    const int max_length = 1024;
 
     class FixSession {
     public:
@@ -44,10 +50,12 @@ namespace fprime {
 
         struct RawMessage {
 
-            RawMessage(const string txt) : rawMsg(txt) {}
+            RawMessage(const string txt) : rawMsg(txt) {
+            }
 
-            ~RawMessage(){}
-            
+            ~RawMessage() {
+            }
+
             void setText(const string txt) {
                 rawMsg = txt;
             }
@@ -66,11 +74,17 @@ namespace fprime {
         void inboundProcessor();
         void setCallbackManager(fprime::CallbacksManager::CallbacksManagerPtr);
         void setProtocol(fprime::Protocol::ProtocolPtr);
-        void startInboundProcessor();
-        void stopInboundProcessor();
+        bool startInboundProcessor();
+        bool stopInboundProcessor();
+        void stopAbortProcessor();
         void pushInbound(string rawMsg);
         bool connect();
         bool disconnect();
+        void startAcceptor(boost::asio::io_service&, unsigned short);
+        
+        void start(boost::asio::io_service&, unsigned short);
+        void stop();
+
     private:
         fprime::Protocol::ProtocolPtr protocolPtr;
         queue<fprime::Message> outboundQueue;
@@ -78,10 +92,17 @@ namespace fprime {
         fprime::CallbacksManager::CallbacksManagerPtr callbacksManager;
         bool connected;
         bool ibpRunning;
+        bool sessionRunning;
         condition_variable inboundCondition;
         mutex inboundLock;
         mutex connectionLock;
         mutex runningLock;
+
+        void setConnected(bool);
+        
+        void setSessionRunning(bool);
+        
+        void setIbRunning(bool);
     };
 
 }
