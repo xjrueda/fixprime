@@ -51,7 +51,7 @@ namespace fprime {
         BOOLEAN,
         STRING,
         MULTIPLECHARVALUE,
-        MULTIPLEVALUESTRING,
+        MULTIPLESTRINGVALUE,
         COUNTRY,
         CURRENCY,
         EXCHANGE,
@@ -68,7 +68,8 @@ namespace fprime {
         RESERVED100PLUS,
         RESERVED1000PLUS,
         RESERVED4000PLUS,
-        XMLDATA
+        XMLDATA,
+        LANGUAGE
     };
 
     typedef map<string, DataTypeList> DataTypeListType;
@@ -94,7 +95,7 @@ namespace fprime {
             DataTypes["BOOLEAN"] = BOOLEAN;
             DataTypes["STRING"] = STRING;
             DataTypes["MULTIPLECHARVALUE"] = MULTIPLECHARVALUE;
-            DataTypes["MULTIPLEVALUESTRING"] = MULTIPLEVALUESTRING;
+            DataTypes["MULTIPLESTRINGVALUE"] = MULTIPLESTRINGVALUE;
             DataTypes["COUNTRY"] = COUNTRY;
             DataTypes["CURRENCY"] = CURRENCY;
             DataTypes["EXCHANGE"] = EXCHANGE;
@@ -112,6 +113,7 @@ namespace fprime {
             DataTypes["RESERVED1000PLUS"] = RESERVED1000PLUS;
             DataTypes["RESERVED4000PLUS"] = RESERVED4000PLUS;
             DataTypes["XMLDATA"] = XMLDATA;
+            DataTypes["LANGUAGE"] = LANGUAGE;
         }
     };
 }

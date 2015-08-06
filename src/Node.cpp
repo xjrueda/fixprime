@@ -25,9 +25,9 @@ namespace fprime {
     field(other.field),
     protocolPtr(other.protocolPtr),
     componentPtr(other.componentPtr) {
-        //childsByPosition.insert(other.childsByPosition.begin(), other.childsByPosition.end());
+        //        NodeMap otherMap(other.childsByFieldId);
+        //        childsByFieldId = move(otherMap);
         childsByFieldId.insert(other.childsByFieldId.begin(), other.childsByFieldId.end());
-        //cout << "Copy constructor for node fired" << endl;
     }
 
     Node::~Node() {
@@ -84,8 +84,8 @@ namespace fprime {
     }
 
     void Node::setValue(string val) {
-        //        if (_type == REPEATING_GROUP)
-        //            throw runtime_error("Repeating group values are calculated");
+        if (_type == REPEATING_GROUP)
+            throw runtime_error("Repeating group values are calculated");
         value->set(val);
     }
 
@@ -108,16 +108,16 @@ namespace fprime {
             throw InvalidNodeNesting(decodeNodeType(_type), decodeNodeType(node.getType()));
         }
         position++;
-        
-        if (node.getType() == fprime::Node::GROUP_INSTANCE) {          
+
+        if (node.getType() == fprime::Node::GROUP_INSTANCE) {
             unsigned int instanceId = (this->childsByFieldId.size()) + 1;
             this->childsByFieldId[instanceId] = node;
         }
-        
+
         if ((node.getType() == fprime::Node::REPEATING_GROUP) || (node.getType() == fprime::Node::FIELD_NODE))
             this->childsByFieldId[node.field->getId()] = node;
 
-//        this->childsByPosition[position] = node;
+        //        this->childsByPosition[position] = node;
     }
 
     fprime::Node& Node::appendGroupInstance() {
@@ -127,6 +127,7 @@ namespace fprime {
             Node newInstance(Node::NodeType::GROUP_INSTANCE);
             newInstance.resolveComponent(this->componentPtr);
             this->appendChild(newInstance);
+            this->value->set(boost::lexical_cast<string>(childsByFieldId.size()));
         }
     }
     //operators
@@ -269,20 +270,20 @@ namespace fprime {
             fprime::Component::FieldT fieldt = *iter;
             string fieldType = fieldt.field->getDataType();
             fprime::Node child;
-            if (fieldType == "NumInGroup") {
-                cout << "Repeating field NumInGroup " << fieldt.field->getId() << endl;
-                child.setType(fprime::Node::REPEATING_GROUP);
-                if (this->componentPtr == nullptr)
-                    throw runtime_error("at Node.resolveComponent: Component for repeating group " + fieldt.field->getName() + " was not found.");
-                else {
-                    fprime::Field::FieldPtr ctrlFieldPtr = this->componentPtr->getControlField();
-                    child.setField(ctrlFieldPtr);
-                }
-                //                cout << "Repeating control field resolved " << child.getField()->getId() << endl;
-            } else {
-                child.setType(fprime::Node::FIELD_NODE);
-                child.setField(fieldt.field);
-            };
+//            if (fieldType == "NUMINGROUP") {
+//                child.setType(fprime::Node::REPEATING_GROUP);
+//                if (this->componentPtr == nullptr)
+//                    throw runtime_error("at Node.resolveComponent: Component for repeating group " + fieldt.field->getName() + " was not found.");
+//                else {
+//                    fprime::Field::FieldPtr ctrlFieldPtr = this->componentPtr->getControlField();
+//                    child.setField(ctrlFieldPtr);
+//                }
+//                //                cout << "Repeating control field resolved " << child.getField()->getId() << endl;
+//            } else {
+//
+//            };
+            child.setType(fprime::Node::FIELD_NODE);
+            child.setField(fieldt.field);
 
             child.setRequired(fieldt.isRequired);
             child.setProtocol(protocolPtr);
@@ -296,7 +297,22 @@ namespace fprime {
         vector<fprime::Component::ComponentPtr>::iterator cmpIter;
         for (cmpIter = nestedComponents.begin(); cmpIter < nestedComponents.end(); cmpIter++) {
             fprime::Component::ComponentPtr nestedComponent = *cmpIter;
-            resolveComponent(nestedComponent);
+
+            if (nestedComponent->getType() == "BlockRepeating") {
+
+                fprime::Field::FieldPtr ctrlFieldPtr = nestedComponent->getControlField();
+                fprime::Node child;
+                child.setField(ctrlFieldPtr);
+                child.setType(fprime::Node::REPEATING_GROUP);
+                //TODO Define required
+                child.setRequired(false);
+                child.setProtocol(protocolPtr);
+                child.setComponent(nestedComponent);
+                appendChild(child);
+
+            } else {
+                resolveComponent(nestedComponent);
+            }
         }
 
 

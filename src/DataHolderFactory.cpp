@@ -55,7 +55,7 @@ namespace fprime {
                     case BOOLEAN:
                     case STRING:
                     case MULTIPLECHARVALUE:
-                    case MULTIPLEVALUESTRING:
+                    case MULTIPLESTRINGVALUE:
                     case COUNTRY:
                     case CURRENCY:
                     case EXCHANGE:
@@ -73,6 +73,7 @@ namespace fprime {
                     case RESERVED1000PLUS:
                     case RESERVED4000PLUS:
                     case XMLDATA:
+                    case LANGUAGE:
                     {
                         MyDataType.reset(new StringDataHolder);
                         break;

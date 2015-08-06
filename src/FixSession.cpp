@@ -71,9 +71,9 @@ namespace fprime {
         } else
             return false;
     }
-    
+
     void FixSession::stopAbortProcessor() {
-            setIbRunning(false);
+        setIbRunning(false);
     }
 
     void FixSession::pushInbound(const string msg) {
@@ -102,9 +102,11 @@ namespace fprime {
                 cout << "receiving" << endl;
                 boost::system::error_code error;
                 size_t length = sock.read_some(boost::asio::buffer(data), error);
-                if (error == boost::asio::error::eof)
+
+                if (error == boost::asio::error::eof) {
+                    usleep(5000000);
                     break; // Connection closed cleanly by peer.
-                else if (error)
+                } else if (error)
                     throw boost::system::system_error(error); // Some other error.
                 pushInbound(string(data));
             }
@@ -129,7 +131,7 @@ namespace fprime {
         while (!emtyqueue) {
             emtyqueue = stopInboundProcessor();
             usleep(500000);
-        }    
+        }
     }
 
 

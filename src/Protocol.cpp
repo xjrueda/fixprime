@@ -14,7 +14,7 @@ namespace fprime {
     }
 
     Protocol::~Protocol() {
-//        cout << "Protocol " << version << " released" << endl;
+        //        cout << "Protocol " << version << " released" << endl;
     }
 
     void Protocol::addField(fprime::Field::FieldPtr field) {
@@ -119,40 +119,46 @@ namespace fprime {
                             component->setControlField(fieldPtr);
                             component->setType(componentType);
                         } catch (boost::bad_lexical_cast& e) {
-                            throw runtime_error("at Protocol.LoadComponents: Loading component " + string(*itr) + ", control field " + componentSpec["controlField"].asString() + " is not a valid field id.");
+                            throw runtime_error("Exception loading component " + string(*itr) + ", control field " + componentSpec["controlField"].asString() + " is not a valid field id.");
                         }
 
                     }
 
-                    // Gets the current component's members names
-                    std::vector<string> members = componentSpec["members"].getMemberNames();
-                    // process the members
-                    for (std::vector<string>::iterator memberItr = members.begin(); memberItr != members.end(); memberItr++) {
+                    // Gets the current component's members array
+                    Json::Value members = componentSpec["members"];
+                    if (!members.isArray())
+                        throw runtime_error("at Protocol.LoadComponents: component " + string(*itr) + " does not have a member array.");
 
-                        Json::Value fld = componentSpec["members"][*memberItr];
+
+                    // process the members
+                    for (int i = 0; i < members.size(); i++) {
+
+                        Json::Value fld = members[i];
 
                         if (fld.empty())
                             throw runtime_error("Empty member was specified for component " + string(*itr));
 
-                        if (string(*memberItr).empty())
-                            throw runtime_error("Empty member id was specified for component " + string(*itr));
+                        if (fld["memberId"].empty())
+                            throw runtime_error("No memberId was specified in member list of component " + string(*itr));
+
+                        string memberId = fld["memberId"].asString();
 
                         if (fld["isComponent"] == "Y") {
                             //Nested components
                             try {
-                                fprime::Component::ComponentPtr nestedComponent = this->getComponent(*memberItr);
+                                fprime::Component::ComponentPtr nestedComponent = this->getComponent(memberId);
                                 component->addNestedComponent(nestedComponent);
                             } catch (ComponentNotFound& e) {
-                                pair<fprime::Component::ComponentPtr, string> depedency(component, *memberItr);
+                                pair<fprime::Component::ComponentPtr, string> depedency(component, memberId);
                                 componentDependencies.push_back(depedency);
                             }
                         } else {
                             unsigned int field;
 
                             try {
-                                field = boost::lexical_cast<unsigned int>(*memberItr);
+                                field = boost::lexical_cast<unsigned int>(memberId);
                             } catch (boost::bad_lexical_cast& e) {
-                                throw runtime_error("at Protocol.LoadComponents: Loading component " + string(*itr) + ", " + string(*memberItr) + " is not a valid field id.");
+                                throw runtime_error("exception loading component " + string(*itr) + ", " + memberId + " is not a valid field id.");
                             }
                             //gets the field pointer from current protocol
                             fprime::Component::FieldT fieldt;
@@ -160,7 +166,7 @@ namespace fprime {
 
                             if (fieldt.field->getDataType() == "NumInGroup") {
                                 stringstream msg;
-                                msg << "at Protocol.LoadComponents: field " << fieldt.field->getId() << " " <<
+                                msg << "field " << fieldt.field->getId() << " " <<
                                         fieldt.field->getName() <<
                                         " is of type NumInGroup and cannot be assigned directly to components or messages. add the corresponding component.";
                                 throw runtime_error(msg.str());
@@ -185,7 +191,7 @@ namespace fprime {
                     try {
                         dependent->addNestedComponent(this->getComponent(depItr->second));
                     } catch (ComponentNotFound& e) {
-                        throw runtime_error("at Protocol.LoadComponents: Component dependency " + depItr->second + " was not found.");
+                        throw runtime_error("Component dependency " + depItr->second + " was not found.");
                     }
                 }
             }
@@ -258,7 +264,7 @@ namespace fprime {
             return search->second;
         else
             throw std::runtime_error("at Protocol.getMessage: Message type " + msgId + " does not exists in protocol " + version);
-            
+
     }
 
     Json::Value& Protocol::getSpecification() {
@@ -269,22 +275,27 @@ namespace fprime {
         try {
             node.setProtocol(this);
             Json::Value members = nodeSpec["members"];
-            std::vector<string> memberList = members.getMemberNames();
-            for (std::vector<string>::iterator itr = memberList.begin(); itr != memberList.end(); itr++) {
+            for (int i = 0; i < members.size(); i++) {
+                string memberId = members[i]["memberId"].asString();
                 try {
+                    if (memberId.empty())
+                        throw runtime_error("Empty member was specified for node.");
+
                     fprime::Node child;
                     fprime::Field::FieldPtr fieldPtr;
                     child.setProtocol(this);
-                    if (members[*itr]["isComponent"] == "Y") {
-                        fprime::Component::ComponentPtr componentPtr = this->getComponent(string(*itr));
+
+                    if (members[i]["isComponent"] == "Y") {
+
+                        fprime::Component::ComponentPtr componentPtr = this->getComponent(string(memberId));
                         if (componentPtr == nullptr)
-                            throw std::runtime_error("Component :" + string(*itr) + " did not found.");
+                            throw std::runtime_error("Component :" + memberId + " did not found.");
                         if (componentPtr->getType() == "BlockRepeating") {
                             try {
                                 child.setType(fprime::Node::REPEATING_GROUP);
                                 fieldPtr = componentPtr->getControlField();
                                 if (fieldPtr == nullptr)
-                                    throw std::runtime_error("control field for Component :" + string(*itr) + " did not found.");
+                                    throw std::runtime_error("control field for Component :" + memberId + " did not found.");
                                 child.setRequired(requiredFlag);
                                 child.setComponent(componentPtr);
                                 child.setField(fieldPtr);
@@ -296,19 +307,19 @@ namespace fprime {
                         } else
                             node.resolveComponent(componentPtr);
                     } else {
-                        fieldPtr = this->getField(boost::lexical_cast<unsigned int>(*itr));
+                        fieldPtr = this->getField(boost::lexical_cast<unsigned int>(memberId));
                         if (fieldPtr == nullptr)
-                            throw std::runtime_error("Field " + string(*itr) + " did not found.");
+                            throw std::runtime_error("Field " + memberId + " did not found.");
                         if (fieldPtr->getDataType() == "NumInGroup") {
                             stringstream msg;
-                            msg << "at Protocol.LoadMessages: field " << fieldPtr->getId() << " " <<
+                            msg << fieldPtr->getId() << " " <<
                                     fieldPtr->getName() <<
                                     " is of type NumInGroup and cannot be assigned directly to components or messages. add the corresponding component.";
                             throw std::runtime_error(msg.str());
                         }
                         child.setType(fprime::Node::FIELD_NODE);
 
-                        if (members[*itr]["isRequired"] == "Y")
+                        if (members[i]["isRequired"] == "Y")
                             child.setRequired(true);
                         else
                             child.setRequired(false);
@@ -318,7 +329,7 @@ namespace fprime {
 
                     }
                 } catch (exception& e) {
-                    throw std::runtime_error("Exception populating node member " + *itr + " : " + string(e.what()));
+                    throw std::runtime_error("Exception populating node member " + memberId + " : " + string(e.what()));
                 }
             }
         } catch (exception& e) {

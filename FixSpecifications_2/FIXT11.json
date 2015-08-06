@@ -1,0 +1,588 @@
+{
+  "Fields" : {
+    "7" : {
+      "name" : "BeginSeqNo",
+      "dataType" : "SEQNUM",
+      "description" : ""
+    },
+    "8" : {
+      "name" : "BeginString",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "9" : {
+      "name" : "BodyLength",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "10" : {
+      "name" : "CheckSum",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "16" : {
+      "name" : "EndSeqNo",
+      "dataType" : "SEQNUM",
+      "description" : ""
+    },
+    "34" : {
+      "name" : "MsgSeqNum",
+      "dataType" : "SEQNUM",
+      "description" : ""
+    },
+    "35" : {
+      "name" : "MsgType",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "36" : {
+      "name" : "NewSeqNo",
+      "dataType" : "SEQNUM",
+      "description" : ""
+    },
+    "43" : {
+      "name" : "PossDupFlag",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "45" : {
+      "name" : "RefSeqNum",
+      "dataType" : "SEQNUM",
+      "description" : ""
+    },
+    "49" : {
+      "name" : "SenderCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "50" : {
+      "name" : "SenderSubID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "52" : {
+      "name" : "SendingTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "56" : {
+      "name" : "TargetCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "57" : {
+      "name" : "TargetSubID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "58" : {
+      "name" : "Text",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "89" : {
+      "name" : "Signature",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "90" : {
+      "name" : "SecureDataLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "91" : {
+      "name" : "SecureData",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "93" : {
+      "name" : "SignatureLength",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "95" : {
+      "name" : "RawDataLength",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "96" : {
+      "name" : "RawData",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "97" : {
+      "name" : "PossResend",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "98" : {
+      "name" : "EncryptMethod",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "108" : {
+      "name" : "HeartBtInt",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "112" : {
+      "name" : "TestReqID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "115" : {
+      "name" : "OnBehalfOfCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "116" : {
+      "name" : "OnBehalfOfSubID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "122" : {
+      "name" : "OrigSendingTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "123" : {
+      "name" : "GapFillFlag",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "128" : {
+      "name" : "DeliverToCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "129" : {
+      "name" : "DeliverToSubID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "141" : {
+      "name" : "ResetSeqNumFlag",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "142" : {
+      "name" : "SenderLocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "143" : {
+      "name" : "TargetLocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "144" : {
+      "name" : "OnBehalfOfLocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "145" : {
+      "name" : "DeliverToLocationID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "212" : {
+      "name" : "XmlDataLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "213" : {
+      "name" : "XmlData",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "347" : {
+      "name" : "MessageEncoding",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "354" : {
+      "name" : "EncodedTextLen",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "355" : {
+      "name" : "EncodedText",
+      "dataType" : "DATA",
+      "description" : ""
+    },
+    "369" : {
+      "name" : "LastMsgSeqNumProcessed",
+      "dataType" : "SEQNUM",
+      "description" : ""
+    },
+    "371" : {
+      "name" : "RefTagID",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "372" : {
+      "name" : "RefMsgType",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "373" : {
+      "name" : "SessionRejectReason",
+      "dataType" : "INT",
+      "description" : ""
+    },
+    "383" : {
+      "name" : "MaxMessageSize",
+      "dataType" : "LENGTH",
+      "description" : ""
+    },
+    "384" : {
+      "name" : "NoMsgTypes",
+      "dataType" : "NUMINGROUP",
+      "description" : ""
+    },
+    "385" : {
+      "name" : "MsgDirection",
+      "dataType" : "CHAR",
+      "description" : ""
+    },
+    "464" : {
+      "name" : "TestMessageIndicator",
+      "dataType" : "BOOLEAN",
+      "description" : ""
+    },
+    "553" : {
+      "name" : "Username",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "554" : {
+      "name" : "Password",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "627" : {
+      "name" : "NoHops",
+      "dataType" : "NUMINGROUP",
+      "description" : ""
+    },
+    "628" : {
+      "name" : "HopCompID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "629" : {
+      "name" : "HopSendingTime",
+      "dataType" : "UTCTIMESTAMP",
+      "description" : ""
+    },
+    "630" : {
+      "name" : "HopRefID",
+      "dataType" : "SEQNUM",
+      "description" : ""
+    },
+    "789" : {
+      "name" : "NextExpectedMsgSeqNum",
+      "dataType" : "SEQNUM",
+      "description" : ""
+    },
+    "1128" : {
+      "name" : "ApplVerID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "1129" : {
+      "name" : "CstmApplVerID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "1130" : {
+      "name" : "RefApplVerID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "1131" : {
+      "name" : "RefCstmApplVerID",
+      "dataType" : "STRING",
+      "description" : ""
+    },
+    "1137" : {
+      "name" : "DefaultApplVerID",
+      "dataType" : "STRING",
+      "description" : ""
+    }
+  },
+  "Components" : {
+    "StandardHeader" : {
+      "type" : "Block",
+      "members" : [ {
+        "memberId" : "1129",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "1128",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "HopGrp",
+        "isComponent" : "Y",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "369",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "347",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "213",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "212",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "122",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "52",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "97",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "43",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "145",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "129",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "144",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "116",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "143",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "57",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "142",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "50",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "34",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "91",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "90",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "128",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "115",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "56",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "49",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "35",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "9",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "8",
+        "isRequired" : "Y"
+      } ]
+    },
+    "StandardTrailer" : {
+      "type" : "Block",
+      "members" : [ {
+        "memberId" : "10",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "89",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "93",
+        "isRequired" : "N"
+      } ]
+    },
+    "HopGrp" : {
+      "type" : "BlockRepeating",
+      "controlField" : "627",
+      "members" : [ {
+        "memberId" : "630",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "629",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "628",
+        "isRequired" : "N"
+      } ]
+    },
+    "MsgTypeGrp" : {
+      "type" : "BlockRepeating",
+      "controlField" : "384",
+      "members" : [ {
+        "memberId" : "1131",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "1130",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "385",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "372",
+        "isRequired" : "N"
+      } ]
+    }
+  },
+  "Messages" : {
+    "0" : {
+      "name" : "Heartbeat",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : [ {
+        "memberId" : "112",
+        "isRequired" : "N"
+      } ]
+    },
+    "1" : {
+      "name" : "TestRequest",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : [ {
+        "memberId" : "112",
+        "isRequired" : "Y"
+      } ]
+    },
+    "2" : {
+      "name" : "ResendRequest",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : [ {
+        "memberId" : "16",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "7",
+        "isRequired" : "Y"
+      } ]
+    },
+    "3" : {
+      "name" : "Reject",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : [ {
+        "memberId" : "355",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "354",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "58",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "373",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "372",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "371",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "45",
+        "isRequired" : "Y"
+      } ]
+    },
+    "4" : {
+      "name" : "SequenceReset",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : [ {
+        "memberId" : "36",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "123",
+        "isRequired" : "N"
+      } ]
+    },
+    "5" : {
+      "name" : "Logout",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : [ {
+        "memberId" : "355",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "354",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "58",
+        "isRequired" : "N"
+      } ]
+    },
+    "A" : {
+      "name" : "Logon",
+      "category" : "admin",
+      "type" : "Message",
+      "description" : "",
+      "members" : [ {
+        "memberId" : "MsgTypeGrp",
+        "isComponent" : "Y",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "1137",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "554",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "553",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "464",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "383",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "789",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "141",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "96",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "95",
+        "isRequired" : "N"
+      }, {
+        "memberId" : "108",
+        "isRequired" : "Y"
+      }, {
+        "memberId" : "98",
+        "isRequired" : "Y"
+      } ]
+    }
+  }
+}

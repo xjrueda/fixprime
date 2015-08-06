@@ -1,5 +1,26 @@
 {
+    "FIX.4.0": {
+        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications/FIX40.json"
+    },
+    "FIX.4.1": {
+        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications/FIX41.json"
+    },
+    "FIX.4.2": {
+        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications/FIX42.json"
+    },
+    "FIX.4.3": {
+        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications/FIX43.json"
+    },
     "FIX.4.4": {
         "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications/FIX44.json"
+    },
+    "FIX.5.0": {
+        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications/FIX50.json"
+    },
+    "FIX.5.0SP1": {
+        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications/FIX50SP1.json"
+    },
+    "FIX.5.0SP2": {
+        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications/FIX50SP2.json"
     }
 }

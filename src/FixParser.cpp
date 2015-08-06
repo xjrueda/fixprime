@@ -53,7 +53,7 @@ namespace fprime {
                 case fprime::Node::REPEATING_GROUP:
                 {
                     int value = boost::lexical_cast<unsigned int>(it->second.value);
-                    node(it->second.field).setValue(it->second.value);
+//                    node(it->second.field).setValue(it->second.value);
                     FixPair fpair = map[it->first + 1];
 
                     for (unsigned int i = 1; i <= value; i++) {
