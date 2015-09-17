@@ -88,7 +88,8 @@ using namespace fprime;
 int main(int argc, char** argv) {
     try {
         FixDictionary::FixDictionaryPtr fixDictionaryPtr(new FixDictionary);
-        fixDictionaryPtr->loadProtocols("yourpath/FixPrime/FixSpecifications/FixVersions.json");
+        // replace for the your path 
+        fixDictionaryPtr->loadProtocols("/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications_2/FixVersions.json");
         Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
         cout << "Protocols loaded sucessfully." << endl;
       
@@ -96,11 +97,9 @@ int main(int argc, char** argv) {
         Message logon = protocolPtr->getMessage("A");
       
         // Set the message values
-        logon.getHeader()(8).setValue("FIX.4.4");
-        logon.getHeader()(49).setValue("ANYSENDER");
-        logon.getHeader()(56).setValue("ANYTARGET");
-        logon.getBody()(553).setValue("myUserName");
-        logon.getBody()(554).setValue("myPassword");
+        fprime::Node::NodePtr header = logon.getHeader();
+        header->getChild(49)->setValue("ANYSENDER");
+        header->getChild(56)->setValue("ANYTARGET");
         
         // Serialize the message
         cout << "Logon message in fix format is:  " << logon.toFix() << endl;
@@ -118,26 +117,29 @@ using namespace fprime;
 int main(int argc, char** argv) {
     try {
         FixDictionary::FixDictionaryPtr fixDictionaryPtr(new FixDictionary);
-        fixDictionaryPtr->loadProtocols("yourpath/FixPrime/FixSpecifications/FixVersions.json");
+        // replace for the your path 
+        fixDictionaryPtr->loadProtocols("/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications_2/FixVersions.json");
         Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
         cout << "Protocols loaded successfully." << endl;
       
         //Get the desired message specifications
-        Message logon = protocolPtr->getMessage("A");
+        Message newOrderSingle = protocolPtr->getMessage("D");
       
         // Set the message values
-        newOrderSingle.getHeader()(8).setValue("FIX.4.4");
-        newOrderSingle.getHeader()(49).setValue("ANYSENDER");
-        newOrderSingle.getHeader()(56).setValue("ANYTARGET");
-        newOrderSingle.getBody()(453).setValue("1");
-        newOrderSingle.getBody()(453).appendGroupInstance();
-        newOrderSingle.getBody()(453)[1](448).setValue("EXEFIRM00001");
-        newOrderSingle.getBody()(453)[1](447).setValue("C");
-        newOrderSingle.getBody()(453)[1](452).setValue("1");
-        newOrderSingle.getBody()(453).appendGroupInstance();
-        newOrderSingle.getBody()(453)[2](448).setValue("ENTERINFIRM01");
-        newOrderSingle.getBody()(453)[2](447).setValue("C");
-        newOrderSingle.getBody()(453)[2](452).setValue("7");
+        fprime::Node::NodePtr header = newOrderSingle.getHeader();
+        fprime::Node::NodePtr body = newOrderSingle.getBody();
+        header->getChild(8)->setValue("FIX.4.4");
+        header->getChild(49)->setValue("ANYSENDER");
+        header->getChild(56)->setValue("ANYTARGET");
+
+        body->getChild(453)->appendGroupInstance();
+        body->getChild(453)->getInstance(1)->getChild(448)->setValue("EXEFIRM00001");
+        body->getChild(453)->getInstance(1)->getChild(447)->setValue("C");
+        body->getChild(453)->getInstance(1)->getChild(452)->setValue("1");
+        body->getChild(453)->appendGroupInstance();
+        body->getChild(453)->getInstance(2)->getChild(448)->setValue("ENTERINFIRM01");
+        body->getChild(453)->getInstance(2)->getChild(447)->setValue("C");
+        body->getChild(453)->getInstance(2)->getChild(452)->setValue("7");
         
         
         // Serialize the message
@@ -159,7 +161,8 @@ using namespace fprime;
 int main(int argc, char** argv) {
     try {
         FixDictionary::FixDictionaryPtr fixDictionaryPtr(new FixDictionary);
-        fixDictionaryPtr->loadProtocols("yourpath/FixPrime/FixSpecifications/FixVersions.json");
+        // replace for the your path 
+        fixDictionaryPtr->loadProtocols("/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications_2/FixVersions.json");
         Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
         string rawMessage = string("8=FIX.4.49=10335=A34=149=SENDER50=123X05") +
                             string("52=20150612-17:13:07.77856=TARGET98=0108=10141=Y") +
@@ -173,7 +176,7 @@ int main(int argc, char** argv) {
         //Complete message parsing. Returns a Message Object of the corresponding fix message type
         Message fixmsg = parser.parseMessage(flatMessage);
         // get message values
-        string msgType = fixmsg.getHeader()(35).getValue();
+        string msgType = fixmsg.getHeader()->getChild(35)->getValue();
         cout << "Message type is " << msgType << endl;
         return 0;
     } catch (const exception& e) {
