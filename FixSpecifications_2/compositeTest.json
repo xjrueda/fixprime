@@ -1,0 +1,18 @@
+{
+    "CapacityTest": {
+        "purpose": "pruebas de capacidad del sistema",
+        "scenarios": [
+            {
+                "session": "BVLGW-BVCGW",
+                "delay": "0",
+                "scenario": "orderSender"
+            },
+            {
+                "session": "BCSGW-BVCGW",
+                "delay": "100",
+                "scenario": "orderSender"
+            }
+        ]
+
+    }
+}

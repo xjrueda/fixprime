@@ -208,8 +208,8 @@ namespace fprime {
                 // gets the header and trailer specifications
                 Json::Value headerSpec = protocolSpec["Components"]["StandardHeader"];
                 Json::Value trailerSpec = protocolSpec["Components"]["StandardTrailer"];
-                fprime::Node header(fprime::Node::ROOT_NODE);
-                fprime::Node trailer(fprime::Node::ROOT_NODE);
+                fprime::Node::NodePtr header(new fprime::Node(fprime::Node::ROOT_NODE));
+                fprime::Node::NodePtr trailer(new fprime::Node(fprime::Node::ROOT_NODE));
                 try {
                     populateNode(header, headerSpec, true);
                 } catch (exception& e) {
@@ -228,9 +228,11 @@ namespace fprime {
                     try {
                         fprime::Message message(*itr);
                         Json::Value bodySpec = protocolSpec["Messages"][*itr];
-                        fprime::Node body(fprime::Node::ROOT_NODE);
+                        fprime::Node::NodePtr body(new fprime::Node(fprime::Node::ROOT_NODE));
                         populateNode(body, bodySpec, true);
-
+                        
+                        //header(35).setValue(string(*itr));
+                        
                         message.setHeader(header);
                         message.setTrailer(trailer);
                         message.setBody(body);
@@ -271,9 +273,9 @@ namespace fprime {
         return protocolSpec;
     }
 
-    void Protocol::populateNode(fprime::Node& node, Json::Value nodeSpec, bool requiredFlag) {
+    void Protocol::populateNode(fprime::Node::NodePtr node, Json::Value nodeSpec, bool requiredFlag) {
         try {
-            node.setProtocol(this);
+            node->setProtocol(this);
             Json::Value members = nodeSpec["members"];
             for (int i = 0; i < members.size(); i++) {
                 string memberId = members[i]["memberId"].asString();
@@ -281,9 +283,9 @@ namespace fprime {
                     if (memberId.empty())
                         throw runtime_error("Empty member was specified for node.");
 
-                    fprime::Node child;
+                    fprime::Node::NodePtr child(new Node());
                     fprime::Field::FieldPtr fieldPtr;
-                    child.setProtocol(this);
+                    child->setProtocol(this);
 
                     if (members[i]["isComponent"] == "Y") {
 
@@ -292,20 +294,20 @@ namespace fprime {
                             throw std::runtime_error("Component :" + memberId + " did not found.");
                         if (componentPtr->getType() == "BlockRepeating") {
                             try {
-                                child.setType(fprime::Node::REPEATING_GROUP);
+                                child->setType(fprime::Node::REPEATING_GROUP);
                                 fieldPtr = componentPtr->getControlField();
                                 if (fieldPtr == nullptr)
                                     throw std::runtime_error("control field for Component :" + memberId + " did not found.");
-                                child.setRequired(requiredFlag);
-                                child.setComponent(componentPtr);
-                                child.setField(fieldPtr);
-                                node.appendChild(child);
+                                child->setRequired(requiredFlag);
+                                child->setComponent(componentPtr);
+                                child->setField(fieldPtr);
+                                node->appendChild(child);
                             } catch (exception& e) {
                                 throw std::runtime_error("Error trying to get the id of control field :" + string(e.what()));
                             }
 
                         } else
-                            node.resolveComponent(componentPtr);
+                            node->resolveComponent(componentPtr);
                     } else {
                         fieldPtr = this->getField(boost::lexical_cast<unsigned int>(memberId));
                         if (fieldPtr == nullptr)
@@ -317,15 +319,15 @@ namespace fprime {
                                     " is of type NumInGroup and cannot be assigned directly to components or messages. add the corresponding component.";
                             throw std::runtime_error(msg.str());
                         }
-                        child.setType(fprime::Node::FIELD_NODE);
+                        child->setType(fprime::Node::FIELD_NODE);
 
                         if (members[i]["isRequired"] == "Y")
-                            child.setRequired(true);
+                            child->setRequired(true);
                         else
-                            child.setRequired(false);
+                            child->setRequired(false);
 
-                        child.setField(fieldPtr);
-                        node.appendChild(child);
+                        child->setField(fieldPtr);
+                        node->appendChild(child);
 
                     }
                 } catch (exception& e) {

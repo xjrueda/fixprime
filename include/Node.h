@@ -53,15 +53,19 @@ namespace fprime {
             REPEATING_GROUP,
             GROUP_INSTANCE
         };
-        typedef map<unsigned int, fprime::Node> NodeMap;
+        
+        typedef shared_ptr<fprime::Node> NodePtr;
+        typedef map<unsigned int, NodePtr> NodeMap;
+        typedef vector<NodePtr> NodeVector;
+        
         Node();
         Node(NodeType);
         Node(const Node& other);
         virtual ~Node();
-
+        
         // Getters
         fprime::Field::FieldPtr getField();
-        string getValue();
+        const string getValue();
         NodeType getType();
 
         //Setters
@@ -75,13 +79,14 @@ namespace fprime {
         void setComponent(fprime::Component::ComponentPtr);
 
         //Group operations
-        void appendChild(fprime::Node);
-        fprime::Node& appendGroupInstance();
+        void appendChild(fprime::Node::NodePtr);
+        void appendGroupInstance();
         void resolveComponent(fprime::Component::ComponentPtr);
+        fprime::Node::NodePtr getChild(unsigned int);
+        fprime::Node::NodePtr getInstance(unsigned int);
+        
         //operators
-
-        fprime::Node& operator()(unsigned int);
-        fprime::Node& operator[](unsigned int);
+        fprime::Node&  operator=(const fprime::Node& other);
 
         // Utilities
 
@@ -89,11 +94,10 @@ namespace fprime {
     private:
         NodeType _type;
         fprime::DataHolder::DataTypePtr value;
-        unsigned int position;
         bool isRequired;
 
         fprime::Field::FieldPtr field;
-//        NodeMap childsByPosition;
+        NodeVector childsVector;
         NodeMap childsByFieldId;
 
         void addValuePair(string &ss, unsigned int fieldId, string val);

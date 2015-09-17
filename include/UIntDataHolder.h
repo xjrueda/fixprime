@@ -36,9 +36,7 @@ namespace fprime {
         UIntDataHolder();
         UIntDataHolder(const UIntDataHolder& orig);
         virtual ~UIntDataHolder();
-        void set(string);
         bool validate();
-        string get();
     private:
         unsigned int nativeData;
     };

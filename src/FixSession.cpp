@@ -32,7 +32,7 @@ namespace fprime {
             try {
                 fprime::FixParser::FlatMessage flatMessage = parser.explode(rawMsg.getText());
                 fprime::Message fixMsg = parser.parseMessage(flatMessage);
-                string callbackKey = fixMsg.getHeader()(8).getValue() + "-" + fixMsg.getHeader()(35).getValue();
+                string callbackKey = fixMsg.getHeader()->getChild(8)->getValue() + "-" + fixMsg.getHeader()->getChild(35)->getValue();
 
                 // delegates the method to it handler
                 callbacksManager->executeCallback(callbackKey, fixMsg, this);

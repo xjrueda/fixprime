@@ -1,0 +1,16 @@
+{
+    "orderSender": {
+        "protocol": "FIX.4.4 Genium BVC",
+        "description": "envio masivo de ordenes",
+        "throttle": "500000",
+        "iterations": "0",
+        "script": ""
+    },
+    "trades": {
+        "protocol": "FIX.4.4 Genium BVC",
+        "description": "envio masivo de ordenes",
+        "throttle": "500000",
+        "iterations": "0",
+        "script": ""
+    }
+}

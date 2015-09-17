@@ -38,6 +38,7 @@
 #include "FixDictionary.h"
 #include "FixParserExceptions.h"
 #include "Message.h"
+#include "Node.h"
 #include <boost/lexical_cast.hpp>
 
 using namespace std;
@@ -90,12 +91,8 @@ namespace fprime {
 
     private:
         fprime::Protocol::ProtocolPtr protocolPtr;
-
-
-
         char separator;
-
-        bool parseLevel(OrderedMap, unsigned int&, fprime::Node&, unsigned int, bool);
+        bool parseLevel(OrderedMap, unsigned int&, fprime::Node::NodePtr, unsigned int, bool);
     };
 }
 #endif	/* FIXPARSER_H */

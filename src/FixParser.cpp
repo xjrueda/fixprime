@@ -30,12 +30,12 @@ namespace fprime {
         separator = sepChar;
     }
 
-    bool FixParser::parseLevel(OrderedMap map, unsigned int& position, fprime::Node& node, unsigned int groupBeginning, bool isGroupInstance) {
+    bool FixParser::parseLevel(OrderedMap map, unsigned int& position, fprime::Node::NodePtr node, unsigned int groupBeginning, bool isGroupInstance) {
         int instanceCounter = 0;
         for (OrderedMap::iterator it = map.find(position); it != map.end(); std::advance(it, position - (std::distance(map.begin(), it)))) {
             position++;
             try {
-                string val = node(it->second.field).getValue();
+                string val = node->getChild(it->second.field)->getValue();
             } catch (InvalidField& e) {
                 position--;
                 if (isGroupInstance) {
@@ -44,10 +44,10 @@ namespace fprime {
                     return false;
                 }
             }
-            switch (node(it->second.field).getType()) {
+            switch (node->getChild(it->second.field)->getType()) {
                 case fprime::Node::FIELD_NODE:
                 {
-                    node(it->second.field).setValue(it->second.value);
+                    node->getChild(it->second.field)->setValue(it->second.value);
                     break;
                 }
                 case fprime::Node::REPEATING_GROUP:
@@ -57,8 +57,8 @@ namespace fprime {
                     FixPair fpair = map[it->first + 1];
 
                     for (unsigned int i = 1; i <= value; i++) {
-                        node(it->second.field).appendGroupInstance();
-                        bool result = parseLevel(map, position, node(it->second.field)[i], fpair.field, true);
+                        node->getChild(it->second.field)->appendGroupInstance();
+                        bool result = parseLevel(map, position, node->getChild(it->second.field)->getInstance(i), fpair.field, true);
                     }
                     break;
                 }
@@ -75,9 +75,9 @@ namespace fprime {
         fprime::Message fixMessage = protocolPtr->getMessage(message.getMsgType());
         unsigned int position = 0;
         bool result = false;
-        result = parseLevel(message.orderedMap, position, fixMessage.header, 0, false);
-        result = parseLevel(message.orderedMap, position, fixMessage.body, 0, false);
-        result = parseLevel(message.orderedMap, position, fixMessage.trailer, 0, false);
+        result = parseLevel(message.orderedMap, position, fixMessage.getHeader(), 0, false);
+        result = parseLevel(message.orderedMap, position, fixMessage.getBody(), 0, false);
+        result = parseLevel(message.orderedMap, position, fixMessage.getTrailer(), 0, false);
         return fixMessage;
     }
 

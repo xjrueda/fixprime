@@ -1,0 +1,34 @@
+{
+    "LarrainVial-BVC": {
+        "type": "initiator",
+        "host": "localhost",
+        "port": "2500",
+        "serderCompId": "BVLGATEWAY",
+        "targetCompId": "BVCGATEWAY",
+        "resetOnLogon": "Y",
+        "resetOnLogout": "Y",
+        "resetOnDisconnect": "Y",
+        "RefreshOnLogon": "N",
+        "protocol": "FIX.4.4GeniumBVC",
+        "defaultAppVersion": "",
+        "heartbeatInterval": "30",
+        "user": "",
+        "password": ""
+    },
+     "029-BVC": {
+        "type": "acceptor",
+        "host": "",
+        "port": "2500",
+        "serderCompId": "BVLGATEWAY",
+        "targetCompId": "BVCGATEWAY",
+        "resetOnLogon": "Y",
+        "resetOnLogout": "Y",
+        "resetOnDisconnect": "Y",
+        "RefreshOnLogon": "N",
+        "protocol": "FIX.4.4GeniumBVC",
+        "defaultAppVersion": "",
+        "heartbeatInterval": "30",
+        "user": "",
+        "password": ""
+    }
+}

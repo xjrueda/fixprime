@@ -63,6 +63,9 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>FixSpecifications_2/compositeTest.json</itemPath>
+    <itemPath>FixSpecifications_2/scenarios.json</itemPath>
+    <itemPath>FixSpecifications_2/sessions.json</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -94,10 +97,6 @@
             <pElem>/usr/local/include</pElem>
             <pElem>include</pElem>
             <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
-            <pElem>.</pElem>
           </incDir>
           <commandLine>-O3</commandLine>
         </ccTool>
@@ -108,6 +107,15 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="FixSpecifications_2/compositeTest.json"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="FixSpecifications_2/scenarios.json" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FixSpecifications_2/sessions.json" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/CallbacksManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Component.h" ex="false" tool="3" flavor2="0">
@@ -252,6 +260,15 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="FixSpecifications_2/compositeTest.json"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="FixSpecifications_2/scenarios.json" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FixSpecifications_2/sessions.json" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/CallbacksManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Component.h" ex="false" tool="3" flavor2="0">

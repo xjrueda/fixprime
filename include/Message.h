@@ -37,29 +37,27 @@ namespace fprime {
     public:
         Message();
         Message(const string);
-//        MessageTemplate(const MessageTemplate& orig);
+        Message(const Message& org);
         virtual ~Message();
         enum MessageLevel {
             APPLICATION,
             SESSION
         };
         
-        fprime::Node header;
-        fprime::Node body;
-        fprime::Node trailer;
-        
-        fprime::Node& getHeader();
-        fprime::Node& getBody();
-        fprime::Node& getTrailer();
+        fprime::Node::NodePtr getHeader();
+        fprime::Node::NodePtr getBody();
+        fprime::Node::NodePtr getTrailer();
 
-        void setHeader(fprime::Node);
-        void setBody(fprime::Node);
-        void setTrailer(fprime::Node);
+        void setHeader(fprime::Node::NodePtr);
+        void setBody(fprime::Node::NodePtr);
+        void setTrailer(fprime::Node::NodePtr);
+        
+        fprime::Message& operator=(fprime::Message&);
         string toFix();
     private:
-//        FIXDF::Node header;
-//        FIXDF::Node body;
-//        FIXDF::Node trailer;
+        fprime::Node::NodePtr header;
+        fprime::Node::NodePtr body;
+        fprime::Node::NodePtr trailer;
         string _id;
     };
 }

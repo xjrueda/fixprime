@@ -19,10 +19,6 @@ namespace fprime {
     UIntDataHolder::~UIntDataHolder() {
     }
 
-    void UIntDataHolder::set(string data) {
-        baseData = data;
-    }
-
     bool UIntDataHolder::validate() {
         try {
             int tmpData = boost::lexical_cast<unsigned int>(baseData);
@@ -34,10 +30,6 @@ namespace fprime {
         } catch (boost::bad_lexical_cast& e) {
             return false;
         }
-    }
-
-    string UIntDataHolder::get() {
-        return baseData;
     }
 
 }

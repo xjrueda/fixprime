@@ -48,9 +48,11 @@ namespace fprime {
 
         typedef shared_ptr<DataHolder> DataTypePtr;
 
-        virtual void set(string) = 0;
+        virtual void set(const string data) { baseData = data;}
+        virtual const string get() {return baseData;}
+        
         virtual bool validate() = 0;
-        virtual string get() = 0;
+        
 
         virtual int toInt() {
             try {

@@ -1,14 +1,7 @@
 {
     "FIX.4.4": {
+        "baseVersion":"FIX.4.4.",
+        "description":"",
         "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications_2/FIX44.json"
-    },
-    "FIX.5.0": {
-        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications_2/FIX50.json"
-    },
-    "FIX.5.0SP1": {
-        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications_2/FIX50SP1.json"
-    },
-    "FIX.5.0SP2": {
-        "dataFile": "/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications_2/FIX50SP2.json"
     }
 }

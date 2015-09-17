@@ -58,7 +58,7 @@ namespace fprime {
         fprime::Message getMessage(string);
         fprime::Component::ComponentPtr getComponent(string);
         Json::Value& getSpecification();
-        void populateNode(fprime::Node&, Json::Value, bool);
+        void populateNode(fprime::Node::NodePtr, Json::Value, bool);
     private:
         string version;
         Json::Value protocolSpec;
