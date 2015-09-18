@@ -125,8 +125,6 @@ namespace fprime {
         }
         result.bodylength = bodyLength;
         result.checkSum = checkSum(str);
-        cout << "CheckSum  = " << result.checkSum << endl;
-        cout << "bodylengh = " << result.bodylength << endl;
         return result;
     }
 
