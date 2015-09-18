@@ -6,6 +6,7 @@
  */
 
 #include "Message.h"
+#include "FixParser.h"
 
 namespace fprime {
 
@@ -50,11 +51,29 @@ namespace fprime {
     }
 
     string Message::toFix() {
-        string outputString;
-        header->stringify(outputString);
-        body->stringify(outputString);
-        trailer->stringify(outputString);
-        return outputString;
+        string strHeader, strBody, strTrailer, strDummy;
+
+        unsigned int bodyLength = 0;
+        unsigned int dummy = 0;
+        bool isBody = false;
+
+        header->stringify(strDummy, isBody, bodyLength);
+        body->stringify(strBody, isBody, bodyLength);
+        header->getChild(9)->setValue(boost::lexical_cast<string>(bodyLength));
+        header->stringify(strHeader, isBody, dummy);
+        trailer->stringify(strTrailer, isBody, dummy);
+
+        //calculate checksum
+        fprime::FixParser fparser;
+        unsigned int checkSum = fparser.checkSum(strHeader + strBody + strTrailer);
+        
+        stringstream ssCheckSum;
+        ssCheckSum << std::setw (3) << std::setfill('0')<< checkSum;
+        trailer->getChild(10)->setValue(ssCheckSum.str());
+        isBody = false;
+        strTrailer.clear();
+        trailer->stringify(strTrailer, isBody, dummy);
+        return strHeader + strBody + strTrailer;
     }
 
     fprime::Message& Message::operator=(fprime::Message& other) {

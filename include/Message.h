@@ -28,6 +28,7 @@
 #define	MESSAGETEMPLATE_H
 
 #include "Node.h"
+#include <iomanip>      // std::setw
 
 using namespace std;
 

@@ -90,7 +90,7 @@ namespace fprime {
 
         // Utilities
 
-        void stringify(string& outputString);
+        void stringify(string& outputString, bool& isBody, unsigned int& bodyLength);
     private:
         NodeType _type;
         fprime::DataHolder::DataTypePtr value;

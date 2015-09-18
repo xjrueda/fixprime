@@ -4593,6 +4593,12 @@
                     "memberId": "35",
                     "isRequired": "Y"
                 }, {
+                    "memberId": "34",
+                    "isRequired": "Y"
+                }, {
+                    "memberId": "49",
+                    "isRequired": "Y"
+                }, {
                     "memberId": "Hop",
                     "isComponent": "Y",
                     "isRequired": "N"
@@ -4610,6 +4616,9 @@
                     "isRequired": "N"
                 }, {
                     "memberId": "122",
+                    "isRequired": "N"
+                }, {
+                    "memberId": "50",
                     "isRequired": "N"
                 }, {
                     "memberId": "52",
@@ -4642,12 +4651,6 @@
                     "memberId": "142",
                     "isRequired": "N"
                 }, {
-                    "memberId": "50",
-                    "isRequired": "N"
-                }, {
-                    "memberId": "34",
-                    "isRequired": "Y"
-                }, {
                     "memberId": "91",
                     "isRequired": "N"
                 }, {
@@ -4661,9 +4664,6 @@
                     "isRequired": "N"
                 }, {
                     "memberId": "56",
-                    "isRequired": "Y"
-                }, {
-                    "memberId": "49",
                     "isRequired": "Y"
                 }]
         },
@@ -9041,10 +9041,19 @@
             "type": "Message",
             "description": "",
             "members": [{
-                    "memberId": "554",
+                    "memberId": "98",
+                    "isRequired": "Y"
+                }, {
+                    "memberId": "108",
+                    "isRequired": "Y"
+                }, {
+                    "memberId": "141",
                     "isRequired": "N"
                 }, {
                     "memberId": "553",
+                    "isRequired": "N"
+                }, {
+                    "memberId": "554",
                     "isRequired": "N"
                 }, {
                     "memberId": "464",
@@ -9056,21 +9065,13 @@
                     "memberId": "789",
                     "isRequired": "N"
                 }, {
-                    "memberId": "141",
-                    "isRequired": "N"
-                }, {
                     "memberId": "96",
                     "isRequired": "N"
                 }, {
                     "memberId": "95",
                     "isRequired": "N"
-                }, {
-                    "memberId": "108",
-                    "isRequired": "Y"
-                }, {
-                    "memberId": "98",
-                    "isRequired": "Y"
-                }]
+                }
+            ]
         },
         "B": {
             "name": "News",

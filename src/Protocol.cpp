@@ -212,6 +212,7 @@ namespace fprime {
                 fprime::Node::NodePtr trailer(new fprime::Node(fprime::Node::ROOT_NODE));
                 try {
                     populateNode(header, headerSpec, true);
+                    header->getChild(8)->setValue(version);
                 } catch (exception& e) {
                     throw std::runtime_error("Error populating header node: " + string(e.what()));
                 }
@@ -227,14 +228,18 @@ namespace fprime {
                 for (std::vector<string>::iterator itr = messageList.begin(); itr != messageList.end(); itr++) {
                     try {
                         fprime::Message message(*itr);
+                        fprime::Node::NodePtr currentHeader(new fprime::Node(fprime::Node::ROOT_NODE));
+                        fprime::Node::NodePtr currentTrailer(new fprime::Node(fprime::Node::ROOT_NODE));
+                        currentHeader = header;
+                        currentTrailer = trailer;
+                        currentHeader->getChild(35)->setValue(string(*itr));
+                        
                         Json::Value bodySpec = protocolSpec["Messages"][*itr];
                         fprime::Node::NodePtr body(new fprime::Node(fprime::Node::ROOT_NODE));
                         populateNode(body, bodySpec, true);
-                        
-                        //header(35).setValue(string(*itr));
-                        
-                        message.setHeader(header);
-                        message.setTrailer(trailer);
+  
+                        message.setHeader(currentHeader);
+                        message.setTrailer(currentTrailer);
                         message.setBody(body);
                         messages[*itr] = message;
                     } catch (exception& e) {

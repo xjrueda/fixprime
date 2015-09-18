@@ -36,18 +36,18 @@ namespace fprime {
         for (NodeVector::const_iterator itr = other.childsVector.begin(); itr != other.childsVector.end(); itr++) {
             NodePtr newNode(new Node(**itr));
             childsVector.push_back(newNode);
-            if(other._type == fprime::Node::NodeType::ROOT_NODE || other._type == fprime::Node::NodeType::GROUP_INSTANCE)
+            if (other._type == fprime::Node::NodeType::ROOT_NODE || other._type == fprime::Node::NodeType::GROUP_INSTANCE)
                 childsByFieldId[newNode->getField()->getId()] = newNode;
-            
-            if(other._type == fprime::Node::NodeType::REPEATING_GROUP)
+
+            if (other._type == fprime::Node::NodeType::REPEATING_GROUP)
                 childsByFieldId[childsVector.size()] = newNode;
         }
-        
-//        if (_type != fprime::Node::NodeType::ROOT_NODE)
-//            cout << "Node " << field->getId() << " copied" << endl;
-//        else
-//            cout << "Root Node " << " copied" << endl;
-            
+
+        //        if (_type != fprime::Node::NodeType::ROOT_NODE)
+        //            cout << "Node " << field->getId() << " copied" << endl;
+        //        else
+        //            cout << "Root Node " << " copied" << endl;
+
     }
 
     Node::~Node() {
@@ -73,14 +73,14 @@ namespace fprime {
 
         childsVector.clear();
         childsByFieldId.clear();
-        
+
         for (NodeVector::const_iterator itr = other.childsVector.begin(); itr != other.childsVector.end(); itr++) {
             NodePtr newNode(new Node(**itr));
             childsVector.push_back(newNode);
-            if(other._type == fprime::Node::NodeType::ROOT_NODE || other._type == fprime::Node::NodeType::GROUP_INSTANCE)
+            if (other._type == fprime::Node::NodeType::ROOT_NODE || other._type == fprime::Node::NodeType::GROUP_INSTANCE)
                 childsByFieldId[newNode->getField()->getId()] = newNode;
-            
-            if(other._type == fprime::Node::NodeType::REPEATING_GROUP)
+
+            if (other._type == fprime::Node::NodeType::REPEATING_GROUP)
                 childsByFieldId[childsVector.size()] = newNode;
         }
         return *this;
@@ -129,9 +129,9 @@ namespace fprime {
                 throw runtime_error(ss.str());
             }
 
-//            if (_type == REPEATING_GROUP) {
-//                value->set("0");
-//            }
+            //            if (_type == REPEATING_GROUP) {
+            //                value->set("0");
+            //            }
             field = fld;
         } catch (exception& e) {
             throw runtime_error("at Node.setField: " + string(e.what()));
@@ -215,7 +215,7 @@ namespace fprime {
             throw runtime_error("at Node.operator[] : Invalid repeating group instance");
     }
 
-    void Node::stringify(string& outputString) {
+    void Node::stringify(string& outputString, bool& isBody, unsigned int& bodyLength) {
         try {
             switch (_type) {
                 case ROOT_NODE:
@@ -227,17 +227,25 @@ namespace fprime {
                         this->addValuePair(outputString, id, this->getValue());
                     }
                     for (int i = 0; i < childsVector.size(); i++) {
-                        childsVector[i]->stringify(outputString);
+                        childsVector[i]->stringify(outputString, isBody, bodyLength);
                     }
                     break;
                 }
                 case FIELD_NODE:
                 {
+                    if (!isBody) {
+                        if (this->getField()->getId() == 9)
+                            isBody = true;
+                    }
+                    int prelen = outputString.size();
                     unsigned int id = this->getField()->getId();
                     this->addValuePair(outputString, id, this->getValue());
+                    if (isBody && this->getField()->getId() != 9)
+                        bodyLength += (outputString.size() - prelen);
                     break;
                 }
             }
+
         } catch (exception& e) {
             cout << "at Node.stringify : " << e.what() << endl;
         }
@@ -246,9 +254,9 @@ namespace fprime {
     void Node::addValuePair(string &s, unsigned int fieldId, string val) {
         try {
             if (!val.empty()) {
-                if (!s.empty())
-                    s += ";";
-                s = s + boost::lexical_cast<string>(fieldId) + string("=") + boost::lexical_cast<string>(val);
+                //                if (!s.empty())
+                //                    s += ";";
+                s = s + boost::lexical_cast<string>(fieldId) + string("=") + boost::lexical_cast<string>(val) + "\001";
             }
         } catch (exception& e) {
             cout << "exception at Node.addValuePair : " << e.what();
