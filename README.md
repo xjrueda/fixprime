@@ -164,7 +164,7 @@ int main(int argc, char** argv) {
         // replace for the your path 
         fixDictionaryPtr->loadProtocols("/apps/Dev/NetBeansProjects/FixPrime/FixSpecifications_2/FixVersions.json");
         Protocol::ProtocolPtr protocolPtr = fixDictionaryPtr->getProtocol("FIX.4.4");
-        string rawMessage = "8=FIX.4.19=6135=A34=149=EXEC52=20121105-23:24:0656=BANZAI98=0108=3010=003";
+        string rawMessage = "8=FIX.4.1\0019=61\00135=A\00134=1\00149=EXEC\00152=20121105-23:24:06\00156=BANZAI\00198=0\001108=30\00110=003";
         // Instanciate the parser        
         FixParser parser;
         //assign the de desired protocol to the parser
