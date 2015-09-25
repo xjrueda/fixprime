@@ -24,69 +24,58 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
-#ifndef FIXSESSION_H
-#define	FIXSESSION_H
-
-#include <boost/asio.hpp>
-#include "CallbacksManager.h"
-#include "FixParserExceptions.h"
-#include "FixParser.h"
-#include "Message.h"
-#include "Protocol.h"
-#include <queue>
 #include <thread>
-#include <mutex>
+
 #include "Acceptor.h"
 #include "Socket.h"
 
-
-
-
-using boost::asio::ip::tcp;
+using namespace boost::asio;
+using namespace std;
 
 namespace fprime {
 
-    const int max_length = 10240;
+    Acceptor::Acceptor() {
+        inboundQueuePtr.reset(new MessageQueue);
+    }
 
-    class FixSession {
-    public:
-        typedef shared_ptr<FixSession> FixSessionPtr;
-        FixSession();
-        FixSession(const FixSession& orig);
-        virtual ~FixSession();
+    Acceptor::Acceptor(const Acceptor& orig) {
+    }
 
-        void inboundProcessor();
-        void setCallbackManager(fprime::CallbacksManager::CallbacksManagerPtr);
-        void setProtocol(fprime::Protocol::ProtocolPtr);
-        bool startInboundProcessor();
-        bool stopInboundProcessor();
-        void stopAbortProcessor();
-        bool connect();
-        bool disconnect();
-        void startAcceptor(boost::asio::io_service&, unsigned short);
-        void start(boost::asio::io_service&, unsigned short);
-        void stop();
-    private:
-        fprime::Acceptor acceptor;
-        fprime::Protocol::ProtocolPtr protocolPtr;
-        queue<fprime::Message> outboundQueue;
-        Socket::MessageQueue inboundQueue;
-        fprime::CallbacksManager::CallbacksManagerPtr callbacksManager;
-        bool connected;
-        bool ibpRunning;
-        bool sessionRunning;
-        condition_variable inboundCondition;
-        mutex inboundLock;
-        mutex connectionLock;
-        mutex runningLock;
-        string strBuffer;
-        void setConnected(bool);
-        void setSessionRunning(bool);
-        void setIbRunning(bool);
-    };
+    Acceptor::~Acceptor() {
+    }
+
+    bool Acceptor::start(io_service& io_service, unsigned short port) {
+        ip::tcp::endpoint ep(ip::tcp::v4(), port);
+        ip::tcp::acceptor acc(io_service, ep);
+        setStarted(true);
+        setConnected(false);
+        //cout << "acceptor started" << endl;
+        while (started) {
+            if (!connected) {
+                //cout << "acceptor listening" << endl;
+                socketPtr.reset(new ip::tcp::socket(io_service));
+                acc.accept(*socketPtr);
+                setConnected(true);
+                thread t1(bind(&Acceptor::client_session, this, socketPtr));
+                t1.detach();
+            }
+            cout << "acceptor listening for new connection" << endl;
+        }
+    }
+
+    void Acceptor::stop() {
+        setConnected(false);
+        setStarted(false);
+    }
+    
+    void Acceptor::close() {
+        setConnected(false);
+    }
+
+    bool Acceptor::send() {
+    }
+
+    bool Acceptor::receive() {
+    }
 
 }
-
-#endif	/* FIXSESSION_H */
-

@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>include/Acceptor.h</itemPath>
       <itemPath>include/CallbacksManager.h</itemPath>
       <itemPath>include/Component.h</itemPath>
       <itemPath>include/DataHolder.h</itemPath>
@@ -22,6 +23,7 @@
       <itemPath>include/Message.h</itemPath>
       <itemPath>include/Node.h</itemPath>
       <itemPath>include/Protocol.h</itemPath>
+      <itemPath>include/Socket.h</itemPath>
       <itemPath>include/StringDataHolder.h</itemPath>
       <itemPath>include/UIntDataHolder.h</itemPath>
       <itemPath>include/Value.h</itemPath>
@@ -34,6 +36,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/Acceptor.cpp</itemPath>
       <itemPath>src/CallbacksManager.cpp</itemPath>
       <itemPath>src/Component.cpp</itemPath>
       <itemPath>src/DataHolderFactory.cpp</itemPath>
@@ -116,6 +119,8 @@
       </item>
       <item path="FixSpecifications_2/sessions.json" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Acceptor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/CallbacksManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Component.h" ex="false" tool="3" flavor2="0">
@@ -155,6 +160,8 @@
       </item>
       <item path="include/Protocol.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Socket.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/StringDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
@@ -162,6 +169,8 @@
       <item path="include/Value.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/jsoncpp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Acceptor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/CallbacksManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -269,6 +278,8 @@
       </item>
       <item path="FixSpecifications_2/sessions.json" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Acceptor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/CallbacksManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Component.h" ex="false" tool="3" flavor2="0">
@@ -308,6 +319,8 @@
       </item>
       <item path="include/Protocol.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Socket.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/StringDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/UIntDataHolder.h" ex="false" tool="3" flavor2="0">
@@ -315,6 +328,8 @@
       <item path="include/Value.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/jsoncpp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Acceptor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/CallbacksManager.cpp" ex="false" tool="1" flavor2="0">
       </item>

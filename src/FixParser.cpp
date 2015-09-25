@@ -9,6 +9,7 @@
 
 #include "FixParser.h"
 
+using namespace std;
 
 namespace fprime {
 

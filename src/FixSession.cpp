@@ -1,6 +1,8 @@
 
 
 #include "FixSession.h"
+#include "Socket.h"
+#include "Acceptor.h"
 
 namespace fprime {
 
@@ -15,22 +17,25 @@ namespace fprime {
     }
 
     void FixSession::inboundProcessor() {
+        
+        Socket::MessageQueuePtr inboundQueue = acceptor.getInboundQueuePtr();
+        
         setIbRunning(true);
         fprime::FixParser parser;
         parser.setProtocol(protocolPtr);
         parser.setSeparator('\001');
 
         while (ibpRunning) {
-            unique_lock<mutex> lock(inboundLock);
+            unique_lock<mutex> lock(acceptor.inboundLock);
 
-            while (inboundQueue.empty()) {
-                inboundCondition.wait(lock);
+            while (inboundQueue->empty()) {
+                acceptor.inboundCondition.wait(lock);
             }
-            RawMessage rawMsg(inboundQueue.front());
-            inboundQueue.pop();
+            string rawMsg = inboundQueue->front();
+            inboundQueue->pop();
             lock.unlock();
             try {
-                fprime::FixParser::FlatMessage flatMessage = parser.explode(rawMsg.getText());
+                fprime::FixParser::FlatMessage flatMessage = parser.explode(rawMsg);
                 fprime::Message fixMsg = parser.parseMessage(flatMessage);
                 string callbackKey = fixMsg.getHeader()->getChild(8)->getValue() + "-" + fixMsg.getHeader()->getChild(35)->getValue();
 
@@ -38,6 +43,7 @@ namespace fprime {
                 callbacksManager->executeCallback(callbackKey, fixMsg, this);
 
             } catch (exception& e) {
+                cout << "error in inboundprocessor" + string(e.what()) << endl;
                 setIbRunning(false);
                 //TODO log error
             }
@@ -76,13 +82,6 @@ namespace fprime {
         setIbRunning(false);
     }
 
-    void FixSession::pushInbound(const string msg) {
-        unique_lock<mutex> lock(inboundLock);
-        inboundQueue.push(RawMessage(msg));
-        lock.unlock();
-        inboundCondition.notify_one();
-    }
-
     bool FixSession::connect() {
         setConnected(true);
     }
@@ -92,30 +91,8 @@ namespace fprime {
     }
 
     void FixSession::startAcceptor(boost::asio::io_service& io_service, unsigned short port) {
-        tcp::acceptor a(io_service, tcp::endpoint(tcp::v4(), port));
-        tcp::socket sock(io_service);
-        a.accept(sock);
-        setConnected(true);
-        try {
-            while (connected) {
-                char data[max_length];
-                cout << "receiving" << endl;
-                boost::system::error_code error;
-                size_t length = sock.read_some(boost::asio::buffer(data), error);
-
-                if (error == boost::asio::error::eof) {
-                    usleep(5000000);
-                    break; // Connection closed cleanly by peer.
-                } else if (error)
-                    throw boost::system::system_error(error); // Some other error.
-                pushInbound(string(data));
-            }
-            a.close();
-            setConnected(false);
-        } catch (std::exception& e) {
-            setConnected(false);
-            std::cerr << "at FixSession.startAcceptor: " << e.what() << "\n";
-        }
+        acceptor.start(io_service, port);
+        cout << "acceptor started" << endl;
     }
 
     void FixSession::start(boost::asio::io_service& io_service, unsigned short port) {
@@ -126,16 +103,14 @@ namespace fprime {
     }
 
     void FixSession::stop() {
-        disconnect();
+        //disconnect();
+        acceptor.stop();
         bool emtyqueue = false;
         while (!emtyqueue) {
             emtyqueue = stopInboundProcessor();
             usleep(500000);
         }
     }
-
-
-    // Private methods
 
     void FixSession::setConnected(bool val) {
         mutex lock;
@@ -158,4 +133,5 @@ namespace fprime {
         lock.unlock();
     }
 
+    
 }

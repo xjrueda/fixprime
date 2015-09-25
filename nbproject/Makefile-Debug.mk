@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/Acceptor.o \
 	${OBJECTDIR}/src/CallbacksManager.o \
 	${OBJECTDIR}/src/Component.o \
 	${OBJECTDIR}/src/DataHolderFactory.o \
@@ -77,6 +78,11 @@ LDLIBSOPTIONS=-lboost_system
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libFixPrime.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libFixPrime.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared -fPIC
+
+${OBJECTDIR}/src/Acceptor.o: src/Acceptor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -Iinclude -I. -std=c++11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Acceptor.o src/Acceptor.cpp
 
 ${OBJECTDIR}/src/CallbacksManager.o: src/CallbacksManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

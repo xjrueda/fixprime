@@ -24,69 +24,60 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifndef ACCEPTOR_H
+#define	ACCEPTOR_H
 
-#ifndef FIXSESSION_H
-#define	FIXSESSION_H
-
-#include <boost/asio.hpp>
-#include "CallbacksManager.h"
-#include "FixParserExceptions.h"
-#include "FixParser.h"
-#include "Message.h"
-#include "Protocol.h"
-#include <queue>
-#include <thread>
-#include <mutex>
-#include "Acceptor.h"
 #include "Socket.h"
+#include <iostream>
 
-
-
-
-using boost::asio::ip::tcp;
+using namespace boost::asio;
+using namespace std;
 
 namespace fprime {
 
-    const int max_length = 10240;
-
-    class FixSession {
+    class Acceptor : public fprime::Socket {
     public:
-        typedef shared_ptr<FixSession> FixSessionPtr;
-        FixSession();
-        FixSession(const FixSession& orig);
-        virtual ~FixSession();
+        Acceptor();
+        Acceptor(const Acceptor& orig);
+        virtual ~Acceptor();
 
-        void inboundProcessor();
-        void setCallbackManager(fprime::CallbacksManager::CallbacksManagerPtr);
-        void setProtocol(fprime::Protocol::ProtocolPtr);
-        bool startInboundProcessor();
-        bool stopInboundProcessor();
-        void stopAbortProcessor();
-        bool connect();
-        bool disconnect();
-        void startAcceptor(boost::asio::io_service&, unsigned short);
-        void start(boost::asio::io_service&, unsigned short);
+        bool start(io_service&, unsigned short);
         void stop();
+        void close();
+        bool send();
+        bool receive();
+        
     private:
-        fprime::Acceptor acceptor;
-        fprime::Protocol::ProtocolPtr protocolPtr;
-        queue<fprime::Message> outboundQueue;
-        Socket::MessageQueue inboundQueue;
-        fprime::CallbacksManager::CallbacksManagerPtr callbacksManager;
-        bool connected;
-        bool ibpRunning;
-        bool sessionRunning;
-        condition_variable inboundCondition;
-        mutex inboundLock;
-        mutex connectionLock;
-        mutex runningLock;
-        string strBuffer;
-        void setConnected(bool);
-        void setSessionRunning(bool);
-        void setIbRunning(bool);
-    };
 
+        void client_session(SocketPtr sock) {
+            //cout << "client session started" << endl;
+            while (connected) {
+                boost::system::error_code error;
+                char data[recBuffSize];
+                size_t length = sock->read_some(boost::asio::buffer(data), error);
+
+                stringstream ss;
+                ss << data;
+                addToBuffer(ss.str());
+
+                string msg;
+                while (getRawFixMessage(msg)) {
+                    pushInbound(msg);
+                    msg.clear();
+                }
+
+                if (error == boost::asio::error::eof) {
+                    break; // Connection closed cleanly by peer.
+                } else if (error)
+                    throw boost::system::system_error(error); // Some other error.
+            }
+            sock->close();
+            setConnected(false);
+            //cout << "client session closed" << endl;
+        }
+
+    };
 }
 
-#endif	/* FIXSESSION_H */
+#endif	/* ACCEPTOR_H */
 

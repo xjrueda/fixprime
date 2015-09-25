@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/Acceptor.o \
 	${OBJECTDIR}/src/CallbacksManager.o \
 	${OBJECTDIR}/src/Component.o \
 	${OBJECTDIR}/src/DataHolderFactory.o \
@@ -77,6 +78,11 @@ LDLIBSOPTIONS=`cppunit-config --libs` -lcunit `cppunit-config --libs` `cppunit-c
 ${TESTDIR}/TestFiles/f1: ${OBJECTFILES}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc} -o ${TESTDIR}/TestFiles/f1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/src/Acceptor.o: src/Acceptor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Acceptor.o src/Acceptor.cpp
 
 ${OBJECTDIR}/src/CallbacksManager.o: src/CallbacksManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

@@ -42,6 +42,7 @@
 #include <boost/lexical_cast.hpp>
 
 using namespace std;
+
 namespace fprime {
 
     class FixParser {

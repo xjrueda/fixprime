@@ -201,6 +201,22 @@ namespace fprime {
     private:
         string errMsg;
     };
+    
+    class RawMessageException : public exception {
+    public:
+
+        RawMessageException() {
+        }
+
+        ~RawMessageException() throw () {
+        }
+
+        const string what() throw () {
+            return "Error getting message from buffer";
+        }
+    private:
+        string errMsg;
+    };
 }
 #endif	/* FIXPARSEREXCEPTIONS_H */
 
