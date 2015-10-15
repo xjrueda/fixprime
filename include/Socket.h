@@ -43,7 +43,7 @@ using namespace std;
 namespace fprime {
 
     const int recBuffSize = 10240;
-    
+
     class Socket {
     public:
 
@@ -53,7 +53,8 @@ namespace fprime {
         virtual ~Socket() {
         }
 
-        typedef boost::shared_ptr<ip::tcp::socket> SocketPtr;
+        typedef shared_ptr<ip::tcp::socket> SocketPtr;
+        typedef shared_ptr<io_service> IOSPtr;
 
         struct RawMessage {
 
@@ -77,31 +78,41 @@ namespace fprime {
         typedef queue<string> MessageQueue;
         typedef shared_ptr<MessageQueue> MessageQueuePtr;
 
-        virtual bool start(io_service& io_service, unsigned short port) = 0;
+        virtual bool start(Socket::IOSPtr, unsigned short) = 0;
+        virtual bool start(Socket::IOSPtr, string, unsigned short) = 0;
         //virtual bool start(io_service& io_service, string ip, unsigned short port) = 0;
-        virtual void stop() = 0;
-        virtual void close() = 0;
-        virtual bool send() = 0;
-        virtual bool receive() = 0;
-        
+
+        void stop() {
+            setConnected(false);
+            socketPtr->close();
+            setStarted(false);
+        }
+
+        bool send(string msg) {
+            cout << "TO SEND : " << msg << endl; 
+            boost::asio::write(*socketPtr, boost::asio::buffer(msg.c_str(), msg.length()));
+            return true;
+        };
+
         MessageQueuePtr getInboundQueuePtr() {
             return inboundQueuePtr;
         }
-        
+
         condition_variable inboundCondition;
         mutex inboundLock;
     protected:
+
         MessageQueuePtr inboundQueuePtr;
         SocketPtr socketPtr;
-        
+
         boost::asio::io_service service;
 
         bool started;
         bool connected;
         bool ibpRunning;
         bool sessionRunning;
-        
-        
+
+
         mutex connectionLock;
         string strBuffer;
 
@@ -113,36 +124,36 @@ namespace fprime {
         }
 
         void setConnected(bool val) {
-            mutex lock;
-            lock.lock();
+            //            mutex lock;
+            //            lock.lock();
             connected = val;
-            lock.unlock();
+            //            lock.unlock();
         }
 
         void setStarted(bool val) {
-            mutex lock;
-            lock.lock();
+            //            mutex lock;
+            //            lock.lock();
             started = val;
-            lock.unlock();
+            //            lock.unlock();
         }
 
         void setSessionRunning(bool val) {
-            mutex lock;
-            lock.lock();
+            //            mutex lock;
+            //            lock.lock();
             sessionRunning = val;
-            lock.unlock();
+            //            lock.unlock();
         }
 
         void setIbRunning(bool val) {
-            mutex lock;
-            lock.lock();
+            //            mutex lock;
+            //            lock.lock();
             ibpRunning = val;
-            lock.unlock();
+            //            lock.unlock();
         }
-        
+
         bool dummy() {
             cout.flush();
-            return true; 
+            return true;
         }
 
         void addToBuffer(const string& data) {
@@ -151,6 +162,10 @@ namespace fprime {
 
         void addToBuffer(const char* data, size_t len) {
             strBuffer.append(data, len);
+        }
+
+        void clearBuffer() {
+            strBuffer.clear();
         }
 
         bool getLength(int& length, std::string::size_type& pos,
@@ -214,7 +229,48 @@ namespace fprime {
 
             return false;
         }
-        
+
+        void clientConnection(SocketPtr sock) {
+            clearBuffer();
+            //cout << "client session started" << endl;
+            while (connected) {
+                boost::system::error_code error;
+                char data[recBuffSize];
+                size_t length = sock->read_some(boost::asio::buffer(data), error);
+                if (error == boost::asio::error::eof) {
+                    cout << "Connection closed cleanly by peer" << endl;
+                    setConnected(false);
+                    //break; // Connection closed cleanly by peer.
+                } else if (error) {
+                    setConnected(false);
+                    //TODO: Register error in log
+                    throw boost::system::system_error(error); // Some other error.
+                }
+                stringstream ss;
+                ss << data;
+                addToBuffer(ss.str());
+                string msg;
+                while (getRawFixMessage(msg) && length > 0) {
+//                    cout << "Pushing message in queue" << msg << endl;
+                    pushInbound(msg);
+
+                     //Response 
+//                                        string response = "Procesed";
+//                                        size_t response_length = response.length();
+//                                        
+//                                        boost::asio::write(*sock, boost::asio::buffer(response.c_str(), recBuffSize));
+//                                        cout << "Responded" << endl;
+                    msg.clear();
+                }
+                cout << "Next" << endl;
+                cout.flush();
+            }
+            sock->close();
+            setConnected(false);
+            //cout << "Messages in queue : " << inboundQueuePtr->size() << endl;
+            cout << "client session closed" << endl;
+        }
+
     };
 }
 

@@ -19,6 +19,7 @@
       <itemPath>include/FixParser.h</itemPath>
       <itemPath>include/FixParserExceptions.h</itemPath>
       <itemPath>include/FixSession.h</itemPath>
+      <itemPath>include/Initiator.h</itemPath>
       <itemPath>include/IntDataHolder.h</itemPath>
       <itemPath>include/Message.h</itemPath>
       <itemPath>include/Node.h</itemPath>
@@ -46,6 +47,7 @@
       <itemPath>src/FixLoader.cpp</itemPath>
       <itemPath>src/FixParser.cpp</itemPath>
       <itemPath>src/FixSession.cpp</itemPath>
+      <itemPath>src/Initiator.cpp</itemPath>
       <itemPath>src/IntDataHolder.cpp</itemPath>
       <itemPath>src/Message.cpp</itemPath>
       <itemPath>src/Node.cpp</itemPath>
@@ -152,6 +154,8 @@
       </item>
       <item path="include/FixSession.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Initiator.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/IntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Message.h" ex="false" tool="3" flavor2="0">
@@ -189,6 +193,8 @@
       <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/FixSession.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Initiator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/IntDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -311,6 +317,8 @@
       </item>
       <item path="include/FixSession.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Initiator.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/IntDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Message.h" ex="false" tool="3" flavor2="0">
@@ -348,6 +356,8 @@
       <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/FixSession.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Initiator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/IntDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>

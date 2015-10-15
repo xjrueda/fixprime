@@ -24,69 +24,51 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
-#ifndef FIXSESSION_H
-#define	FIXSESSION_H
-
-#include <boost/asio.hpp>
-#include "CallbacksManager.h"
-#include "FixParserExceptions.h"
-#include "FixParser.h"
-#include "Message.h"
-#include "Protocol.h"
-#include <queue>
 #include <thread>
-#include <mutex>
-#include "Acceptor.h"
+
+#include "Initiator.h"
 #include "Socket.h"
 
-
-
-
-using boost::asio::ip::tcp;
+using namespace boost::asio;
+using namespace std;
 
 namespace fprime {
 
-    const int max_length = 10240;
+    Initiator::Initiator() {
+        inboundQueuePtr.reset(new MessageQueue);
+    }
 
-    class FixSession {
-    public:
-        typedef shared_ptr<FixSession> FixSessionPtr;
-        FixSession();
-        FixSession(const FixSession& orig);
-        virtual ~FixSession();
+    Initiator::Initiator(const Initiator& orig) {
+    }
 
-        void inboundProcessor();
-        void setCallbackManager(fprime::CallbacksManager::CallbacksManagerPtr);
-        void setProtocol(fprime::Protocol::ProtocolPtr);
-        bool startInboundProcessor();
-        bool stopInboundProcessor();
-        void stopAbortProcessor();
-        bool connect();
-        bool disconnect();
-        void start(Socket::IOSPtr, unsigned short);
-        void stop();
-        void send(string);
-    private:
-        fprime::Acceptor acceptor;
-        fprime::Protocol::ProtocolPtr protocolPtr;
-        queue<fprime::Message> outboundQueue;
-        Socket::MessageQueue inboundQueue;
-        fprime::CallbacksManager::CallbacksManagerPtr callbacksManager;
-        bool connected;
-        bool ibpRunning;
-        bool sessionRunning;
-        condition_variable inboundCondition;
-        mutex inboundLock;
-        mutex connectionLock;
-        mutex runningLock;
-        string strBuffer;
-        void setConnected(bool);
-        void setSessionRunning(bool);
-        void setIbRunning(bool);
-    };
+    Initiator::~Initiator() {
+    }
+
+    bool Initiator::start(Socket::IOSPtr iosPtr, string host, unsigned short port) {
+        try {
+            tcp::socket s(*iosPtr);
+            tcp::resolver resolver(*iosPtr);
+            socketPtr.reset(new ip::tcp::socket(*iosPtr));
+            stringstream ss;
+            ss << port;
+            boost::asio::connect(s, resolver.resolve({host.c_str(), ss.str().c_str()}));
+            setStarted(true);
+            setConnected(true);
+            thread t1(bind(&Initiator::clientConnection, this, socketPtr));
+            t1.detach();
+            return true;
+
+            cout << "Initiator started" << endl;
+        } catch (exception& e) {
+            setStarted(false);
+            setConnected(false);
+            return false;
+            //TODO: register error in log
+        }
+    }
+
+    bool Initiator::start(Socket::IOSPtr iosPtr, unsigned short port) {
+        return false;
+    }
 
 }
-
-#endif	/* FIXSESSION_H */
-

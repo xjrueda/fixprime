@@ -40,41 +40,74 @@ namespace fprime {
         Acceptor();
         Acceptor(const Acceptor& orig);
         virtual ~Acceptor();
-
-        bool start(io_service&, unsigned short);
-        void stop();
-        void close();
-        bool send();
-        bool receive();
-        
+        bool start(Socket::IOSPtr, unsigned short);
+        bool start(Socket::IOSPtr, string, unsigned short);
     private:
 
-        void client_session(SocketPtr sock) {
-            //cout << "client session started" << endl;
-            while (connected) {
-                boost::system::error_code error;
-                char data[recBuffSize];
-                size_t length = sock->read_some(boost::asio::buffer(data), error);
-
-                stringstream ss;
-                ss << data;
-                addToBuffer(ss.str());
-
-                string msg;
-                while (getRawFixMessage(msg)) {
-                    pushInbound(msg);
-                    msg.clear();
+        void startAcceptor(IOSPtr ioService, unsigned short port) {
+            try {
+                ip::tcp::endpoint ep(ip::tcp::v4(), port);
+                ip::tcp::acceptor acc(*ioService, ep);
+                setStarted(true);
+                setConnected(false);
+                //cout << "acceptor started" << endl;
+                while (started) {
+                    if (!connected) {
+                        socketPtr.reset(new ip::tcp::socket(*ioService));
+                        acc.accept(*socketPtr);
+                        //cout << "connection accepted" << endl;
+                        setConnected(true);                      
+                        clientConnection(socketPtr);
+                    }
+                    //cout << "acceptor listening for new connection" << endl;
                 }
-
-                if (error == boost::asio::error::eof) {
-                    break; // Connection closed cleanly by peer.
-                } else if (error)
-                    throw boost::system::system_error(error); // Some other error.
+            } catch (exception& e) {
+                setStarted(false);
+                setConnected(false);
+                //TODO: register error in log
             }
-            sock->close();
-            setConnected(false);
-            //cout << "client session closed" << endl;
         }
+
+//        void clientConnection(SocketPtr sock) {
+//            clearBuffer();
+//            cout << "client session started" << endl;
+//            while (connected) {
+//                boost::system::error_code error;
+//                char data[recBuffSize];
+//                size_t length = sock->read_some(boost::asio::buffer(data), error);
+//                if (error == boost::asio::error::eof) {
+//                    cout << "Connection closed cleanly by peer" << endl;
+//                    setConnected(false);
+//                    break; // Connection closed cleanly by peer.
+//                } else if (error) {
+//                    setConnected(false);
+//                    TODO: Register error in log
+//                    throw boost::system::system_error(error); // Some other error.
+//                }
+//                stringstream ss;
+//                ss << data;
+//                addToBuffer(ss.str());
+//                string msg;
+//                while (getRawFixMessage(msg) && length > 0) {
+//                    cout << "Pushing message in queue" << msg << endl;
+//                    pushInbound(msg);
+//
+//                     Response 
+//                    string response = "Procesed";
+//                    size_t response_length = response.length();
+//                    
+//                    boost::asio::write(*sock, boost::asio::buffer(response, response_length));
+//                    cout << "Responded" << endl;
+//                    msg.clear();
+//                }
+//                cout << "Next" << endl;
+//                cout.flush();
+//            }
+//            sock->close();
+//            setConnected(false);
+//            cout << "Messages in queue : " << inboundQueuePtr->size() << endl;
+//            cout << "client session closed" << endl;
+//        }
 
     };
 }

@@ -40,6 +40,7 @@ namespace fprime {
                 string callbackKey = fixMsg.getHeader()->getChild(8)->getValue() + "-" + fixMsg.getHeader()->getChild(35)->getValue();
 
                 // delegates the method to it handler
+                //cout << "Executing delegate" << endl;
                 callbacksManager->executeCallback(callbackKey, fixMsg, this);
 
             } catch (exception& e) {
@@ -90,16 +91,13 @@ namespace fprime {
         setConnected(false);
     }
 
-    void FixSession::startAcceptor(boost::asio::io_service& io_service, unsigned short port) {
-        acceptor.start(io_service, port);
-        cout << "acceptor started" << endl;
-    }
-
-    void FixSession::start(boost::asio::io_service& io_service, unsigned short port) {
+    void FixSession::start(Socket::IOSPtr iosPtr, unsigned short port) {
         if (!startInboundProcessor())
             throw runtime_error("at FixSession.start : InboundProcessor could not be started.");
+        
+        cout << "acceptor started" << endl;
         setSessionRunning(true);
-        startAcceptor(io_service, port);
+        acceptor.start(iosPtr, port);
     }
 
     void FixSession::stop() {
@@ -110,8 +108,14 @@ namespace fprime {
             emtyqueue = stopInboundProcessor();
             usleep(500000);
         }
+        
+        cout << "Session Stopped" << endl;
     }
 
+    void FixSession::send(string msg) {
+        acceptor.send(msg);
+    } 
+    
     void FixSession::setConnected(bool val) {
         mutex lock;
         lock.lock();

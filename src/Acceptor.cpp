@@ -44,38 +44,14 @@ namespace fprime {
     Acceptor::~Acceptor() {
     }
 
-    bool Acceptor::start(io_service& io_service, unsigned short port) {
-        ip::tcp::endpoint ep(ip::tcp::v4(), port);
-        ip::tcp::acceptor acc(io_service, ep);
-        setStarted(true);
-        setConnected(false);
-        //cout << "acceptor started" << endl;
-        while (started) {
-            if (!connected) {
-                //cout << "acceptor listening" << endl;
-                socketPtr.reset(new ip::tcp::socket(io_service));
-                acc.accept(*socketPtr);
-                setConnected(true);
-                thread t1(bind(&Acceptor::client_session, this, socketPtr));
-                t1.detach();
-            }
-            cout << "acceptor listening for new connection" << endl;
-        }
-    }
+    bool Acceptor::start(Socket::IOSPtr iosPtr, unsigned short port) {
 
-    void Acceptor::stop() {
-        setConnected(false);
-        setStarted(false);
+        thread t1(bind(&Acceptor::startAcceptor, this, iosPtr, port));
+        t1.detach();
+        return true;
     }
     
-    void Acceptor::close() {
-        setConnected(false);
-    }
-
-    bool Acceptor::send() {
-    }
-
-    bool Acceptor::receive() {
-    }
-
+    bool Acceptor::start(Socket::IOSPtr iosPtr, string host, unsigned short port) {
+        return false;
+    };
 }

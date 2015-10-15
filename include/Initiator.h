@@ -24,69 +24,28 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifndef ACCEPTOR_H
+#define	ACCEPTOR_H
 
-#ifndef FIXSESSION_H
-#define	FIXSESSION_H
-
-#include <boost/asio.hpp>
-#include "CallbacksManager.h"
-#include "FixParserExceptions.h"
-#include "FixParser.h"
-#include "Message.h"
-#include "Protocol.h"
-#include <queue>
-#include <thread>
-#include <mutex>
-#include "Acceptor.h"
 #include "Socket.h"
+#include <iostream>
 
-
-
-
+using namespace boost::asio;
 using boost::asio::ip::tcp;
+using namespace std;
 
 namespace fprime {
 
-    const int max_length = 10240;
-
-    class FixSession {
+    class Initiator : public fprime::Socket {
     public:
-        typedef shared_ptr<FixSession> FixSessionPtr;
-        FixSession();
-        FixSession(const FixSession& orig);
-        virtual ~FixSession();
+        Initiator();
+        Initiator(const Initiator& orig);
+        virtual ~Initiator();
 
-        void inboundProcessor();
-        void setCallbackManager(fprime::CallbacksManager::CallbacksManagerPtr);
-        void setProtocol(fprime::Protocol::ProtocolPtr);
-        bool startInboundProcessor();
-        bool stopInboundProcessor();
-        void stopAbortProcessor();
-        bool connect();
-        bool disconnect();
-        void start(Socket::IOSPtr, unsigned short);
-        void stop();
-        void send(string);
-    private:
-        fprime::Acceptor acceptor;
-        fprime::Protocol::ProtocolPtr protocolPtr;
-        queue<fprime::Message> outboundQueue;
-        Socket::MessageQueue inboundQueue;
-        fprime::CallbacksManager::CallbacksManagerPtr callbacksManager;
-        bool connected;
-        bool ibpRunning;
-        bool sessionRunning;
-        condition_variable inboundCondition;
-        mutex inboundLock;
-        mutex connectionLock;
-        mutex runningLock;
-        string strBuffer;
-        void setConnected(bool);
-        void setSessionRunning(bool);
-        void setIbRunning(bool);
+        bool start(Socket::IOSPtr, unsigned short);
+        bool start(Socket::IOSPtr, string, unsigned short);
     };
-
 }
 
-#endif	/* FIXSESSION_H */
+#endif	/* ACCEPTOR_H */
 

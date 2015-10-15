@@ -45,6 +45,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/FixLoader.o \
 	${OBJECTDIR}/src/FixParser.o \
 	${OBJECTDIR}/src/FixSession.o \
+	${OBJECTDIR}/src/Initiator.o \
 	${OBJECTDIR}/src/IntDataHolder.o \
 	${OBJECTDIR}/src/Message.o \
 	${OBJECTDIR}/src/Node.o \
@@ -128,6 +129,11 @@ ${OBJECTDIR}/src/FixSession.o: src/FixSession.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixSession.o src/FixSession.cpp
+
+${OBJECTDIR}/src/Initiator.o: src/Initiator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Initiator.o src/Initiator.cpp
 
 ${OBJECTDIR}/src/IntDataHolder.o: src/IntDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
