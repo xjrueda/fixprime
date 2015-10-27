@@ -3,10 +3,16 @@
 #include "FixSession.h"
 #include "Socket.h"
 #include "Acceptor.h"
+#include "Initiator.h"
 
 namespace fprime {
 
-    FixSession::FixSession() : connected(false), ibpRunning(false) {
+    FixSession::FixSession(FixSessionSetup ssetup) : sessionSetup(ssetup), connected(false), ibpRunning(false) {
+        if (ssetup.getType() == "Acceptor") {
+            connectorPtr.reset(new fprime::Acceptor); 
+        } else {
+            connectorPtr.reset(new fprime::Initiator); 
+        }
     }
 
     FixSession::FixSession(const FixSession& orig) {
@@ -18,7 +24,7 @@ namespace fprime {
 
     void FixSession::inboundProcessor() {
         
-        Socket::MessageQueuePtr inboundQueue = acceptor.getInboundQueuePtr();
+        Socket::MessageQueuePtr inboundQueue = connectorPtr->getInboundQueuePtr();
         
         setIbRunning(true);
         fprime::FixParser parser;
@@ -26,10 +32,10 @@ namespace fprime {
         parser.setSeparator('\001');
 
         while (ibpRunning) {
-            unique_lock<mutex> lock(acceptor.inboundLock);
+            unique_lock<mutex> lock(connectorPtr->inboundLock);
 
             while (inboundQueue->empty()) {
-                acceptor.inboundCondition.wait(lock);
+                connectorPtr->inboundCondition.wait(lock);
             }
             string rawMsg = inboundQueue->front();
             inboundQueue->pop();
@@ -97,12 +103,15 @@ namespace fprime {
         
         cout << "acceptor started" << endl;
         setSessionRunning(true);
-        acceptor.start(iosPtr, port);
+        if (sessionSetup.getType() == "Acceptor") 
+            connectorPtr->start(iosPtr, sessionSetup.getPort());
+        else
+            connectorPtr->start(iosPtr, sessionSetup.getHost(), sessionSetup.getPort());
     }
 
     void FixSession::stop() {
         //disconnect();
-        acceptor.stop();
+        connectorPtr->stop();
         bool emtyqueue = false;
         while (!emtyqueue) {
             emtyqueue = stopInboundProcessor();
@@ -113,7 +122,7 @@ namespace fprime {
     }
 
     void FixSession::send(string msg) {
-        acceptor.send(msg);
+        connectorPtr->send(msg);
     } 
     
     void FixSession::setConnected(bool val) {

@@ -39,7 +39,7 @@
 #include <mutex>
 #include "Acceptor.h"
 #include "Socket.h"
-
+#include "FixSessionSetup.h"
 
 
 
@@ -52,7 +52,7 @@ namespace fprime {
     class FixSession {
     public:
         typedef shared_ptr<FixSession> FixSessionPtr;
-        FixSession();
+        FixSession(FixSessionSetup);
         FixSession(const FixSession& orig);
         virtual ~FixSession();
 
@@ -68,7 +68,7 @@ namespace fprime {
         void stop();
         void send(string);
     private:
-        fprime::Acceptor acceptor;
+        shared_ptr<fprime::Socket> connectorPtr;
         fprime::Protocol::ProtocolPtr protocolPtr;
         queue<fprime::Message> outboundQueue;
         Socket::MessageQueue inboundQueue;
@@ -84,6 +84,7 @@ namespace fprime {
         void setConnected(bool);
         void setSessionRunning(bool);
         void setIbRunning(bool);
+        FixSessionSetup sessionSetup;
     };
 
 }

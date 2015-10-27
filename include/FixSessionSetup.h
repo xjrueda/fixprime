@@ -24,27 +24,71 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef INITIATOR_H
-#define	INITIATOR_H
+#ifndef FIXSESSIONSETUP_H
+#define FIXSESSIONSETUP_H
 
-#include "Socket.h"
+#include <string>
 #include <iostream>
 
-using namespace boost::asio;
-using boost::asio::ip::tcp;
 using namespace std;
 
 namespace fprime {
 
-    class Initiator : public fprime::Socket {
+    class FixSessionSetup {
     public:
-        Initiator();
-        Initiator(const Initiator& orig);
-        virtual ~Initiator();
-        bool start(Socket::IOSPtr, unsigned short);
-        bool start(Socket::IOSPtr, string, unsigned short);
+        FixSessionSetup();
+        virtual ~FixSessionSetup();
+        FixSessionSetup(const FixSessionSetup& org);
+        //Setters
+        void setType(string);
+        void setHost(string);
+        void setPort(short);
+        void setSender(string);
+        void setTarget(string);
+        void setResetOnLogon(string);
+        void setResetOnLogout(string);
+        void setResetOnDisconnect(string);
+        void setRefreshOnLogon(string);
+        void setProtocol(string);
+        void setDefaultAppVersion(string);
+        void setHeartbeatInterval(string);
+        void setUser(string);
+        void setPassword(string);
+
+        //Getters
+        string getType();
+        string getHost();
+        short getPort();
+        string getSender();
+        string getTarget();
+        string getResetOnLogon();
+        string getResetOnLogout();
+        string getResetOnDisconnect();
+        string getRefreshOnLogon();
+        string getProtocol();
+        string getDefaultAppVersion();
+        string getHeartbeatInterval();
+        string getUser();
+        string getPassword();
+
+    private:
+        string type;
+        string host;
+        short port;
+        string sender;
+        string target;
+        string resetOnLogon;
+        string resetOnLogout;
+        string resetOnDisconnect;
+        string refreshOnLogon;
+        string protocol;
+        string defaultAppVersion;
+        string heartbeatInterval;
+        string user;
+        string password;
+
     };
+
 }
 
-#endif	/* INITIATOR_H */
-
+#endif /* FIXSESSIONSETUP_H */
