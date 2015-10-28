@@ -34,13 +34,13 @@ namespace fprime {
     FixSessionSetup::~FixSessionSetup() {
     };
 
-    FixSessionSetup::FixSessionSetup(const FixSessionSetup& org) {
-    }
+//    FixSessionSetup::FixSessionSetup(const FixSessionSetup& org) {
+//    }
 
     //Setters
 
     void FixSessionSetup::setType(string t) {
-        type = t;
+        type_ = t;
     }
 
     void FixSessionSetup::setHost(string h) {
@@ -98,7 +98,7 @@ namespace fprime {
     //Getters
 
     string FixSessionSetup::getType() {
-        return type;
+        return type_;
     }
 
     string FixSessionSetup::getHost() {

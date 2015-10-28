@@ -64,7 +64,7 @@ namespace fprime {
         void stopAbortProcessor();
         bool connect();
         bool disconnect();
-        void start(Socket::IOSPtr, unsigned short);
+        void start(Socket::IOSPtr);
         void stop();
         void send(string);
     private:

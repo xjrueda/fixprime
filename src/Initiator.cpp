@@ -46,12 +46,11 @@ namespace fprime {
 
     bool Initiator::start(Socket::IOSPtr iosPtr, string host, unsigned short port) {
         try {
-            tcp::socket s(*iosPtr);
             tcp::resolver resolver(*iosPtr);
             socketPtr.reset(new ip::tcp::socket(*iosPtr));
             stringstream ss;
             ss << port;
-            boost::asio::connect(s, resolver.resolve({host.c_str(), ss.str().c_str()}));
+            boost::asio::connect(*socketPtr, resolver.resolve({host.c_str(), ss.str().c_str()}));
             setStarted(true);
             setConnected(true);
             thread t1(bind(&Initiator::clientConnection, this, socketPtr));

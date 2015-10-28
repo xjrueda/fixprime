@@ -80,8 +80,7 @@ namespace fprime {
 
         virtual bool start(Socket::IOSPtr, unsigned short) = 0;
         virtual bool start(Socket::IOSPtr, string, unsigned short) = 0;
-        //virtual bool start(io_service& io_service, string ip, unsigned short port) = 0;
-
+        
         void stop() {
             setConnected(false);
             socketPtr->close();
@@ -232,7 +231,7 @@ namespace fprime {
 
         void clientConnection(SocketPtr sock) {
             clearBuffer();
-            //cout << "client session started" << endl;
+            cout << "connection established" << endl;
             while (connected) {
                 boost::system::error_code error;
                 char data[recBuffSize];

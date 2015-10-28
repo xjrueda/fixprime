@@ -38,7 +38,7 @@ namespace fprime {
     public:
         FixSessionSetup();
         virtual ~FixSessionSetup();
-        FixSessionSetup(const FixSessionSetup& org);
+//        FixSessionSetup(const FixSessionSetup& org);
         //Setters
         void setType(string);
         void setHost(string);
@@ -72,7 +72,7 @@ namespace fprime {
         string getPassword();
 
     private:
-        string type;
+        string type_;
         string host;
         short port;
         string sender;
