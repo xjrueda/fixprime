@@ -75,13 +75,15 @@ namespace fprime {
                 callbacksManager->executeCallback(callbackKey, fixMsg, this);
 
             } catch (exception& e) {
-                cout << "error in inboundprocessor" + string(e.what()) << endl;
+                cout << "error in inboundprocessor " + string(e.what()) << " in message " << rawMsg << endl;
                 setIbRunning(false);
                 //TODO log error
             }
+            
         }
 
     }
+    
 
     void FixSession::setCallbackManager(fprime::CallbacksManager::CallbacksManagerPtr cbMan) {
         callbacksManager = cbMan;
@@ -111,16 +113,17 @@ namespace fprime {
     }
 
     void FixSession::stopAbortProcessor() {
+        connectorPtr->stop();
         setIbRunning(false);
     }
 
-    bool FixSession::connect() {
-        setConnected(true);
-    }
-
-    bool FixSession::disconnect() {
-        setConnected(false);
-    }
+//    bool FixSession::connect() {
+//        setConnected(true);
+//    }
+//
+//    bool FixSession::disconnect() {
+//        setConnected(false);
+//    }
 
     void FixSession::start(Socket::IOSPtr iosPtr) {
         if (!startInboundProcessor())
@@ -150,7 +153,12 @@ namespace fprime {
     }
 
     void FixSession::send(string msg) {
-        connectorPtr->send(msg);
+        
+//        connectorPtr->pushOutbound(msg);
+        
+        if (!connectorPtr->send(msg)) {
+            //TODO Write to log
+        }
     }
 
     void FixSession::setConnected(bool val) {

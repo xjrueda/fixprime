@@ -62,8 +62,8 @@ namespace fprime {
         bool startInboundProcessor();
         bool stopInboundProcessor();
         void stopAbortProcessor();
-        bool connect();
-        bool disconnect();
+//        bool connect();
+//        bool disconnect();
         void start(Socket::IOSPtr);
         void stop();
         void send(string);
@@ -85,6 +85,7 @@ namespace fprime {
         void setSessionRunning(bool);
         void setIbRunning(bool);
         FixSessionSetup sessionSetup;
+        Socket::IOSPtr iosPtr_;
     };
 
 }

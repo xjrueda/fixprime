@@ -55,11 +55,10 @@ namespace fprime {
                     if (!connected) {
                         socketPtr.reset(new ip::tcp::socket(*ioService));
                         acc.accept(*socketPtr);
-                        //cout << "connection accepted" << endl;
                         setConnected(true);                      
                         clientConnection(socketPtr);
                     }
-                    //cout << "acceptor listening for new connection" << endl;
+                    cout << "acceptor listening for new connection" << endl;
                 }
             } catch (exception& e) {
                 setStarted(false);

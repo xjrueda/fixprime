@@ -43,6 +43,8 @@ namespace fprime {
         virtual ~Initiator();
         bool start(Socket::IOSPtr, unsigned short);
         bool start(Socket::IOSPtr, string, unsigned short);
+        bool send(string);
+        bool send(Socket::IOSPtr,string);
     };
 }
 

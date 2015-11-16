@@ -56,8 +56,6 @@ namespace fprime {
             thread t1(bind(&Initiator::clientConnection, this, socketPtr));
             t1.detach();
             return true;
-
-            cout << "Initiator started" << endl;
         } catch (exception& e) {
             setStarted(false);
             setConnected(false);
