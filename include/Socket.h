@@ -1,5 +1,3 @@
-// Definition of the Socket class
-
 #ifndef Socket_class
 #define Socket_class
 

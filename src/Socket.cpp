@@ -1,6 +1,3 @@
-// Implementation of the Socket class.
-
-
 #include "Socket.h"
 #include "string.h"
 #include <string.h>

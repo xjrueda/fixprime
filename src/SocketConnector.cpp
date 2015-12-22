@@ -1,5 +1,3 @@
-// Implementation of the ServerSocket class
-
 #include "SocketConnector.h"
 #include "SocketException.h"
 
