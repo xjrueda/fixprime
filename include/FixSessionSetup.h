@@ -58,7 +58,7 @@ namespace fprime {
         //Getters
         string getType();
         string getHost();
-        short getPort();
+        int getPort();
         string getSender();
         string getTarget();
         string getResetOnLogon();

@@ -27,32 +27,33 @@
 #include <thread>
 
 #include "Acceptor.h"
-#include "Socket.h"
 
-using namespace boost::asio;
 using namespace std;
 
 namespace fprime {
 
     Acceptor::Acceptor() {
-        inboundQueuePtr.reset(new MessageQueue);
     }
 
-    Acceptor::Acceptor(const Acceptor& orig) {
+    Acceptor::Acceptor(FixSessionSetup ssetup) {
+        sessionSetup = ssetup;
     }
+
+    //    Acceptor Acceptor(const Acceptor& orig);
 
     Acceptor::~Acceptor() {
     }
 
-    bool Acceptor::start(Socket::IOSPtr iosPtr, unsigned short port) {
-
-        thread t1(bind(&Acceptor::startAcceptor, this, iosPtr, port));
-        t1.detach();
-        return true;
+    bool Acceptor::start() {
+        try {
+            thread t1(std::bind(&Acceptor::startAcceptor, this, sessionSetup.getPort()));
+            t1.detach();
+            usleep(10000);
+            return sessionRunning;
+        } catch (exception& e) {
+            //TODO: log error
+            return false;
+        }
     }
-    
-    bool Acceptor::start(Socket::IOSPtr iosPtr, string host, unsigned short port) {
-        return false;
-    };
-    
+
 }

@@ -27,87 +27,61 @@
 #ifndef ACCEPTOR_H
 #define	ACCEPTOR_H
 
-#include "Socket.h"
+#include "FixSessionSetup.h"
+#include "SocketConnector.h"
+#include "SocketException.h"
+#include "Session.h"
 #include <iostream>
 
-using namespace boost::asio;
 using namespace std;
 
 namespace fprime {
 
-    class Acceptor : public fprime::Socket {
+    class Acceptor : public Session {
     public:
         Acceptor();
-        Acceptor(const Acceptor& orig);
+        Acceptor(FixSessionSetup);
+        //        Acceptor(const Acceptor& org);
         virtual ~Acceptor();
-        bool start(Socket::IOSPtr, unsigned short);
-        bool start(Socket::IOSPtr, string, unsigned short);
+        bool start();
     private:
 
-        void startAcceptor(IOSPtr ioService, unsigned short port) {
+        void startAcceptor(int port) {
             try {
-                ip::tcp::endpoint ep(ip::tcp::v4(), port);
-                ip::tcp::acceptor acc(*ioService, ep);
-                setStarted(true);
-                setConnected(false);
-                //cout << "acceptor started" << endl;
-                while (started) {
-                    if (!connected) {
-                        socketPtr.reset(new ip::tcp::socket(*ioService));
-                        acc.accept(*socketPtr);
-                        setConnected(true);                      
-                        clientConnection(socketPtr);
-                    }
-                    cout << "acceptor listening for new connection" << endl;
+                if (protocolPtr == nullptr)
+                    throw runtime_error("Protocol not defined for  session.");
+                if (callbacksManager == nullptr)
+                    throw runtime_error("CallbacksManager not defined for  session.");
+                
+                // Create the socket
+                SocketConnector server(sessionSetup.getPort());
+                setSessionRunning(true);
+                while (sessionRunning) {
+                    SocketPtr socketPtr(new SocketConnector());
+                    server.accept(socketPtr.get());
+                    setConnected(true);
+                    socketHandler(socketPtr);
+                    setIbRunning(false);
+                    setObRunning(false);
+                    setConnected(false);
+                    inboundCondition.notify_one();
+                    outboundCondition.notify_one();
                 }
+            } catch (SocketException& se) {
+                //TODO: log error
+                std::cout << "Exception was caught:" << se.description() << "\nExiting." << endl;
             } catch (exception& e) {
-                setStarted(false);
-                setConnected(false);
-                //TODO: register error in log
+                //TODO: log error
+                cout << "Error starting acceptor: " << e.what() << endl;
             }
+            setIbRunning(false);
+            setObRunning(false);
+            setConnected(false);
+            setSessionRunning(false);
+            inboundCondition.notify_one();
+            outboundCondition.notify_one();
+            
         }
-
-//        void clientConnection(SocketPtr sock) {
-//            clearBuffer();
-//            cout << "client session started" << endl;
-//            while (connected) {
-//                boost::system::error_code error;
-//                char data[recBuffSize];
-//                size_t length = sock->read_some(boost::asio::buffer(data), error);
-//                if (error == boost::asio::error::eof) {
-//                    cout << "Connection closed cleanly by peer" << endl;
-//                    setConnected(false);
-//                    break; // Connection closed cleanly by peer.
-//                } else if (error) {
-//                    setConnected(false);
-//                    TODO: Register error in log
-//                    throw boost::system::system_error(error); // Some other error.
-//                }
-//                stringstream ss;
-//                ss << data;
-//                addToBuffer(ss.str());
-//                string msg;
-//                while (getRawFixMessage(msg) && length > 0) {
-//                    cout << "Pushing message in queue" << msg << endl;
-//                    pushInbound(msg);
-//
-//                     Response 
-//                    string response = "Procesed";
-//                    size_t response_length = response.length();
-//                    
-//                    boost::asio::write(*sock, boost::asio::buffer(response, response_length));
-//                    cout << "Responded" << endl;
-//                    msg.clear();
-//                }
-//                cout << "Next" << endl;
-//                cout.flush();
-//            }
-//            sock->close();
-//            setConnected(false);
-//            cout << "Messages in queue : " << inboundQueuePtr->size() << endl;
-//            cout << "client session closed" << endl;
-//        }
-
     };
 }
 

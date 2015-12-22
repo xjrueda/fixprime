@@ -27,45 +27,36 @@
 #include <thread>
 
 #include "Initiator.h"
-#include "Socket.h"
 
-using namespace boost::asio;
 using namespace std;
 
 namespace fprime {
 
     Initiator::Initiator() {
-        inboundQueuePtr.reset(new MessageQueue);
+
     }
 
-    Initiator::Initiator(const Initiator& orig) {
+    Initiator::Initiator(FixSessionSetup ssetup) {
+        sessionSetup = ssetup;
     }
+
+    //    Initiator::Initiator(const Initiator& orig) {
+    //    }
 
     Initiator::~Initiator() {
     }
 
-    bool Initiator::start(Socket::IOSPtr iosPtr, string host, unsigned short port) {
+    bool Initiator::start() {
         try {
-            tcp::resolver resolver(*iosPtr);
-            socketPtr.reset(new ip::tcp::socket(*iosPtr));
-            stringstream ss;
-            ss << port;
-            boost::asio::connect(*socketPtr, resolver.resolve({host.c_str(), ss.str().c_str()}));
-            setStarted(true);
-            setConnected(true);
-            thread t1(bind(&Initiator::clientConnection, this, socketPtr));
+            thread t1(std::bind(&Initiator::startInitiator, this));
             t1.detach();
-            return true;
-        } catch (exception& e) {
-            setStarted(false);
-            setConnected(false);
+            usleep(10000);
+            return sessionRunning;
+        } catch (SocketException& e) {
+            //TODO: log error
+            this->stop();
             return false;
-            //TODO: register error in log
         }
-    }
-
-    bool Initiator::start(Socket::IOSPtr iosPtr, unsigned short port) {
-        return false;
     }
 
 }

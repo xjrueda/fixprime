@@ -10,11 +10,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixPrime/include/FixSession.h</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixPrime/src/FixSession.cpp</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixPrime/src/Initiator.cpp</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixPrime/include/Socket.h</file>
-            <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixPrime/src/Acceptor.cpp</file>
             <file>rfs://jrueda@162.220.241.133:22/apps/Dev/NetBeansProjects/FixPrime/include/Acceptor.h</file>
         </group>
     </open-files>

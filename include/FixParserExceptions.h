@@ -28,7 +28,9 @@
 #define	FIXPARSEREXCEPTIONS_H
 
 #include <exception>
+#include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 

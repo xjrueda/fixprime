@@ -18,14 +18,16 @@
       <itemPath>include/FixLoader.h</itemPath>
       <itemPath>include/FixParser.h</itemPath>
       <itemPath>include/FixParserExceptions.h</itemPath>
-      <itemPath>include/FixSession.h</itemPath>
       <itemPath>include/FixSessionSetup.h</itemPath>
       <itemPath>include/Initiator.h</itemPath>
       <itemPath>include/IntDataHolder.h</itemPath>
       <itemPath>include/Message.h</itemPath>
       <itemPath>include/Node.h</itemPath>
       <itemPath>include/Protocol.h</itemPath>
+      <itemPath>include/Session.h</itemPath>
       <itemPath>include/Socket.h</itemPath>
+      <itemPath>include/SocketConnector.h</itemPath>
+      <itemPath>include/SocketException.h</itemPath>
       <itemPath>include/StringDataHolder.h</itemPath>
       <itemPath>include/UIntDataHolder.h</itemPath>
       <itemPath>include/Value.h</itemPath>
@@ -47,13 +49,14 @@
       <itemPath>src/FixDictionary.cpp</itemPath>
       <itemPath>src/FixLoader.cpp</itemPath>
       <itemPath>src/FixParser.cpp</itemPath>
-      <itemPath>src/FixSession.cpp</itemPath>
       <itemPath>src/FixSessionSetup.cpp</itemPath>
       <itemPath>src/Initiator.cpp</itemPath>
       <itemPath>src/IntDataHolder.cpp</itemPath>
       <itemPath>src/Message.cpp</itemPath>
       <itemPath>src/Node.cpp</itemPath>
       <itemPath>src/Protocol.cpp</itemPath>
+      <itemPath>src/Socket.cpp</itemPath>
+      <itemPath>src/SocketConnector.cpp</itemPath>
       <itemPath>src/StringDataHolder.cpp</itemPath>
       <itemPath>src/UIntDataHolder.cpp</itemPath>
       <itemPath>src/Value.cpp</itemPath>
@@ -154,8 +157,6 @@
       </item>
       <item path="include/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/FixSession.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/FixSessionSetup.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Initiator.h" ex="false" tool="3" flavor2="0">
@@ -168,7 +169,13 @@
       </item>
       <item path="include/Protocol.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Session.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/Socket.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/SocketConnector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/SocketException.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/StringDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -196,8 +203,6 @@
       </item>
       <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/FixSession.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/FixSessionSetup.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Initiator.cpp" ex="false" tool="1" flavor2="0">
@@ -209,6 +214,10 @@
       <item path="src/Node.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Protocol.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Socket.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SocketConnector.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/StringDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -321,8 +330,6 @@
       </item>
       <item path="include/FixParserExceptions.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/FixSession.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/FixSessionSetup.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Initiator.h" ex="false" tool="3" flavor2="0">
@@ -335,7 +342,13 @@
       </item>
       <item path="include/Protocol.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/Session.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/Socket.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/SocketConnector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/SocketException.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/StringDataHolder.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -363,8 +376,6 @@
       </item>
       <item path="src/FixParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/FixSession.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/FixSessionSetup.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Initiator.cpp" ex="false" tool="1" flavor2="0">
@@ -376,6 +387,10 @@
       <item path="src/Node.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Protocol.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Socket.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SocketConnector.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/StringDataHolder.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -105,7 +105,7 @@ namespace fprime {
         return host;
     }
 
-    short FixSessionSetup::getPort() {
+    int FixSessionSetup::getPort() {
         return port;
     }
 

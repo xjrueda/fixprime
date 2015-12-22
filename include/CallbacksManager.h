@@ -16,18 +16,18 @@
 
 using namespace std;
 namespace fprime {
-    class FixSession;
+    class Session;
     class CallbacksManager {
     public:
         typedef shared_ptr<fprime::CallbacksManager> CallbacksManagerPtr;
-        typedef std::function<void(fprime::Message, fprime::FixSession*) > CallBackType;
+        typedef std::function<void(fprime::Message, fprime::Session*) > CallBackType;
         CallbacksManager();
         CallbacksManager(const CallbacksManager& orig);
         virtual ~CallbacksManager();
 
         void registerCallback(string, fprime::CallbacksManager::CallBackType, bool);
         void unregisterCallback(string);
-        void executeCallback(string, fprime::Message, fprime::FixSession*);
+        void executeCallback(string, fprime::Message, fprime::Session*);
     private:
 
         struct Callback {

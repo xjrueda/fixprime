@@ -44,13 +44,14 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/FixDictionary.o \
 	${OBJECTDIR}/src/FixLoader.o \
 	${OBJECTDIR}/src/FixParser.o \
-	${OBJECTDIR}/src/FixSession.o \
 	${OBJECTDIR}/src/FixSessionSetup.o \
 	${OBJECTDIR}/src/Initiator.o \
 	${OBJECTDIR}/src/IntDataHolder.o \
 	${OBJECTDIR}/src/Message.o \
 	${OBJECTDIR}/src/Node.o \
 	${OBJECTDIR}/src/Protocol.o \
+	${OBJECTDIR}/src/Socket.o \
+	${OBJECTDIR}/src/SocketConnector.o \
 	${OBJECTDIR}/src/StringDataHolder.o \
 	${OBJECTDIR}/src/UIntDataHolder.o \
 	${OBJECTDIR}/src/Value.o \
@@ -126,11 +127,6 @@ ${OBJECTDIR}/src/FixParser.o: src/FixParser.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixParser.o src/FixParser.cpp
 
-${OBJECTDIR}/src/FixSession.o: src/FixSession.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FixSession.o src/FixSession.cpp
-
 ${OBJECTDIR}/src/FixSessionSetup.o: src/FixSessionSetup.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
@@ -160,6 +156,16 @@ ${OBJECTDIR}/src/Protocol.o: src/Protocol.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Protocol.o src/Protocol.cpp
+
+${OBJECTDIR}/src/Socket.o: src/Socket.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Socket.o src/Socket.cpp
+
+${OBJECTDIR}/src/SocketConnector.o: src/SocketConnector.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O3 -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -I. -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/SocketConnector.o src/SocketConnector.cpp
 
 ${OBJECTDIR}/src/StringDataHolder.o: src/StringDataHolder.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

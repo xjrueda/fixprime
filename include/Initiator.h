@@ -27,24 +27,45 @@
 #ifndef INITIATOR_H
 #define	INITIATOR_H
 
-#include "Socket.h"
+#include "FixSessionSetup.h"
+#include "SocketConnector.h"
+#include "SocketException.h"
+#include "Session.h"
 #include <iostream>
 
-using namespace boost::asio;
-using boost::asio::ip::tcp;
 using namespace std;
 
 namespace fprime {
 
-    class Initiator : public fprime::Socket {
+    class Initiator : public Session {
     public:
         Initiator();
-        Initiator(const Initiator& orig);
+        Initiator(FixSessionSetup);
+        //        Initiator(const Initiator& orig);
         virtual ~Initiator();
-        bool start(Socket::IOSPtr, unsigned short);
-        bool start(Socket::IOSPtr, string, unsigned short);
-        bool send(string);
-        bool send(Socket::IOSPtr,string);
+        bool start();
+    private:
+
+        void startInitiator() {
+            try {
+                if (protocolPtr == nullptr)
+                    throw runtime_error("Protocol not defined for  session.");
+                if (callbacksManager == nullptr)
+                    throw runtime_error("CallbacksManager not defined for  session.");
+
+                SocketPtr socketPtr(new SocketConnector(sessionSetup.getHost(), sessionSetup.getPort()));
+                setConnected(true);
+                setSessionRunning(true);
+                socketHandler(socketPtr);
+            } catch (SocketException& se) {
+                //TODO: log error
+                cout << "Error trying to connect to server: " << se.description() << endl;
+            } catch (exception& e) {
+                //TODO: log error
+                cout << "Error starting initiator: " << e.what() << endl;
+            }
+            this->stop();
+        }
     };
 }
 

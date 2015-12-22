@@ -6,7 +6,7 @@
  */
 
 #include "CallbacksManager.h"
-#include "FixSession.h"
+#include "Session.h"
 
 namespace fprime {
 
@@ -30,7 +30,7 @@ namespace fprime {
         callbacksMap.erase(methodName);
     }
 
-    void CallbacksManager::executeCallback(string methodName,  fprime::Message msg, fprime::FixSession* sessionPtr) {
+    void CallbacksManager::executeCallback(string methodName,  fprime::Message msg, fprime::Session* sessionPtr) {
         typename std::map<string, Callback>::iterator it;
         future<void> f1;
         it = callbacksMap.find(methodName);
